@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="flower" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E"/><stop offset="50%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" stop-opacity="0.08"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.03"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#F43F5E" stop-opacity="0.1"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="180" cy="80" r="140" fill="url(#gl)"/>
+  <!-- Film clapperboard (center) -->
+  <rect x="100" y="85" width="160" height="80" rx="6" fill="url(#g2)" stroke="url(#g1)" stroke-width="2"/>
+  <line x1="100" y1="102" x2="260" y2="102" stroke="url(#g1)" stroke-width="0.8" opacity="0.25"/>
+  <line x1="100" y1="119" x2="260" y2="119" stroke="url(#g1)" stroke-width="0.5" opacity="0.15"/>
+  <!-- Clapper top (open) -->
+  <path d="M100 85 L105 52 L265 35 L260 85 Z" fill="url(#g2)" stroke="url(#g1)" stroke-width="2"/>
+  <line x1="118" y1="80" x2="125" y2="50" stroke="url(#g1)" stroke-width="2.5" opacity="0.5"/>
+  <line x1="145" y1="80" x2="152" y2="46" stroke="url(#g1)" stroke-width="2.5" opacity="0.5"/>
+  <line x1="172" y1="80" x2="179" y2="43" stroke="url(#g1)" stroke-width="2.5" opacity="0.5"/>
+  <line x1="199" y1="80" x2="206" y2="40" stroke="url(#g1)" stroke-width="2.5" opacity="0.5"/>
+  <line x1="226" y1="80" x2="233" y2="37" stroke="url(#g1)" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="105" cy="85" r="4" fill="url(#g1)" opacity="0.6"/>
+  <!-- Text on board -->
+  <text x="120" y="115" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#8B5CF6" opacity="0.6" font-weight="600">SCENE 01</text>
+  <text x="195" y="115" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#3B82F6" opacity="0.6" font-weight="600">TAKE 01</text>
+  <text x="120" y="135" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#06B6D4" opacity="0.45">刺桐花开</text>
+  <text x="195" y="135" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8B5CF6" opacity="0.45">2026</text>
+  <!-- Erythrina flowers (left side) -->
+  <g transform="translate(55,45) scale(0.9)">
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.75" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.65" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.55" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.65" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.75" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="5" fill="#F43F5E" opacity="0.8"/>
+    <circle cx="0" cy="0" r="2.5" fill="#8B5CF6"/>
+  </g>
+  <path d="M55 55 Q53 65 55 80 Q57 90 55 100" stroke="#10B981" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M53 70 Q43 64 37 68 Q45 74 53 70" fill="#10B981" opacity="0.4"/>
+  <!-- Erythrina flowers (right side) -->
+  <g transform="translate(305,50) scale(0.8)">
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.7" transform="rotate(15)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.6" transform="rotate(87)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.5" transform="rotate(159)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.6" transform="rotate(231)"/>
+    <ellipse cx="0" cy="-16" rx="5" ry="13" fill="url(#flower)" opacity="0.7" transform="rotate(303)"/>
+    <circle cx="0" cy="0" r="5" fill="#F43F5E" opacity="0.8"/>
+    <circle cx="0" cy="0" r="2.5" fill="#8B5CF6"/>
+  </g>
+  <path d="M305 60 Q307 72 305 90 Q303 100 305 110" stroke="#10B981" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M307 78 Q317 72 323 76 Q315 82 307 78" fill="#10B981" opacity="0.35"/>
+  <!-- Small flower (top center) -->
+  <g transform="translate(180,18) scale(0.55)">
+    <ellipse cx="0" cy="-14" rx="4" ry="11" fill="url(#flower)" opacity="0.6" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-14" rx="4" ry="11" fill="url(#flower)" opacity="0.5" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-14" rx="4" ry="11" fill="url(#flower)" opacity="0.4" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-14" rx="4" ry="11" fill="url(#flower)" opacity="0.5" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-14" rx="4" ry="11" fill="url(#flower)" opacity="0.6" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="4" fill="#F43F5E" opacity="0.7"/>
+    <circle cx="0" cy="0" r="2" fill="#8B5CF6"/>
+  </g>
+  <!-- Badges -->
+  <rect x="115" y="172" width="40" height="16" rx="8" stroke="url(#g1)" stroke-width="1" fill="url(#g2)"/>
+  <text x="135" y="183.5" font-family="'Space Grotesk',sans-serif" font-size="7.5" fill="#8B5CF6" text-anchor="middle" font-weight="600">AIGC</text>
+  <rect x="205" y="172" width="45" height="16" rx="8" stroke="#F43F5E" stroke-width="1" fill="none" opacity="0.45"/>
+  <text x="227.5" y="183.5" font-family="'Noto Sans SC',sans-serif" font-size="7.5" fill="#F43F5E" text-anchor="middle" opacity="0.65">待上映</text>
+  <!-- Particles -->
+  <circle cx="25" cy="30" r="2" fill="#F43F5E" opacity="0.25"/>
+  <circle cx="340" cy="28" r="2" fill="#8B5CF6" opacity="0.25"/>
+  <circle cx="30" cy="140" r="1.5" fill="#3B82F6" opacity="0.2"/>
+  <circle cx="335" cy="135" r="1.5" fill="#F43F5E" opacity="0.2"/>
+  <circle cx="180" cy="100" r="145" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="8,12"/>
+</svg>

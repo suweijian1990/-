@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企业AI Agent - 星羽创媒 | AIGC数字营销</title>
+<meta name="description" content="AI智能体的企业落地场景，精准匹配各职能部门业务需求，实现企业数字化转型。">
+<link rel="icon" href="images/favicon-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06060E;
+  --bg-card: #0E0E1C;
+  --bg-card-hover: #141428;
+  --surface: #111122;
+  --border: rgba(255,255,255,0.06);
+  --border-glow: rgba(255,255,255,0.12);
+  --text: #FFFFFF;
+  --text-dim: rgba(255,255,255,0.65);
+  --text-muted: rgba(255,255,255,0.35);
+  --violet: #8B5CF6;
+  --blue: #3B82F6;
+  --cyan: #06B6D4;
+  --emerald: #10B981;
+  --rose: #F43F5E;
+  --amber: #F59E0B;
+  --spectrum: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 35%, #06B6D4 65%, #10B981 100%);
+  --spectrum-h: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 35%, #06B6D4 65%, #10B981 100%);
+  --glass: rgba(14,14,28,0.65);
+  --radius: 16px;
+  --font-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-en: 'Space Grotesk', 'SF Pro Display', system-ui, sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:100px; font-size:16px; -webkit-font-smoothing:antialiased; }
+body { font-family:var(--font-cn); background:var(--bg); color:var(--text); line-height:1.7; overflow-x:hidden; max-width:100vw; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+ul { list-style:none; }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.2,0,0,1), transform 0.8s cubic-bezier(0.2,0,0,1); }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:0.1s; }
+.reveal-d2 { transition-delay:0.2s; }
+.reveal-d3 { transition-delay:0.3s; }
+.reveal-d4 { transition-delay:0.4s; }
+.reveal-d5 { transition-delay:0.5s; }
+.reveal-d6 { transition-delay:0.6s; }
+
+/* ===== NAVIGATION ===== */
+.navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:20px 0; transition:background 0.4s ease, border-color 0.4s ease;
+  background:transparent;
+}
+.navbar.scrolled {
+  padding:12px 0;
+  background:rgba(6,6,14,0.3);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-inner {
+  max-width:1320px; margin:0 auto; padding:0 40px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:10px; }
+.nav-logo img { height:36px; width:auto; }
+.nav-logo span {
+  font-size:1.1rem; font-weight:700; letter-spacing:0.06em;
+  background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.nav-links { display:flex; gap:36px; align-items:center; }
+.nav-links a {
+  font-size:0.85rem; font-weight:500; color:var(--text-dim);
+  position:relative; padding:4px 0;
+  transition:color 0.3s;
+  letter-spacing:0.03em;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px;
+  border-radius:2px; background:var(--spectrum-h);
+  transition:width 0.3s cubic-bezier(0.2,0,0,1);
+}
+.nav-links a:hover, .nav-links a.active { color:var(--text); }
+.nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+.nav-back-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 22px !important; border-radius:24px !important;
+  font-weight:600 !important; font-size:0.82rem !important;
+  border:1px solid rgba(255,255,255,0.15);
+  background:transparent;
+  transition:all 0.3s;
+}
+.nav-back-btn:hover {
+  border-color:rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.04);
+  color:var(--text);
+}
+.nav-back-btn::after { display:none !important; }
+.nav-cta-btn {
+  background:var(--spectrum); color:#fff !important;
+  padding:10px 22px !important; border-radius:24px !important;
+  font-weight:600 !important; font-size:0.82rem !important;
+  transition:all 0.3s !important;
+}
+.nav-cta-btn::after { display:none !important; }
+.nav-cta-btn:hover { transform:translateY(-1px); box-shadow:0 8px 32px rgba(139,92,246,0.35); }
+.nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:1001; padding:6px; }
+.nav-toggle span { display:block; width:24px; height:2px; background:var(--text); border-radius:1px; transition:transform 0.3s, opacity 0.3s; }
+.nav-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.nav-toggle.active span:nth-child(2) { opacity:0; }
+.nav-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* ===== SECTION BASE ===== */
+.section-pad { padding:120px 40px; }
+.section-inner { max-width:1320px; margin:0 auto; }
+.section-label {
+  display:inline-flex; align-items:center; gap:12px;
+  font-family:var(--font-en); font-size:0.72rem; font-weight:600;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--violet); margin-bottom:24px;
+}
+.section-label::before { content:''; width:32px; height:1px; background:var(--violet); opacity:0.5; }
+.section-label::after  { content:''; width:32px; height:1px; background:var(--violet); opacity:0.5; }
+.section-title {
+  font-size:clamp(2.2rem, 4vw, 3.2rem); font-weight:900;
+  line-height:1.2; letter-spacing:0.02em; margin-bottom:20px;
+}
+.section-desc {
+  font-size:1.05rem; color:var(--text-dim); max-width:700px; line-height:1.8;
+}
+
+/* ===== HERO ===== */
+.page-hero {
+  position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:120px 40px 60px; overflow:hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 35%, rgba(139,92,246,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 25%, rgba(6,182,212,0.03) 0%, transparent 45%);
+  pointer-events:none;
+}
+.page-hero-content {
+  position:relative; z-index:1; max-width:900px; margin:0 auto; text-align:center;
+  animation:hero-fade-in 0.7s cubic-bezier(0.2,0,0,1) both;
+}
+@keyframes hero-fade-in {
+  from { opacity:0; transform:translateY(24px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-hero-content { animation:none; }
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 18px; border-radius:20px;
+  border:1px solid rgba(139,92,246,0.25);
+  background:rgba(139,92,246,0.05);
+  font-family:var(--font-en); font-size:0.75rem; font-weight:600;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--violet);
+  margin-bottom:28px;
+}
+.page-hero h1 {
+  font-size:clamp(2rem, 5.5vw, 3.4rem);
+  font-weight:900; line-height:1.15; letter-spacing:0.01em;
+  margin-bottom:20px; color:#fff;
+  text-wrap:balance;
+}
+.page-hero .hero-desc {
+  font-size:1.05rem; color:rgba(255,255,255,0.72); line-height:1.9;
+  max-width:640px; margin:0 auto 28px;
+}
+
+/* ===== HERO STATS ===== */
+.hero-stats-row {
+  display:flex; justify-content:center; gap:28px;
+  margin-top:0; padding-top:28px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.hero-stat {
+  text-align:center;
+}
+.hero-stat .stat-num {
+  display:block;
+  font-family:var(--font-en); font-size:1.15rem; font-weight:700;
+  background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  margin-bottom:2px;
+}
+.hero-stat .stat-lbl {
+  font-size:0.7rem; color:rgba(255,255,255,0.4);
+}
+
+/* ===== SECTION INTRO ===== */
+.section-intro {
+  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  margin-bottom:64px;
+}
+.section-intro-text {}
+
+/* ===== AGENT CARDS ===== */
+.agent-section { background:var(--bg); border-top:1px solid var(--border); }
+.agent-grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:32px;
+  margin-top:48px;
+}
+.agent-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:0;
+  transition:all 0.4s; position:relative; overflow:hidden;
+  display:grid; grid-template-columns:1fr 1fr;
+}
+.agent-card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(139,92,246,0.3);
+  box-shadow:0 20px 60px rgba(139,92,246,0.1);
+  background:var(--bg-card-hover);
+}
+
+/* ===== MOCK UI STYLES ===== */
+.mock-ui {
+  padding:24px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  min-height:320px;
+}
+.mock-ui::before {
+  content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+  opacity:0.5;
+}
+.agent-card:nth-child(1) .mock-ui { background:linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(59,130,246,0.04) 100%); }
+.agent-card:nth-child(2) .mock-ui { background:linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(6,182,212,0.04) 100%); }
+.agent-card:nth-child(3) .mock-ui { background:linear-gradient(135deg, rgba(6,182,212,0.08) 0%, rgba(16,185,129,0.04) 100%); }
+.agent-card:nth-child(4) .mock-ui { background:linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(139,92,246,0.04) 100%); }
+.agent-card:nth-child(5) .mock-ui { background:linear-gradient(135deg, rgba(244,63,94,0.08) 0%, rgba(245,158,11,0.04) 100%); }
+.agent-card:nth-child(6) .mock-ui { background:linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(139,92,246,0.04) 100%); }
+
+/* Mock Window */
+.mock-window {
+  width:90%; max-width:280px;
+  background:rgba(0,0,0,0.4);
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+}
+.mock-titlebar {
+  display:flex; align-items:center; gap:6px;
+  padding:10px 14px;
+  background:rgba(255,255,255,0.03);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.mock-dot {
+  width:8px; height:8px; border-radius:50%;
+}
+.mock-dot.red { background:#FF5F57; }
+.mock-dot.yellow { background:#FFBD2E; }
+.mock-dot.green { background:#28CA41; }
+.mock-title {
+  font-size:0.7rem; color:var(--text-muted); margin-left:8px;
+}
+.mock-content {
+  padding:16px;
+}
+
+/* Mock UI Elements */
+.mock-row {
+  display:flex; gap:8px; margin-bottom:10px;
+}
+.mock-input {
+  flex:1; height:28px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:6px;
+  padding:0 10px;
+  display:flex; align-items:center;
+}
+.mock-input-text {
+  font-size:0.65rem; color:var(--text-muted);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.mock-btn {
+  height:28px; padding:0 14px;
+  border-radius:6px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.65rem; font-weight:600; color:#fff;
+}
+.agent-card:nth-child(1) .mock-btn { background:var(--violet); }
+.agent-card:nth-child(2) .mock-btn { background:var(--blue); }
+.agent-card:nth-child(3) .mock-btn { background:var(--cyan); }
+.agent-card:nth-child(4) .mock-btn { background:var(--emerald); }
+.agent-card:nth-child(5) .mock-btn { background:var(--rose); }
+.agent-card:nth-child(6) .mock-btn { background:var(--amber); }
+
+.mock-line {
+  height:8px;
+  background:rgba(255,255,255,0.04);
+  border-radius:4px;
+  margin-bottom:8px;
+}
+.mock-line.short { width:60%; }
+.mock-line.medium { width:80%; }
+.mock-line.long { width:100%; }
+
+.mock-block {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;
+  padding:12px;
+  margin-bottom:10px;
+}
+.mock-avatar {
+  width:24px; height:24px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.6rem;
+}
+.agent-card:nth-child(3) .mock-avatar { background:var(--cyan); }
+
+/* Chat bubbles */
+.chat-bubbles {
+  display:flex; flex-direction:column; gap:8px;
+}
+.chat-bubble {
+  max-width:80%; padding:8px 12px;
+  border-radius:10px;
+  font-size:0.65rem;
+  line-height:1.5;
+}
+.chat-bubble.user {
+  align-self:flex-end;
+  background:rgba(139,92,246,0.2);
+  border:1px solid rgba(139,92,246,0.3);
+  color:var(--text-dim);
+}
+.chat-bubble.ai {
+  align-self:flex-start;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  color:var(--text-dim);
+}
+
+/* Score bars */
+.score-rows {
+  display:flex; flex-direction:column; gap:10px;
+}
+.score-row {
+  display:flex; align-items:center; gap:10px;
+}
+.score-label {
+  font-size:0.65rem; color:var(--text-muted); width:50px;
+}
+.score-bar {
+  flex:1; height:6px;
+  background:rgba(255,255,255,0.06);
+  border-radius:3px;
+  overflow:hidden;
+}
+.score-fill {
+  height:100%; border-radius:3px;
+  transition:width 0.3s;
+}
+.agent-card:nth-child(4) .score-fill { background:var(--emerald); }
+.score-value {
+  font-size:0.65rem; font-weight:600; color:var(--text-dim); width:30px; text-align:right;
+}
+
+/* Data cards */
+.data-cards {
+  display:grid; grid-template-columns:1fr 1fr; gap:8px;
+}
+.data-card {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;
+  padding:10px;
+  text-align:center;
+}
+.data-icon {
+  font-size:1rem; margin-bottom:4px;
+}
+.data-value {
+  font-size:0.8rem; font-weight:700; color:var(--text);
+}
+.data-label {
+  font-size:0.55rem; color:var(--text-muted);
+}
+
+/* Flow steps */
+.flow-steps {
+  display:flex; flex-direction:column; gap:8px;
+}
+.flow-step {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 12px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;
+}
+.flow-num {
+  width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.6rem; font-weight:700; color:#fff;
+  flex-shrink:0;
+}
+.agent-card:nth-child(6) .flow-num { background:var(--amber); }
+.flow-text {
+  font-size:0.65rem; color:var(--text-dim);
+}
+.flow-arrow {
+  width:1px; height:12px; margin:0 auto;
+  background:rgba(255,255,255,0.1);
+}
+
+/* Typing animation */
+.typing-dots {
+  display:flex; gap:4px; padding:4px 0;
+}
+.typing-dot {
+  width:4px; height:4px; border-radius:50%;
+  background:var(--text-muted);
+  animation:typingBounce 1.4s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay:0.2s; }
+.typing-dot:nth-child(3) { animation-delay:0.4s; }
+@keyframes typingBounce {
+  0%, 60%, 100% { transform:translateY(0); }
+  30% { transform:translateY(-4px); }
+}
+
+/* ===== CARD BODY ===== */
+.card-body {
+  padding:32px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.card-header {
+  display:flex; align-items:center; gap:12px; margin-bottom:16px;
+}
+.card-icon-sm {
+  width:40px; height:40px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+}
+.agent-card:nth-child(1) .card-icon-sm { background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.25); }
+.agent-card:nth-child(2) .card-icon-sm { background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.25); }
+.agent-card:nth-child(3) .card-icon-sm { background:rgba(6,182,212,0.15); border:1px solid rgba(6,182,212,0.25); }
+.agent-card:nth-child(4) .card-icon-sm { background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.25); }
+.agent-card:nth-child(5) .card-icon-sm { background:rgba(244,63,94,0.15); border:1px solid rgba(244,63,94,0.25); }
+.agent-card:nth-child(6) .card-icon-sm { background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.25); }
+.card-tag {
+  display:inline-block; font-size:0.72rem; font-weight:600;
+  padding:4px 12px; border-radius:12px;
+  letter-spacing:0.05em;
+}
+.agent-card:nth-child(1) .card-tag { background:rgba(139,92,246,0.1); color:var(--violet); }
+.agent-card:nth-child(2) .card-tag { background:rgba(59,130,246,0.1); color:var(--blue); }
+.agent-card:nth-child(3) .card-tag { background:rgba(6,182,212,0.1); color:var(--cyan); }
+.agent-card:nth-child(4) .card-tag { background:rgba(16,185,129,0.1); color:var(--emerald); }
+.agent-card:nth-child(5) .card-tag { background:rgba(244,63,94,0.1); color:var(--rose); }
+.agent-card:nth-child(6) .card-tag { background:rgba(245,158,11,0.1); color:var(--amber); }
+.agent-card h3 {
+  font-size:1.3rem; font-weight:700; margin-bottom:14px;
+  letter-spacing:0.02em;
+}
+.card-desc {
+  font-size:0.9rem; color:var(--text-dim); line-height:1.8;
+  margin-bottom:24px;
+}
+.card-scene {
+  background:rgba(255,255,255,0.02); border-radius:10px;
+  padding:16px; margin-bottom:20px;
+}
+.card-scene h4 {
+  font-size:0.75rem; font-weight:600; color:var(--text-muted);
+  margin-bottom:12px; letter-spacing:0.08em; text-transform:uppercase;
+}
+.scene-list {
+  display:flex; flex-direction:column; gap:10px;
+}
+.scene-item {
+  display:flex; align-items:center; gap:10px;
+  font-size:0.82rem; color:var(--text-dim);
+}
+.scene-dot {
+  width:6px; height:6px; border-radius:50%; flex-shrink:0;
+}
+.agent-card:nth-child(1) .scene-dot { background:var(--violet); }
+.agent-card:nth-child(2) .scene-dot { background:var(--blue); }
+.agent-card:nth-child(3) .scene-dot { background:var(--cyan); }
+.agent-card:nth-child(4) .scene-dot { background:var(--emerald); }
+.agent-card:nth-child(5) .scene-dot { background:var(--rose); }
+.agent-card:nth-child(6) .scene-dot { background:var(--amber); }
+.card-tags {
+  display:flex; flex-wrap:wrap; gap:8px;
+}
+.card-tags span {
+  font-size:0.72rem; padding:5px 12px; border-radius:14px;
+  background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+  color:var(--text-muted);
+}
+
+/* ===== DEPARTMENTS SECTION ===== */
+.dept-section {
+  background:var(--bg); border-top:1px solid var(--border);
+}
+.dept-grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
+  margin-top:48px;
+}
+.dept-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:0;
+  transition:all 0.4s; overflow:hidden;
+}
+.dept-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(139,92,246,0.2);
+  box-shadow:0 12px 40px rgba(139,92,246,0.08);
+}
+.dept-header {
+  display:flex; align-items:center; gap:16px;
+  padding:24px 28px;
+  border-bottom:1px solid var(--border);
+}
+.dept-icon {
+  width:48px; height:48px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; flex-shrink:0;
+}
+.dept-card:nth-child(1) .dept-icon { background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.2); }
+.dept-card:nth-child(2) .dept-icon { background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); }
+.dept-card:nth-child(3) .dept-icon { background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.2); }
+.dept-card:nth-child(4) .dept-icon { background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); }
+.dept-card:nth-child(5) .dept-icon { background:rgba(244,63,94,0.1); border:1px solid rgba(244,63,94,0.2); }
+.dept-card:nth-child(6) .dept-icon { background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); }
+.dept-card:nth-child(7) .dept-icon { background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.2); }
+.dept-card:nth-child(8) .dept-icon { background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); }
+.dept-title {
+  flex:1;
+}
+.dept-title h4 {
+  font-size:1.05rem; font-weight:700; margin-bottom:4px;
+}
+.dept-title p {
+  font-size:0.78rem; color:var(--text-muted); line-height:1.4;
+}
+.dept-badge {
+  font-size:0.65rem; padding:4px 10px; border-radius:10px;
+  font-weight:600; letter-spacing:0.03em;
+}
+.dept-card:nth-child(1) .dept-badge { background:rgba(139,92,246,0.1); color:var(--violet); }
+.dept-card:nth-child(2) .dept-badge { background:rgba(59,130,246,0.1); color:var(--blue); }
+.dept-card:nth-child(3) .dept-badge { background:rgba(6,182,212,0.1); color:var(--cyan); }
+.dept-card:nth-child(4) .dept-badge { background:rgba(16,185,129,0.1); color:var(--emerald); }
+.dept-card:nth-child(5) .dept-badge { background:rgba(244,63,94,0.1); color:var(--rose); }
+.dept-card:nth-child(6) .dept-badge { background:rgba(245,158,11,0.1); color:var(--amber); }
+.dept-card:nth-child(7) .dept-badge { background:rgba(139,92,246,0.1); color:var(--violet); }
+.dept-card:nth-child(8) .dept-badge { background:rgba(59,130,246,0.1); color:var(--blue); }
+.dept-body {
+  padding:20px 28px 24px;
+}
+.dept-cases {
+  display:flex; flex-direction:column; gap:12px;
+}
+.dept-case {
+  display:flex; gap:12px; align-items:flex-start;
+  padding:12px; border-radius:10px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.04);
+  transition:all 0.3s;
+}
+.dept-case:hover {
+  background:rgba(255,255,255,0.04);
+  border-color:rgba(255,255,255,0.08);
+}
+.dept-case-icon {
+  width:32px; height:32px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.9rem; flex-shrink:0;
+  background:rgba(255,255,255,0.04);
+}
+.dept-case-content {
+  flex:1;
+}
+.dept-case-content h5 {
+  font-size:0.82rem; font-weight:600; margin-bottom:4px; color:var(--text);
+}
+.dept-case-content p {
+  font-size:0.72rem; color:var(--text-muted); line-height:1.5;
+}
+.dept-case-tag {
+  font-size:0.6rem; padding:2px 6px; border-radius:6px;
+  background:rgba(139,92,246,0.08); color:var(--violet);
+  display:inline-block; margin-top:6px;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background:var(--bg); border-top:1px solid var(--border);
+  padding:100px 40px;
+}
+.cta-inner {
+  max-width:800px; margin:0 auto; text-align:center;
+}
+.cta-inner h2 {
+  font-size:clamp(1.8rem, 3vw, 2.6rem); font-weight:800;
+  margin-bottom:20px; line-height:1.3;
+}
+.cta-inner p {
+  font-size:1.05rem; color:var(--text-dim); margin-bottom:36px; line-height:1.8;
+}
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:15px 34px; border-radius:28px; border:none;
+  background:var(--spectrum); color:#fff;
+  font-size:0.95rem; font-weight:600; letter-spacing:0.03em;
+  cursor:pointer; transition:all 0.3s;
+  font-family:var(--font-cn);
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(139,92,246,0.35); }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:15px 34px; border-radius:28px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:transparent; color:var(--text);
+  font-size:0.95rem; font-weight:500; letter-spacing:0.03em;
+  cursor:pointer; transition:all 0.3s;
+  font-family:var(--font-cn);
+  backdrop-filter:blur(8px);
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.04); }
+
+/* ===== FOOTER ===== */
+.footer { background:var(--bg); border-top:1px solid var(--border); padding:64px 0 0; }
+.footer-grid {
+  max-width:1320px; margin:0 auto; padding:0 40px;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px;
+  padding-bottom:48px;
+}
+.footer-brand img { height:40px; width:auto; margin-bottom:16px; }
+.footer-brand .name {
+  display:block; font-size:1.15rem; font-weight:700; margin-bottom:12px; letter-spacing:0.04em;
+}
+.footer-brand p { font-size:0.83rem; color:var(--text-dim); line-height:1.8; }
+.footer-col h4 { font-size:0.88rem; font-weight:700; margin-bottom:20px; letter-spacing:0.04em; }
+.footer-col a { display:block; font-size:0.83rem; color:var(--text-dim); padding:7px 0; transition:color 0.3s; }
+.footer-col a:hover { color:var(--violet); }
+.footer-col p { font-size:0.83rem; color:var(--text-dim); padding:7px 0; line-height:1.6; }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,0.04);
+  padding:22px 40px; text-align:center;
+  max-width:1320px; margin:0 auto;
+}
+.footer-bottom p { font-size:0.78rem; color:var(--text-muted); }
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position:fixed; bottom:36px; right:36px; z-index:999;
+  width:48px; height:48px; border-radius:50%;
+  background:var(--spectrum); border:none; color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; transform:translateY(20px); pointer-events:none;
+  transition:all 0.35s ease;
+}
+.back-to-top.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+.back-to-top:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(139,92,246,0.4); }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:rgba(139,92,246,0.3); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1200px) {
+  .agent-grid { grid-template-columns:1fr; }
+  .agent-card { grid-template-columns:1fr; }
+  .mock-ui { min-height:250px; }
+}
+@media (max-width:1024px) {
+  .dept-grid { grid-template-columns:repeat(2,1fr); }
+  .section-intro { grid-template-columns:1fr; }
+  .hero-stats-row { flex-wrap:wrap; gap:24px; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px) {
+  .navbar { padding:0 !important; background:rgba(6,6,14,0.95) !important; }
+  .navbar.scrolled { padding:0 !important; background:rgba(6,6,14,0.95) !important; backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+  .nav-inner { height:56px; padding:0 16px; }
+  .nav-links {
+    position:fixed; top:56px; left:0; right:0; bottom:0;
+    background:rgba(6,6,14,0.97);
+    flex-direction:column; align-items:stretch;
+    padding:20px 0;
+    opacity:0; pointer-events:none; transition:opacity 0.25s;
+    z-index:1001; overflow-y:auto;
+  }
+  .nav-links.active { opacity:1; pointer-events:auto; }
+  .nav-links a { display:block; padding:16px 24px; font-size:0.95rem; border-bottom:1px solid rgba(255,255,255,0.04); text-align:left; }
+  .nav-links a::after { display:none; }
+  .nav-back-btn { border-radius:8px !important; margin:0 16px 8px; text-align:center !important; justify-content:center; }
+  .nav-cta-btn { border-radius:8px !important; margin:8px 16px 0; text-align:center !important; justify-content:center; }
+  .nav-toggle { display:flex; }
+  body.menu-open { overflow:hidden; }
+  .section-pad { padding:60px 16px; }
+  .page-hero { padding:96px 20px 40px; }
+  .page-hero h1 { font-size:1.85rem; }
+  .hero-badge { font-size:0.68rem; padding:5px 14px; margin-bottom:20px; }
+  .hero-desc { font-size:0.92rem; margin-bottom:20px; }
+  .hero-stats-row { gap:20px; padding-top:24px; }
+  .hero-stat .stat-num { font-size:1.05rem; }
+  .hero-stat .stat-lbl { font-size:0.65rem; }
+  .dept-grid { grid-template-columns:1fr; }
+  .dept-header { flex-wrap:wrap; gap:12px; }
+  .dept-badge { order:3; width:100%; text-align:center; }
+  .agent-grid { grid-template-columns:1fr; gap:20px; }
+  .agent-card { grid-template-columns:1fr; }
+  .mock-ui { min-height:200px; padding:16px; }
+  .card-body { padding:24px 16px; }
+  .card-header { margin-bottom:12px; }
+  .card-desc { font-size:0.85rem; margin-bottom:16px; }
+  .card-scene { padding:12px; }
+  .scene-item { font-size:0.78rem; }
+  .card-tags span { font-size:0.68rem; padding:4px 10px; }
+  .dept-card { padding:0; }
+  .dept-header { padding:16px 16px; }
+  .dept-icon { width:36px; height:36px; font-size:1.1rem; }
+  .dept-title h4 { font-size:0.95rem; }
+  .dept-body { padding:12px 16px 16px; }
+  .dept-case { padding:10px; gap:8px; }
+  .dept-case-icon { width:28px; height:28px; font-size:0.8rem; }
+  .dept-case-content h5 { font-size:0.78rem; }
+  .dept-case-content p { font-size:0.68rem; }
+  .footer-grid { grid-template-columns:1fr; gap:32px; padding:0 20px 32px; }
+  .footer-bottom { padding:16px 20px; }
+  .cta-section { padding:60px 16px; }
+  .cta-inner h2 { font-size:1.5rem; }
+  .cta-inner p { font-size:0.9rem; }
+  .cta-btns { flex-direction:column; align-items:stretch; }
+  .btn-primary, .btn-ghost { width:100%; justify-content:center; min-height:48px; padding:14px 24px; }
+  .back-to-top { bottom:84px; right:16px; width:42px; height:42px; }
+  .mobile-cta-bar { display:flex; position:fixed; bottom:0; left:0; right:0; z-index:998; padding:10px 16px; background:rgba(6,6,14,0.92); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border-top:1px solid var(--border); gap:10px; }
+  .mobile-cta-bar a { flex:1; text-align:center; padding:12px 0; border-radius:12px; font-size:0.85rem; font-weight:600; }
+  .mobile-cta-bar .cta-primary { background:var(--spectrum); color:#fff; }
+  .mobile-cta-bar .cta-ghost { border:1px solid rgba(255,255,255,0.2); color:var(--text); }
+  body { padding-bottom:68px; }
+}
+@media (min-width:769px) {
+  .mobile-cta-bar { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="images/logo-gradient.png" alt="星羽创媒">
+      <span>星羽创媒</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/" class="nav-back-btn">← 返回主页</a>
+      <a href="#scenarios">应用场景</a>
+      <a href="#departments">适配部门</a>
+      <a href="index.html#contact" class="nav-cta-btn">联系我们</a>
+    </div>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero" id="hero">
+  <div class="page-hero-content">
+    <div class="hero-badge reveal">AI Agent · 企业智能化</div>
+    <h1 class="reveal reveal-d1">企业 AI Agent</h1>
+    <p class="hero-desc reveal reveal-d2">
+      AI 智能体的企业落地场景可精准匹配至各职能部门的具体业务，实现从单点突破到全链路数字化转型
+    </p>
+    <div class="hero-stats-row reveal reveal-d3">
+      <div class="hero-stat">
+        <span class="stat-num">70%</span>
+        <span class="stat-lbl">效率提升</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">6</span>
+        <span class="stat-lbl">核心场景</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">10+</span>
+        <span class="stat-lbl">适配部门</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENT SCENARIOS -->
+<section class="agent-section section-pad" id="scenarios">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">Application Scenarios</span>
+      <h2 class="section-title reveal reveal-d1">六大核心应用场景</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">
+        企业可按职能部门梳理业务单点，逐一推进 AI 化转型
+      </p>
+    </div>
+
+    <div class="agent-grid">
+      <!-- 模板填充类 -->
+      <div class="agent-card reveal reveal-d1">
+        <div class="mock-ui">
+          <div class="mock-window">
+            <div class="mock-titlebar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-title">合同模板 - 自动生成</span>
+            </div>
+            <div class="mock-content">
+              <div class="mock-row">
+                <div class="mock-input">
+                  <span class="mock-input-text">甲方：星羽创媒科技有限公司</span>
+                </div>
+              </div>
+              <div class="mock-row">
+                <div class="mock-input">
+                  <span class="mock-input-text">乙方：________________</span>
+                </div>
+              </div>
+              <div class="mock-line long"></div>
+              <div class="mock-line medium"></div>
+              <div class="mock-line short"></div>
+              <div class="mock-row" style="margin-top:12px;">
+                <div class="mock-input" style="flex:2;">
+                  <span class="mock-input-text">合同金额：¥ 128,000.00</span>
+                </div>
+                <div class="mock-btn">AI 填充</div>
+              </div>
+              <div class="mock-line long" style="margin-top:8px;"></div>
+              <div class="mock-line medium"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-icon-sm">📝</div>
+            <span class="card-tag">效率提升</span>
+          </div>
+          <h3>模板填充类</h3>
+          <p class="card-desc">针对合同、报价单等固定框架文件，AI 可根据给定信息自动完成内容填充，大幅提升文档处理效率。</p>
+          <div class="card-scene">
+            <h4>典型场景</h4>
+            <div class="scene-list">
+              <div class="scene-item"><span class="scene-dot"></span>合同协议自动生成</div>
+              <div class="scene-item"><span class="scene-dot"></span>报价单/发票批量填充</div>
+              <div class="scene-item"><span class="scene-dot"></span>人事入职材料归档</div>
+              <div class="scene-item"><span class="scene-dot"></span>项目报告模板套用</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span>合同生成</span>
+            <span>报价单</span>
+            <span>自动填充</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文案生成类 -->
+      <div class="agent-card reveal reveal-d2">
+        <div class="mock-ui">
+          <div class="mock-window">
+            <div class="mock-titlebar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-title">AI 创作文案工作台</span>
+            </div>
+            <div class="mock-content">
+              <div class="mock-row">
+                <div class="mock-input" style="flex:2;">
+                  <span class="mock-input-text">产品：春季新款连衣裙</span>
+                </div>
+                <div class="mock-btn">生成</div>
+              </div>
+              <div class="mock-block">
+                <div style="font-size:0.7rem;color:var(--blue);margin-bottom:6px;">✦ AI 生成结果</div>
+                <div class="mock-line long"></div>
+                <div class="mock-line long"></div>
+                <div class="mock-line medium"></div>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <span style="font-size:0.6rem;padding:3px 8px;border-radius:10px;background:rgba(59,130,246,0.1);color:var(--blue);">小红书风格</span>
+                <span style="font-size:0.6rem;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.04);color:var(--text-muted);">抖音风格</span>
+                <span style="font-size:0.6rem;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.04);color:var(--text-muted);">公众号</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-icon-sm">💡</div>
+            <span class="card-tag">内容创作</span>
+          </div>
+          <h3>文案生成类</h3>
+          <p class="card-desc">适用于电商、自媒体领域，AI 可依据指定风格生成脚本、推文等原创内容，保持品牌调性一致。</p>
+          <div class="card-scene">
+            <h4>典型场景</h4>
+            <div class="scene-list">
+              <div class="scene-item"><span class="scene-dot"></span>电商产品详情页文案</div>
+              <div class="scene-item"><span class="scene-dot"></span>社交媒体推文/短视频脚本</div>
+              <div class="scene-item"><span class="scene-dot"></span>广告创意文案批量产出</div>
+              <div class="scene-item"><span class="scene-dot"></span>品牌故事/新闻稿撰写</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span>电商文案</span>
+            <span>自媒体</span>
+            <span>脚本创作</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 对话陪伴类 -->
+      <div class="agent-card reveal reveal-d3">
+        <div class="mock-ui">
+          <div class="mock-window">
+            <div class="mock-titlebar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-title">智能客服工作台</span>
+            </div>
+            <div class="mock-content">
+              <div class="chat-bubbles">
+                <div class="chat-bubble user">你好，我想咨询一下产品价格</div>
+                <div class="chat-bubble ai">您好！我是AI客服小羽 ✨ 我们的产品价格如下...</div>
+                <div class="chat-bubble user">有优惠活动吗？</div>
+                <div class="chat-bubble ai">
+                  <div class="typing-dots">
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;gap:6px;margin-top:12px;">
+                <div class="mock-input" style="flex:1;">
+                  <span class="mock-input-text">输入消息...</span>
+                </div>
+                <div class="mock-btn">发送</div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:10px;">
+                <div style="font-size:0.6rem;color:var(--text-muted);">🟢 在线接待: 12</div>
+                <div style="font-size:0.6rem;color:var(--text-muted);">⚡ 响应: &lt;3s</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-icon-sm">🗣️</div>
+            <span class="card-tag">客户服务</span>
+          </div>
+          <h3>对话陪伴类</h3>
+          <p class="card-desc">用于 AI 客服、销售陪伴等场景，需预先导入企业专业话术与产品资料，保障响应及时性。</p>
+          <div class="card-scene">
+            <h4>典型场景</h4>
+            <div class="scene-list">
+              <div class="scene-item"><span class="scene-dot"></span>7×24小时智能客服接待</div>
+              <div class="scene-item"><span class="scene-dot"></span>销售话术实时辅助</div>
+              <div class="scene-item"><span class="scene-dot"></span>客户咨询自动应答</div>
+              <div class="scene-item"><span class="scene-dot"></span>售后问题快速响应</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span>智能客服</span>
+            <span>销售陪伴</span>
+            <span>话术库</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 打分判断类 -->
+      <div class="agent-card reveal reveal-d4">
+        <div class="mock-ui">
+          <div class="mock-window">
+            <div class="mock-titlebar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-title">AI 简历评估系统</span>
+            </div>
+            <div class="mock-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <div style="font-size:0.75rem;font-weight:600;">候选人评分报告</div>
+                <div style="font-size:0.6rem;padding:3px 8px;border-radius:10px;background:rgba(16,185,129,0.15);color:var(--emerald);">AI 初筛完成</div>
+              </div>
+              <div class="score-rows">
+                <div class="score-row">
+                  <span class="score-label">技能匹配</span>
+                  <div class="score-bar"><div class="score-fill" style="width:92%"></div></div>
+                  <span class="score-value">92</span>
+                </div>
+                <div class="score-row">
+                  <span class="score-label">工作经验</span>
+                  <div class="score-bar"><div class="score-fill" style="width:85%"></div></div>
+                  <span class="score-value">85</span>
+                </div>
+                <div class="score-row">
+                  <span class="score-label">项目经历</span>
+                  <div class="score-bar"><div class="score-fill" style="width:78%"></div></div>
+                  <span class="score-value">78</span>
+                </div>
+                <div class="score-row">
+                  <span class="score-label">学历背景</span>
+                  <div class="score-bar"><div class="score-fill" style="width:90%"></div></div>
+                  <span class="score-value">90</span>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding:8px;background:rgba(16,185,129,0.08);border-radius:6px;font-size:0.65rem;color:var(--emerald);">
+                ✓ 综合评分 86.25 - 推荐进入面试环节
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-icon-sm">⚖️</div>
+            <span class="card-tag">决策辅助</span>
+          </div>
+          <h3>打分判断类</h3>
+          <p class="card-desc">将招聘等主观判断事项量化为评分标准，AI 先完成初筛，再由人工对接，提升效率并确保公正性。</p>
+          <div class="card-scene">
+            <h4>典型场景</h4>
+            <div class="scene-list">
+              <div class="scene-item"><span class="scene-dot"></span>简历初筛与匹配度评分</div>
+              <div class="scene-item"><span class="scene-dot"></span>供应商资质评估</div>
+              <div class="scene-item"><span class="scene-dot"></span>项目方案可行性打分</div>
+              <div class="scene-item"><span class="scene-dot"></span>内容质量审核评级</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span>简历筛选</span>
+            <span>量化评分</span>
+            <span>初筛分流</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 信息解锁类 -->
+      <div class="agent-card reveal reveal-d5">
+        <div class="mock-ui">
+          <div class="mock-window">
+            <div class="mock-titlebar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-title">市场洞察仪表盘</span>
+            </div>
+            <div class="mock-content">
+              <div class="data-cards">
+                <div class="data-card">
+                  <div class="data-icon">📊</div>
+                  <div class="data-value">2,847</div>
+                  <div class="data-label">竞品监测</div>
+                </div>
+                <div class="data-card">
+                  <div class="data-icon">📈</div>
+                  <div class="data-value">156</div>
+                  <div class="data-label">行业报告</div>
+                </div>
+                <div class="data-card">
+                  <div class="data-icon">🔔</div>
+                  <div class="data-value">89%</div>
+                  <div data-label="舆情覆盖" class="data-label">舆情覆盖</div>
+                </div>
+                <div class="data-card">
+                  <div class="data-icon">💡</div>
+                  <div class="data-value">24h</div>
+                  <div class="data-label">实时更新</div>
+                </div>
+              </div>
+              <div class="mock-block" style="margin-top:12px;">
+                <div style="font-size:0.65rem;color:var(--rose);margin-bottom:6px;">🔥 热点趋势</div>
+                <div class="mock-line long"></div>
+                <div class="mock-line medium"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-icon-sm">📈</div>
+            <span class="card-tag">数据洞察</span>
+          </div>
+          <h3>信息解锁类</h3>
+          <p class="card-desc">整合互联网、企业内部、行业付费三类信息，协助完成市场调研、分析报告等工作，快速获取深度洞察。</p>
+          <div class="card-scene">
+            <h4>典型场景</h4>
+            <div class="scene-list">
+              <div class="scene-item"><span class="scene-dot"></span>行业市场调研报告</div>
+              <div class="scene-item"><span class="scene-dot"></span>竞品分析与监控</div>
+              <div class="scene-item"><span class="scene-dot"></span>舆情监测与预警</div>
+              <div class="scene-item"><span class="scene-dot"></span>数据可视化分析</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span>市场调研</span>
+            <span>竞品分析</span>
+            <span>行业报告</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 流程执行类 -->
+      <div class="agent-card reveal reveal-d6">
+        <div class="mock-ui">
+          <div class="mock-window">
+            <div class="mock-titlebar">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-title">CAD 智能生成工作台</span>
+            </div>
+            <div class="mock-content">
+              <!-- CAD Interface Mock -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+                <!-- Reference CAD -->
+                <div style="background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px;">
+                  <div style="font-size:0.6rem;color:var(--amber);margin-bottom:6px;display:flex;align-items:center;gap:4px;">
+                    <span>📋</span> 参考图纸
+                  </div>
+                  <div style="background:rgba(0,0,0,0.3);border-radius:6px;height:80px;position:relative;overflow:hidden;">
+                    <!-- CAD Drawing Mock -->
+                    <svg viewBox="0 0 120 80" style="width:100%;height:100%;opacity:0.7;">
+                      <rect x="10" y="10" width="100" height="60" fill="none" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+                      <line x1="10" y1="40" x2="110" y2="40" stroke="rgba(245,158,11,0.3)" stroke-width="0.5" stroke-dasharray="4,2"/>
+                      <circle cx="35" cy="25" r="8" fill="none" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+                      <rect x="65" y="18" width="30" height="15" fill="none" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+                      <line x1="35" y1="55" x2="80" y2="55" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+                      <line x1="80" y1="40" x2="80" y2="55" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+                    </svg>
+                    <div style="position:absolute;bottom:4px;right:6px;font-size:0.5rem;color:rgba(245,158,11,0.5);">dwg</div>
+                  </div>
+                </div>
+                <!-- Generated CAD -->
+                <div style="background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.15);border-radius:8px;padding:10px;">
+                  <div style="font-size:0.6rem;color:var(--emerald);margin-bottom:6px;display:flex;align-items:center;gap:4px;">
+                    <span>✨</span> AI 生成
+                  </div>
+                  <div style="background:rgba(0,0,0,0.3);border-radius:6px;height:80px;position:relative;overflow:hidden;">
+                    <svg viewBox="0 0 120 80" style="width:100%;height:100%;opacity:0.8;">
+                      <rect x="8" y="8" width="104" height="64" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
+                      <line x1="8" y1="40" x2="112" y2="40" stroke="rgba(16,185,129,0.3)" stroke-width="0.5" stroke-dasharray="4,2"/>
+                      <circle cx="35" cy="25" r="10" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
+                      <circle cx="35" cy="25" r="4" fill="rgba(16,185,129,0.2)"/>
+                      <rect x="60" y="15" width="35" height="18" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
+                      <line x1="60" y1="24" x2="95" y2="24" stroke="rgba(16,185,129,0.3)" stroke-width="0.5"/>
+                      <path d="M35 50 L50 40 L80 40 L95 50 L95 65 L35 65 Z" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
+                      <line x1="50" y1="40" x2="50" y2="65" stroke="rgba(16,185,129,0.3)" stroke-width="0.5"/>
+                      <line x1="80" y1="40" x2="80" y2="65" stroke="rgba(16,185,129,0.3)" stroke-width="0.5"/>
+                    </svg>
+                    <div style="position:absolute;top:4px;right:6px;font-size:0.5rem;padding:2px 4px;background:rgba(16,185,129,0.2);color:var(--emerald);border-radius:3px;">生成中...</div>
+                  </div>
+                </div>
+              </div>
+              <!-- CAD Toolbar -->
+              <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+                <span style="font-size:0.55rem;padding:4px 8px;border-radius:6px;background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.2);">📐 标注</span>
+                <span style="font-size:0.55rem;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.04);color:var(--text-muted);border:1px solid rgba(255,255,255,0.06);">📏 测量</span>
+                <span style="font-size:0.55rem;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.04);color:var(--text-muted);border:1px solid rgba(255,255,255,0.06);">🔄 对称</span>
+                <span style="font-size:0.55rem;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.04);color:var(--text-muted);border:1px solid rgba(255,255,255,0.06);">📦 阵列</span>
+              </div>
+              <!-- Status -->
+              <div style="display:flex;gap:8px;">
+                <div style="flex:1;padding:6px;background:rgba(245,158,11,0.08);border-radius:6px;text-align:center;">
+                  <div style="font-size:0.7rem;font-weight:600;color:var(--amber);">参考图库</div>
+                  <div style="font-size:0.6rem;color:var(--text-muted);">1,247 张</div>
+                </div>
+                <div style="flex:1;padding:6px;background:rgba(16,185,129,0.08);border-radius:6px;text-align:center;">
+                  <div style="font-size:0.7rem;font-weight:600;color:var(--emerald);">已生成</div>
+                  <div style="font-size:0.6rem;color:var(--text-muted);">386 张</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-icon-sm">🔄</div>
+            <span class="card-tag">自动化</span>
+          </div>
+          <h3>流程执行类</h3>
+          <p class="card-desc">覆盖电商自动投流、外贸发邮件、舆情监控等重复性操作，融合判断与自动化执行功能，释放人力。支持根据过往 CAD 设计图自动生成新图纸。</p>
+          <div class="card-scene">
+            <h4>典型场景</h4>
+            <div class="scene-list">
+              <div class="scene-item"><span class="scene-dot"></span>CAD 设计图智能生成</div>
+              <div class="scene-item"><span class="scene-dot"></span>电商广告自动投放</div>
+              <div class="scene-item"><span class="scene-dot"></span>外贸邮件批量发送</div>
+              <div class="scene-item"><span class="scene-dot"></span>社交媒体定时发布</div>
+              <div class="scene-item"><span class="scene-dot"></span>数据报表自动生成</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span>CAD生成</span>
+            <span>自动投流</span>
+            <span>邮件营销</span>
+            <span>舆情监控</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="dept-section section-pad" id="departments">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">Departments</span>
+      <h2 class="section-title reveal reveal-d1">适配职能部门</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">
+        AI Agent 可精准匹配至企业各职能部门，实现全流程智能化升级
+      </p>
+    </div>
+    <div class="dept-grid">
+      <!-- 人力资源部 -->
+      <div class="dept-card reveal reveal-d1">
+        <div class="dept-header">
+          <div class="dept-icon">👥</div>
+          <div class="dept-title">
+            <h4>人力资源部</h4>
+            <p>人才招聘、员工管理、培训发展</p>
+          </div>
+          <span class="dept-badge">高频场景</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">📋</div>
+              <div class="dept-case-content">
+                <h5>智能简历筛选</h5>
+                <p>AI 自动解析简历，按岗位要求匹配度评分，初筛效率提升 80%</p>
+                <span class="dept-case-tag">打分判断类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📄</div>
+              <div class="dept-case-content">
+                <h5>入职材料自动生成</h5>
+                <p>一键生成劳动合同、保密协议、员工手册等入职文件</p>
+                <span class="dept-case-tag">模板填充类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">🎓</div>
+              <div class="dept-case-content">
+                <h5>培训方案智能推荐</h5>
+                <p>根据员工岗位和能力缺口，自动推荐个性化学习路径</p>
+                <span class="dept-case-tag">信息解锁类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 市场营销部 -->
+      <div class="dept-card reveal reveal-d2">
+        <div class="dept-header">
+          <div class="dept-icon">📢</div>
+          <div class="dept-title">
+            <h4>市场营销部</h4>
+            <p>品牌推广、内容营销、市场分析</p>
+          </div>
+          <span class="dept-badge">核心部门</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">✍️</div>
+              <div class="dept-case-content">
+                <h5>营销文案批量生成</h5>
+                <p>根据产品卖点和目标人群，批量生成小红书、抖音等平台文案</p>
+                <span class="dept-case-tag">文案生成类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📊</div>
+              <div class="dept-case-content">
+                <h5>竞品营销分析</h5>
+                <p>自动监控竞品投放策略、内容风格，生成差异化营销建议</p>
+                <span class="dept-case-tag">信息解锁类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📢</div>
+              <div class="dept-case-content">
+                <h5>广告自动投放</h5>
+                <p>根据 ROI 目标自动调整投放策略，优化广告预算分配</p>
+                <span class="dept-case-tag">流程执行类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 销售部 -->
+      <div class="dept-card reveal reveal-d3">
+        <div class="dept-header">
+          <div class="dept-icon">🛒</div>
+          <div class="dept-title">
+            <h4>销售部</h4>
+            <p>客户开发、商务谈判、订单管理</p>
+          </div>
+          <span class="dept-badge">业绩驱动</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">💬</div>
+              <div class="dept-case-content">
+                <h5>销售话术实时辅助</h5>
+                <p>通话中实时推荐应对话术，自动记录客户需求和异议点</p>
+                <span class="dept-case-tag">对话陪伴类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📋</div>
+              <div class="dept-case-content">
+                <h5>报价单快速生成</h5>
+                <p>根据客户需求和历史报价，自动生成个性化报价方案</p>
+                <span class="dept-case-tag">模板填充类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📧</div>
+              <div class="dept-case-content">
+                <h5>跟进邮件自动发送</h5>
+                <p>根据客户阶段自动触发跟进邮件，保持持续沟通</p>
+                <span class="dept-case-tag">流程执行类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 客服部 -->
+      <div class="dept-card reveal reveal-d4">
+        <div class="dept-header">
+          <div class="dept-icon">🎧</div>
+          <div class="dept-title">
+            <h4>客服部</h4>
+            <p>客户咨询、售后服务、满意度管理</p>
+          </div>
+          <span class="dept-badge">7×24h</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">🤖</div>
+              <div class="dept-case-content">
+                <h5>智能客服机器人</h5>
+                <p>7×24 小时自动应答常见问题，复杂问题无缝转人工</p>
+                <span class="dept-case-tag">对话陪伴类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📝</div>
+              <div class="dept-case-content">
+                <h5>工单自动分类</h5>
+                <p>AI 识别问题类型，自动分配至对应处理组，缩短响应时间</p>
+                <span class="dept-case-tag">打分判断类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📈</div>
+              <div class="dept-case-content">
+                <h5>满意度分析报告</h5>
+                <p>自动汇总客户反馈，生成满意度趋势分析和改进建议</p>
+                <span class="dept-case-tag">信息解锁类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 行政部 -->
+      <div class="dept-card reveal reveal-d1">
+        <div class="dept-header">
+          <div class="dept-icon">📋</div>
+          <div class="dept-title">
+            <h4>行政部</h4>
+            <p>流程审批、资产管理、后勤保障</p>
+          </div>
+          <span class="dept-badge">效率提升</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">📄</div>
+              <div class="dept-case-content">
+                <h5>合同模板自动填充</h5>
+                <p>采购合同、租赁协议等根据模板和信息自动生成完整文档</p>
+                <span class="dept-case-tag">模板填充类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">🔄</div>
+              <div class="dept-case-content">
+                <h5>审批流程自动化</h5>
+                <p>常规审批自动流转，异常情况智能提醒，缩短审批周期</p>
+                <span class="dept-case-tag">流程执行类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📊</div>
+              <div class="dept-case-content">
+                <h5>资产盘点报表</h5>
+                <p>自动汇总资产数据，生成盘点报告和折旧分析</p>
+                <span class="dept-case-tag">模板填充类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 财务部 -->
+      <div class="dept-card reveal reveal-d2">
+        <div class="dept-header">
+          <div class="dept-icon">💰</div>
+          <div class="dept-title">
+            <h4>财务部</h4>
+            <p>账务处理、财务分析、风控管理</p>
+          </div>
+          <span class="dept-badge">精准高效</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">🧾</div>
+              <div class="dept-case-content">
+                <h5>发票自动识别录入</h5>
+                <p>OCR 识别发票信息，自动录入财务系统，减少人工录入错误</p>
+                <span class="dept-case-tag">流程执行类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📊</div>
+              <div class="dept-case-content">
+                <h5>财务报表自动生成</h5>
+                <p>根据账务数据自动生成月度/季度财务报表和分析报告</p>
+                <span class="dept-case-tag">模板填充类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">⚠️</div>
+              <div class="dept-case-content">
+                <h5>费用异常预警</h5>
+                <p>实时监控费用支出，异常报销自动标记，防范财务风险</p>
+                <span class="dept-case-tag">打分判断类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 产品部 -->
+      <div class="dept-card reveal reveal-d3">
+        <div class="dept-header">
+          <div class="dept-icon">🔧</div>
+          <div class="dept-title">
+            <h4>产品部</h4>
+            <p>产品规划、需求分析、用户体验</p>
+          </div>
+          <span class="dept-badge">创新驱动</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">🔍</div>
+              <div class="dept-case-content">
+                <h5>竞品功能对比分析</h5>
+                <p>自动抓取竞品更新动态，生成差异化功能对比报告</p>
+                <span class="dept-case-tag">信息解锁类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">💬</div>
+              <div class="dept-case-content">
+                <h5>用户反馈智能归类</h5>
+                <p>自动分析用户评论，提取需求关键词，生成需求优先级列表</p>
+                <span class="dept-case-tag">打分判断类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📐</div>
+              <div class="dept-case-content">
+                <h5>PRD 文档辅助撰写</h5>
+                <p>根据需求描述自动生成产品需求文档框架和用户故事</p>
+                <span class="dept-case-tag">文案生成类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 运营部 -->
+      <div class="dept-card reveal reveal-d4">
+        <div class="dept-header">
+          <div class="dept-icon">🌐</div>
+          <div class="dept-title">
+            <h4>运营部</h4>
+            <p>内容运营、数据运营、活动运营</p>
+          </div>
+          <span class="dept-badge">增长导向</span>
+        </div>
+        <div class="dept-body">
+          <div class="dept-cases">
+            <div class="dept-case">
+              <div class="dept-case-icon">📱</div>
+              <div class="dept-case-content">
+                <h5>多平台内容分发</h5>
+                <p>一键将内容适配并发布至多个平台，自动调整格式和标签</p>
+                <span class="dept-case-tag">流程执行类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">📈</div>
+              <div class="dept-case-content">
+                <h5>数据看板自动生成</h5>
+                <p>自动汇总各渠道运营数据，生成可视化报表和趋势分析</p>
+                <span class="dept-case-tag">信息解锁类</span>
+              </div>
+            </div>
+            <div class="dept-case">
+              <div class="dept-case-icon">🎯</div>
+              <div class="dept-case-content">
+                <h5>活动方案智能策划</h5>
+                <p>根据历史活动数据和目标，自动生成活动策划方案和预算</p>
+                <span class="dept-case-tag">文案生成类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner reveal">
+    <h2>让 AI 为您的企业赋能</h2>
+    <p>星羽创媒提供从咨询到落地的全流程 AI 解决方案，帮助企业精准匹配最适合的 AI Agent 应用场景，实现降本增效。</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary">立即咨询</a>
+      <a href="/" class="btn-ghost">返回主页</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-gradient.png" alt="星羽创媒">
+      <span class="name">星羽创媒</span>
+      <p>科技赋能品牌视觉<br>创意 × 技术 × 策略 三维协同</p>
+    </div>
+    <div class="footer-col">
+      <h4>快速导航</h4>
+      <a href="/">主页</a>
+      <a href="index.html#about">公司介绍</a>
+      <a href="index.html#ai-production">AI内容生产</a>
+      <a href="index.html#ai-agent">AI解决方案</a>
+    </div>
+    <div class="footer-col">
+      <h4>服务板块</h4>
+      <a href="index.html#ai-production">AI品牌视频</a>
+      <a href="index.html#ai-production">TVC商业广告</a>
+      <a href="/ai-training/">校企培训</a>
+      <a href="/ai-agent.html">企业AI Agent</a>
+    </div>
+    <div class="footer-col">
+      <h4>联系方式</h4>
+      <p>广州市黄埔区荔红一路6号5A栋</p>
+      <p>电话：19366886778</p>
+      <p>微信：KasonChan13</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 广州星羽创媒数字营销有限公司. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="返回顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<div class="mobile-cta-bar">
+  <a href="index.html#contact" class="cta-primary">立即咨询</a>
+  <a href="/" class="cta-ghost">返回主页</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', scrollY > 50);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    links.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        toggle.classList.remove('active');
+        links.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        const target = document.querySelector(href);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 100);
+      } else {
+        toggle.classList.remove('active');
+        links.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+  });
+
+  // Back to top
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', scrollY > 500);
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const t = document.querySelector(href);
+        if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+      }
+    });
+  });
+});
+
+// Fix bfcache
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+});
+</script>
+</body>
+</html>

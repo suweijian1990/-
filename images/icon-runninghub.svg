@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.1"/><stop offset="100%" stop-color="#06B6D4" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="140" cy="80" r="120" fill="url(#gl)"/>
+  <!-- Cloud shape -->
+  <path d="M75 85 Q75 55 105 50 Q110 30 140 28 Q170 30 175 50 Q205 55 205 85 Q205 100 190 105 L90 105 Q75 100 75 85 Z" fill="url(#g2)" stroke="url(#g1)" stroke-width="2"/>
+  <!-- Cloud inner glow -->
+  <path d="M85 88 Q85 65 110 60 Q115 42 140 40 Q165 42 170 60 Q195 65 195 88 Q195 98 185 102 L95 102 Q85 98 85 88 Z" fill="url(#g2)" opacity="0.5"/>
+  <!-- Workflow nodes inside cloud -->
+  <!-- Node A -->
+  <rect x="95" y="55" width="32" height="18" rx="4" stroke="#3B82F6" stroke-width="1" fill="url(#g2)"/>
+  <text x="111" y="67.5" font-family="'Space Grotesk',sans-serif" font-size="7" fill="#3B82F6" text-anchor="middle">输入</text>
+  <!-- Node B -->
+  <rect x="148" y="55" width="32" height="18" rx="4" stroke="#06B6D4" stroke-width="1" fill="url(#g2)"/>
+  <text x="164" y="67.5" font-family="'Space Grotesk',sans-serif" font-size="7" fill="#06B6D4" text-anchor="middle">处理</text>
+  <!-- Node C -->
+  <rect x="120" y="82" width="38" height="18" rx="4" stroke="#10B981" stroke-width="1.2" fill="url(#g2)"/>
+  <text x="139" y="94.5" font-family="'Space Grotesk',sans-serif" font-size="7" fill="#10B981" text-anchor="middle" font-weight="600">ComfyUI</text>
+  <!-- Connections -->
+  <line x1="127" y1="64" x2="148" y2="64" stroke="url(#g1)" stroke-width="1" opacity="0.3"/>
+  <line x1="111" y1="73" x2="128" y2="82" stroke="#3B82F6" stroke-width="0.8" opacity="0.3"/>
+  <line x1="164" y1="73" x2="150" y2="82" stroke="#06B6D4" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="137" cy="64" r="2" fill="url(#g1)" opacity="0.5"/>
+  <!-- Gear icon (bottom right) -->
+  <circle cx="215" cy="75" r="14" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <circle cx="215" cy="75" r="5" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Gear teeth -->
+  <rect x="213" y="59" width="4" height="8" rx="1" fill="url(#g1)" opacity="0.3"/>
+  <rect x="213" y="83" width="4" height="8" rx="1" fill="url(#g1)" opacity="0.3"/>
+  <rect x="199" y="73" width="8" height="4" rx="1" fill="url(#g1)" opacity="0.3"/>
+  <rect x="223" y="73" width="8" height="4" rx="1" fill="url(#g1)" opacity="0.3"/>
+  <!-- Connection cloud to gear -->
+  <path d="M200 95 Q210 90 215 89" stroke="url(#g1)" stroke-width="0.8" opacity="0.2" stroke-dasharray="3,3"/>
+  <!-- Run arrow -->
+  <path d="M45 80 L65 80" stroke="#10B981" stroke-width="2" opacity="0.4"/>
+  <polygon points="62,75 72,80 62,85" fill="#10B981" opacity="0.4"/>
+  <!-- Label: Cloud ComfyUI -->
+  <rect x="70" y="130" width="140" height="20" rx="10" stroke="#3B82F6" stroke-width="1" fill="url(#g2)"/>
+  <text x="140" y="143.5" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle" font-weight="600">Cloud ComfyUI Workflow</text>
+  <!-- Connection to label -->
+  <line x1="140" y1="105" x2="140" y2="130" stroke="#3B82F6" stroke-width="0.6" opacity="0.2" stroke-dasharray="3,3"/>
+  <!-- Sparkles -->
+  <circle cx="35" cy="40" r="2" fill="#3B82F6" opacity="0.2"/>
+  <circle cx="250" cy="35" r="2" fill="#06B6D4" opacity="0.2"/>
+  <circle cx="140" cy="90" r="125" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.05" stroke-dasharray="6,10"/>
+</svg>

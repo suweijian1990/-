@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.1"/><stop offset="100%" stop-color="#06B6D4" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.1"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="180" cy="90" r="130" fill="url(#gl)"/>
+  <!-- Top: Main node -->
+  <rect x="140" y="15" width="80" height="28" rx="8" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <text x="180" y="34" font-family="'Noto Sans SC',sans-serif" font-size="10" fill="#8B5CF6" text-anchor="middle" font-weight="600">企业 AI 中枢</text>
+  <!-- Vertical line -->
+  <line x1="180" y1="43" x2="180" y2="58" stroke="url(#g1)" stroke-width="1.5" opacity="0.35"/>
+  <!-- Horizontal bar -->
+  <line x1="35" y1="58" x2="325" y2="58" stroke="url(#g1)" stroke-width="1.5" opacity="0.25"/>
+  <!-- 8 department nodes spread horizontally -->
+  <rect x="18" y="72" width="55" height="26" rx="6" stroke="#8B5CF6" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="45.5" y="89.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="500">市场</text>
+  <line x1="45.5" y1="58" x2="45.5" y2="72" stroke="#8B5CF6" stroke-width="1" opacity="0.25"/>
+  <rect x="82" y="72" width="55" height="26" rx="6" stroke="#3B82F6" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="109.5" y="89.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle" font-weight="500">人资</text>
+  <line x1="109.5" y1="58" x2="109.5" y2="72" stroke="#3B82F6" stroke-width="1" opacity="0.25"/>
+  <rect x="146" y="72" width="55" height="26" rx="6" stroke="#06B6D4" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="173.5" y="89.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#06B6D4" text-anchor="middle" font-weight="500">销售</text>
+  <line x1="173.5" y1="58" x2="173.5" y2="72" stroke="#06B6D4" stroke-width="1" opacity="0.25"/>
+  <rect x="210" y="72" width="55" height="26" rx="6" stroke="#10B981" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="237.5" y="89.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#10B981" text-anchor="middle" font-weight="500">客服</text>
+  <line x1="237.5" y1="58" x2="237.5" y2="72" stroke="#10B981" stroke-width="1" opacity="0.25"/>
+  <rect x="274" y="72" width="55" height="26" rx="6" stroke="#F59E0B" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="301.5" y="89.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#F59E0B" text-anchor="middle" font-weight="500">财务</text>
+  <line x1="301.5" y1="58" x2="301.5" y2="72" stroke="#F59E0B" stroke-width="1" opacity="0.25"/>
+  <!-- Row 2 -->
+  <rect x="50" y="110" width="55" height="26" rx="6" stroke="#06B6D4" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="77.5" y="127.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#06B6D4" text-anchor="middle" font-weight="500">产品</text>
+  <line x1="77.5" y1="98" x2="77.5" y2="110" stroke="#06B6D4" stroke-width="1" opacity="0.25"/>
+  <rect x="130" y="110" width="55" height="26" rx="6" stroke="#3B82F6" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="157.5" y="127.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle" font-weight="500">运营</text>
+  <line x1="157.5" y1="98" x2="157.5" y2="110" stroke="#3B82F6" stroke-width="1" opacity="0.25"/>
+  <rect x="210" y="110" width="55" height="26" rx="6" stroke="#8B5CF6" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="237.5" y="127.5" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="500">行政</text>
+  <line x1="237.5" y1="98" x2="237.5" y2="110" stroke="#8B5CF6" stroke-width="1" opacity="0.25"/>
+  <!-- Bottom AI brain icon -->
+  <circle cx="180" cy="158" r="12" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <circle cx="180" cy="155" r="3" fill="#3B82F6" opacity="0.45"/>
+  <path d="M174 158 Q180 153 186 158" stroke="#3B82F6" stroke-width="1" fill="none" opacity="0.35"/>
+  <!-- Flow lines to bottom -->
+  <path d="M77.5 136 Q100 148 168 155" stroke="url(#g1)" stroke-width="0.8" fill="none" opacity="0.2" stroke-dasharray="3,3"/>
+  <path d="M282.5 136 Q260 148 192 155" stroke="url(#g1)" stroke-width="0.8" fill="none" opacity="0.2" stroke-dasharray="3,3"/>
+  <!-- Particles -->
+  <circle cx="15" cy="45" r="2" fill="#8B5CF6" opacity="0.2"/>
+  <circle cx="345" cy="45" r="2" fill="#06B6D4" opacity="0.2"/>
+  <circle cx="180" cy="90" r="140" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="8,12"/>
+</svg>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>潮东方 · 品牌出海基地 | 让中国品牌从容走向世界</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06060E;--bg-card:#0E0E1C;--text:#fff;--text-dim:rgba(255,255,255,.65);--text-muted:rgba(255,255,255,.4);
+  --blue:#3B82F6;--cyan:#06B6D4;--emerald:#10B981;--violet:#8B5CF6;--amber:#F59E0B;
+  --ocean:linear-gradient(135deg,#0c4a6e,#0369a1,#3B82F6,#06B6D4,#10B981);
+  --ocean-h:linear-gradient(90deg,#0c4a6e,#0369a1,#3B82F6,#06B6D4,#10B981);
+  --font-cn:'Noto Sans SC',sans-serif;--font-en:'Space Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-cn);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(1000px 500px at 10% -10%,rgba(3,105,161,.18),transparent 60%),radial-gradient(900px 500px at 90% 10%,rgba(6,182,212,.15),transparent 60%),radial-gradient(700px 600px at 50% 100%,rgba(59,130,246,.15),transparent 60%),#06060E}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.2;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");mix-blend-mode:overlay}
+a{color:inherit;text-decoration:none}img{max-width:100%}
+ul{list-style:none}
+
+/* NAV 胶囊 */
+.nav{position:fixed;top:18px;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 24px;pointer-events:none}
+.nav-inner{pointer-events:auto;display:flex;align-items:center;gap:6px;padding:6px 8px 6px 14px;border-radius:16px;width:100%;max-width:3000px;background:rgba(10,10,20,.35);border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 10px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);transition:max-width .5s ease,background .5s ease,border-color .5s ease,padding .5s ease,border-radius .5s ease}.nav.scrolled .nav-inner{max-width:900px;padding:3px 6px 3px 10px;border-radius:999px;background:rgba(8,8,16,.78);border-color:rgba(255,255,255,.1)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:.95rem;font-weight:700;white-space:nowrap;color:#fff}
+.nav-logo .m{width:28px;height:28px;border-radius:8px;background:var(--ocean);display:grid;place-items:center;color:#fff;font-weight:900;font-size:.8rem;box-shadow:0 0 20px rgba(6,182,212,.5)}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--text-dim);padding:8px 14px;border-radius:999px;transition:all .25s;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-cta{padding:9px 18px;border-radius:999px;font-size:.82rem;font-weight:700;background:var(--ocean);color:#fff;box-shadow:0 6px 24px rgba(6,182,212,.4);transition:all .3s;white-space:nowrap;margin-left:6px}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(6,182,212,.6)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 28px 80px;overflow:hidden}
+.hero-aurora{position:absolute;inset:-20%;z-index:0;overflow:hidden;pointer-events:none;filter:blur(70px);opacity:.75}
+.hero-aurora .a1,.hero-aurora .a2,.hero-aurora .a3{position:absolute;border-radius:50%}
+.hero-aurora .a1{width:600px;height:600px;left:15%;top:10%;background:radial-gradient(circle,#0c4a6e 0%,transparent 60%);animation:hf1 18s ease-in-out infinite}
+.hero-aurora .a2{width:700px;height:700px;right:10%;top:20%;background:radial-gradient(circle,#06B6D4 0%,transparent 60%);animation:hf2 22s ease-in-out infinite}
+.hero-aurora .a3{width:500px;height:500px;left:45%;top:50%;background:radial-gradient(circle,#3B82F6 0%,transparent 60%);animation:hf3 20s ease-in-out infinite}
+@keyframes hf1{0%,100%{transform:translate(0,0)}50%{transform:translate(80px,60px)}}
+@keyframes hf2{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,80px)}}
+@keyframes hf3{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-30%,-60%)}}
+.hero-beams{position:absolute;inset:0;z-index:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0,transparent 80px,rgba(255,255,255,.04) 80px,rgba(255,255,255,.04) 81px),repeating-linear-gradient(0deg,transparent 0,transparent 80px,rgba(255,255,255,.04) 80px,rgba(255,255,255,.04) 81px);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%)}
+.hero-inner{position:relative;z-index:2;max-width:960px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 18px 7px 10px;border-radius:999px;border:1px solid rgba(6,182,212,.3);background:rgba(6,182,212,.08);font-family:var(--font-en);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#67e8f9;margin-bottom:32px;backdrop-filter:blur(10px);animation:bgGlow 3s ease-in-out infinite}
+.hero-badge::before{content:"🌊";width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--ocean);color:#fff;font-size:.75rem;box-shadow:0 0 16px rgba(6,182,212,.5)}
+@keyframes bgGlow{0%,100%{box-shadow:0 0 20px rgba(6,182,212,.1)}50%{box-shadow:0 0 40px rgba(6,182,212,.3)}}
+.hero h1{font-size:clamp(2.6rem,6.5vw,5.2rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:24px}
+.hero h1 .l{display:block}
+.hero h1 .g{background:linear-gradient(110deg,#fff 5%,#67e8f9 18%,#3B82F6 35%,#06B6D4 55%,#10B981 75%,#fff 95%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.hero p{font-size:clamp(.95rem,1.5vw,1.08rem);color:var(--text-dim);line-height:1.9;max-width:680px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-size:.92rem;font-weight:600;transition:all .3s;cursor:pointer;border:none;white-space:nowrap;text-decoration:none}
+.btn-p{background:var(--ocean);color:#fff;box-shadow:0 8px 32px rgba(6,182,212,.4);position:relative;z-index:1;overflow:hidden}
+.btn-p::before{content:"";position:absolute;inset:-2px;border-radius:999px;background:var(--ocean);filter:blur(14px);opacity:.5;z-index:-1}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(6,182,212,.55)}.btn-p:hover::before{opacity:.9}
+.btn-g{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);color:#fff;backdrop-filter:blur(10px)}
+.btn-g:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07);transform:translateY(-2px)}
+.hero-tags{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);max-width:700px;margin:0 auto}
+.hero-tags .t{text-align:center;padding:8px}
+.hero-tags .n{display:block;font-family:var(--font-en);font-size:1.6rem;font-weight:700;line-height:1;background:var(--ocean-h);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-tags .l{font-size:.72rem;color:var(--text-muted);margin-top:6px;letter-spacing:.05em;text-transform:uppercase}
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;animation:sb 2s ease-in-out infinite;opacity:.5;pointer-events:none}
+.scroll-hint svg{width:24px;height:24px;stroke:#fff;stroke-width:2;fill:none}@keyframes sb{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+/* SECTIONS */
+.sec{padding:120px 28px;position:relative}
+.sec-alt{background:rgba(10,10,20,.35)}
+.container{max-width:1240px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:64px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-en);font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px;border-radius:999px;border:1px solid rgba(6,182,212,.25);background:rgba(6,182,212,.08);color:#67e8f9;margin-bottom:20px;backdrop-filter:blur(12px)}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:#06B6D4;box-shadow:0 0 12px #06B6D4;animation:dp 2s ease-in-out infinite}
+@keyframes dp{0%,100%{opacity:1}50%{opacity:.4}}
+.sec-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.01em;line-height:1.15;margin-bottom:16px}
+.sec-title .g{background:linear-gradient(110deg,#fff,#67e8f9,#3B82F6,#06B6D4,#10B981,#fff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:sh 7s linear infinite}
+.sec-desc{font-size:1rem;color:var(--text-dim);max-width:680px;margin:0 auto;line-height:1.8}
+
+/* CARD */
+.card{position:relative;background:rgba(14,14,28,.5);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);overflow:hidden;transition:all .5s cubic-bezier(.2,0,0,1);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(130deg,transparent 30%,rgba(6,182,212,.6),rgba(59,130,246,.4),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none}
+.card:hover{border-color:rgba(6,182,212,.4);transform:translateY(-4px) scale(1.02);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 50px rgba(6,182,212,.15)}
+.card:hover::before{opacity:1}
+.card .icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font-size:1.8rem;margin-bottom:20px;background:linear-gradient(135deg,rgba(6,182,212,.2),rgba(59,130,246,.12));border:1px solid rgba(6,182,212,.2);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.card:hover .icon{transform:scale(1.12);box-shadow:0 0 30px rgba(6,182,212,.3)}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:12px;letter-spacing:.01em}
+.card p{font-size:.9rem;color:var(--text-dim);line-height:1.8;margin:0}
+
+/* 大数字卡 */
+.stat-card{text-align:center;padding:48px 32px!important}
+.stat-card .n{font-family:var(--font-en);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;background:var(--ocean-h);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat-card .l{font-size:.88rem;color:var(--text-muted);margin-top:8px;letter-spacing:.05em}
+
+/* GRID */
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}.sec{padding:80px 20px}.sec-head{margin-bottom:40px}}
+@media(min-width:901px) and (max-width:1100px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+
+/* 基地实景图片卡 */
+.img-card{padding:12px!important}
+.img-card .img-placeholder{aspect-ratio:4/3;border-radius:14px;background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(59,130,246,.06));display:grid;place-items:center;font-size:2.5rem;opacity:.4}
+.img-card p{margin-top:12px;text-align:center;font-size:.82rem}
+
+/* 联系 */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+.ci{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+.ci-ic{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;background:linear-gradient(135deg,rgba(6,182,212,.2),rgba(59,130,246,.12));border:1px solid rgba(6,182,212,.2);color:#67e8f9;font-size:1.1rem}
+.ci .lb{font-size:.75rem;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.ci .vl{font-size:1.05rem;color:#fff;font-weight:500}
+
+/* FOOTER */
+.footer{padding:60px 28px;text-align:center;border-top:1px solid rgba(255,255,255,.05);color:var(--text-muted);font-size:.82rem}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.2,0,0,1),transform .7s cubic-bezier(.34,1.56,.64,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* 移动端 NAV */
+@media(max-width:768px){
+  .nav{top:0;padding:0}.nav-inner{border-radius:0;max-width:100%;width:100%}
+  .nav-links{display:none}.nav-logo{font-size:.9rem}
+  .hero{padding:120px 20px 60px}.hero h1{font-size:clamp(2rem,10vw,3rem)!important}
+  .hero-tags{gap:12px}.hero-tags .n{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span class="m">潮</span><span>潮东方</span></a>
+    <div class="nav-links">
+      <a href="#about">关于</a><a href="#service">核心业务</a><a href="#training">培训课程</a><a href="#summit">行业峰会</a><a href="#gallery">基地实景</a>
+    </div>
+    <a href="#contact" class="nav-cta">联系我们 →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-aurora"><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div class="hero-beams"></div>
+  <div class="hero-inner">
+    <div class="hero-badge reveal"><span>品牌出海 · 全球会展 · 跨境电商 · 文化交流</span></div>
+    <h1 class="reveal"><span class="l">让中国品牌</span><span class="l g">从容走向世界</span></h1>
+    <p class="reveal">潮东方品牌出海基地 — 扎根广州黄埔，聚焦东南亚市场<br/>以「品牌+技术」双轮驱动，打造企业出海全链路服务体系</p>
+    <div class="hero-btns reveal">
+      <a href="#service" class="btn btn-p">探索服务 →</a>
+      <a href="#contact" class="btn btn-g">立即接洽</a>
+    </div>
+    <div class="hero-tags reveal">
+      <div class="t"><span class="n">4</span><span class="l">大出海赛道</span></div>
+      <div class="t"><span class="n">AI</span><span class="l">智能驱动</span></div>
+      <div class="t"><span class="n">东南亚</span><span class="l">核心市场</span></div>
+      <div class="t"><span class="n">全链路</span><span class="l">品牌服务</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" fill="none"/></svg></div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec std" id="about">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal"><span class="d"></span>About</span>
+      <h2 class="sec-title reveal">关于<span class="g">潮东方</span></h2>
+      <p class="sec-desc reveal">潮东方品牌出海及技术转化基地，由创始人陈嘉胜任理事长，扎根广州黄埔，以「品牌+技术」双轮驱动模式，帮助中国品牌系统性进入东南亚市场。</p>
+    </div>
+    <div class="grid grid-3" style="margin-top:48px">
+      <div class="stat-card card reveal">
+        <div class="n">2</div><div class="l">大出海产业基地</div>
+        <p style="margin-top:16px">黄埔文化产业出海基地 + 潮东方品牌出海及技术转化基地</p>
+      </div>
+      <div class="stat-card card reveal">
+        <div class="n">东南亚</div><div class="l">核心覆盖市场</div>
+        <p style="margin-top:16px">提供品牌定位重塑、AI内容营销、海外社媒矩阵、电商通路对接</p>
+      </div>
+      <div class="stat-card card reveal">
+        <div class="n">全链路</div><div class="l">品牌出海服务</div>
+        <p style="margin-top:16px">从品牌认知到销售转化的完整闭环，本地化技术工具开发</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE SERVICE -->
+<section class="sec sec-alt" id="service">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal"><span class="d"></span>Core Business</span>
+      <h2 class="sec-title reveal">核心<span class="g">业务</span></h2>
+      <p class="sec-desc reveal">企业级跨境电商智能系统与实战培训</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card reveal"><div class="icon">🤖</div><h3>AI 智能建站</h3><p>AI 驱动的跨境电商独立站搭建，多语言适配，SEO 优化，快速上线。</p></div>
+      <div class="card reveal"><div class="icon">📢</div><h3>AI 整合营销</h3><p>AI 内容生成 × 社媒矩阵运营 × KOL 合作，一站式海外品牌推广。</p></div>
+      <div class="card reveal"><div class="icon">🌐</div><h3>全球商机</h3><p>东南亚市场洞察 · 电商平台对接 · 本地化运营，精准捕获出海商机。</p></div>
+      <div class="card reveal"><div class="icon">💬</div><h3>CRM 私域营销</h3><p>WhatsApp / Line / Telegram 多平台私域搭建，客户关系管理自动化。</p></div>
+      <div class="card reveal"><div class="icon">🧠</div><h3>AI 智能体</h3><p>智能客服 · 营销自动化 · 数据分析，企业级 AI Agent 定制部署。</p></div>
+      <div class="card reveal"><div class="icon">📦</div><h3>跨境电商培训</h3><p>从0到1实战课程，涵盖选品、建站、投放、物流全链路实操。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section class="sec" id="training">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal"><span class="d"></span>AIGC Training</span>
+      <h2 class="sec-title reveal">培训<span class="g">课程</span></h2>
+      <p class="sec-desc reveal">AIGC 赋能国际营销 — AI视频 × AI设计实战课</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card reveal" style="text-align:center;padding:48px 32px">
+        <div class="icon" style="margin:0 auto 24px">🎬</div>
+        <h3>AI 视频实战课</h3>
+        <p>从脚本到成片，AIGC 全流程视频制作。涵盖 AI 脚本生成、AI 视频生成、多语言配音、字幕翻译，适配 TikTok / YouTube / Instagram 等海外平台。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:20px">
+          <span style="font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">实战导向</span>
+          <span style="font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">垂直专业</span>
+          <span style="font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">营销赋能</span>
+        </div>
+      </div>
+      <div class="card reveal" style="text-align:center;padding:48px 32px">
+        <div class="icon" style="margin:0 auto 24px">🎨</div>
+        <h3>AI 设计实战课</h3>
+        <p>AIGC 赋能国际营销视觉设计。掌握 Midjourney / DALL·E / Stable Diffusion 等工具，高效产出品牌视觉素材、社媒海报、产品渲染图、电商 Banner。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:20px">
+          <span style="font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">智能体 & OPC</span>
+          <span style="font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">营销赋能</span>
+          <span style="font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">实战导向</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMIT -->
+<section class="sec sec-alt" id="summit">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal"><span class="d"></span>Industry Summit</span>
+      <h2 class="sec-title reveal">行业<span class="g">峰会</span></h2>
+      <p class="sec-desc reveal">AIGC 设计产业创新峰会</p>
+    </div>
+    <div class="card reveal" style="text-align:center;padding:64px 32px;max-width:800px;margin:0 auto">
+      <div class="icon" style="margin:0 auto 24px;width:72px;height:72px;font-size:2.2rem">🏆</div>
+      <h3 style="font-size:1.6rem">AIGC 赋能国际营销</h3>
+      <h3 style="font-size:1.6rem;margin-bottom:20px">AIGC 设计产业创新峰会</h3>
+      <p style="max-width:600px;margin:0 auto">汇聚行业顶尖专家，探讨 AIGC 技术在国际营销中的前沿应用。峰会涵盖 AI 视频创作、AI 品牌设计、跨境电商智能系统、营销自动化等核心议题，为企业出海提供技术赋能与实战方案。</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px">
+        <span style="font-size:.72rem;padding:6px 14px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">AI 视频</span>
+        <span style="font-size:.72rem;padding:6px 14px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">AI 设计</span>
+        <span style="font-size:.72rem;padding:6px 14px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">跨境电商</span>
+        <span style="font-size:.72rem;padding:6px 14px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#67e8f9">智能体</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal"><span class="d"></span>Base Gallery</span>
+      <h2 class="sec-title reveal">基地<span class="g">实景</span></h2>
+      <p class="sec-desc reveal">潮东方出海基地实景与活动</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card img-card reveal">
+        <img src="images/chaodongfang/image13.png" alt="潮东方出海基地实景" style="width:100%;height:100%;object-fit:cover;border-radius:14px" loading="lazy">
+        <p>潮东方出海基地实景</p>
+      </div>
+      <div class="card img-card reveal">
+        <img src="images/chaodongfang/image17.png" alt="潮东方出海基地实景" style="width:100%;height:100%;object-fit:cover;border-radius:14px" loading="lazy">
+        <p>潮东方出海基地实景</p>
+      </div>
+      <div class="card img-card reveal">
+        <img src="images/chaodongfang/image7.jpg" alt="潮东方出海基地活动" style="width:100%;height:100%;object-fit:cover;border-radius:14px" loading="lazy">
+        <p>潮东方出海基地活动</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec sec-alt" id="contact">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal"><span class="d"></span>Contact</span>
+      <h2 class="sec-title reveal">联系<span class="g">我们</span></h2>
+      <p class="sec-desc reveal">潮东方品牌出海及技术转化基地 — 期待与您携手</p>
+    </div>
+    <div class="contact-grid" style="max-width:700px;margin:0 auto">
+      <div class="card reveal" style="padding:36px">
+        <h3 style="margin-bottom:20px">骆 先生</h3>
+        <div class="ci"><div class="ci-ic">📞</div><div><div class="lb">电话</div><div class="vl">186 0206 9155</div></div></div>
+        <div class="ci"><div class="ci-ic">📍</div><div><div class="lb">地址</div><div class="vl">广州市黄埔区</div></div></div>
+      </div>
+      <div class="card reveal" style="padding:36px">
+        <h3 style="margin-bottom:20px">陈 先生</h3>
+        <div class="ci"><div class="ci-ic">📞</div><div><div class="lb">电话</div><div class="vl">193 6688 6778</div></div></div>
+        <div class="ci"><div class="ci-ic">🌐</div><div><div class="lb">基地</div><div class="vl">潮东方品牌出海基地</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 潮东方品牌出海及技术转化基地. GNC.C EXPANSION BASE.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        (e.target.querySelectorAll('.reveal') || [e.target]).forEach((n, i) => setTimeout(() => n.classList.add('in'), i * 80));
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  
+document.querySelectorAll('section').forEach(s => obs.observe(s));
+
+// Nav scroll effect
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive: true});
+
+});
+</script>
+</body>
+</html>

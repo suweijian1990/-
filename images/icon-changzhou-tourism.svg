@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.1"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="45%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.12"/><stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="160" cy="90" r="130" fill="url(#gl)"/>
+  <!-- City skyline (left-center, wide) -->
+  <path d="M20 140 L20 100 L35 100 L35 90 L50 90 L50 80 L60 80 L60 100 L75 100 L75 65 L82 60 L90 65 L90 100 L105 100 L105 50 L110 45 L115 50 L115 100 L130 100 L130 60 L142 55 L155 60 L155 100 L170 100 L170 72 L182 68 L195 72 L195 100 L210 100 L210 85 L222 80 L235 85 L235 100 L250 100 L250 110 L265 110 L265 130 L265 140 Z" fill="url(#g2)" stroke="url(#g1)" stroke-width="1.2"/>
+  <!-- Pagoda (iconic, center) -->
+  <path d="M105 50 L100 44 L105 38 L112 28 L118 18 L125 12 L132 18 L138 28 L145 38 L150 44 L145 50" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <line x1="125" y1="12" x2="125" y2="4" stroke="url(#g1)" stroke-width="1.5"/>
+  <circle cx="125" cy="2" r="2.5" fill="#10B981" opacity="0.7"/>
+  <!-- Roof eave detail -->
+  <path d="M98 50 Q95 46 92 50" stroke="url(#g1)" stroke-width="1.2" fill="none"/>
+  <path d="M152 50 Q155 46 158 50" stroke="url(#g1)" stroke-width="1.2" fill="none"/>
+  <!-- Film strip (right side) -->
+  <rect x="285" y="25" width="60" height="40" rx="4" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <rect x="290" y="30" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="301" y="30" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="312" y="30" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="323" y="30" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="290" y="39" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="301" y="39" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="312" y="39" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="323" y="39" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="290" y="48" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="301" y="48" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="312" y="48" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="323" y="48" width="7" height="5" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <polygon points="310,38 310,50 320,44" fill="#10B981" opacity="0.5"/>
+  <!-- AI sparkle (top-left) -->
+  <circle cx="40" cy="30" r="8" stroke="#10B981" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M40 22 L40 38 M32 30 L48 30" stroke="#10B981" stroke-width="1" opacity="0.35"/>
+  <!-- Connection -->
+  <line x1="48" y1="30" x2="285" y2="42" stroke="#10B981" stroke-width="0.5" opacity="0.15" stroke-dasharray="5,5"/>
+  <!-- Ground line -->
+  <line x1="15" y1="140" x2="345" y2="140" stroke="url(#g1)" stroke-width="0.8" opacity="0.25"/>
+  <!-- Particles -->
+  <circle cx="30" cy="65" r="2" fill="#10B981" opacity="0.25"/>
+  <circle cx="340" cy="80" r="2" fill="#8B5CF6" opacity="0.25"/>
+  <circle cx="55" cy="150" r="1.5" fill="#3B82F6" opacity="0.2"/>
+  <circle cx="320" cy="145" r="1.5" fill="#10B981" opacity="0.2"/>
+  <circle cx="180" cy="90" r="140" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="8,12"/>
+</svg>

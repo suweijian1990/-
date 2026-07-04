@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.1"/><stop offset="100%" stop-color="#10B981" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.1"/><stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="140" cy="90" r="120" fill="url(#gl)"/>
+  <!-- Canvas background -->
+  <rect x="15" y="15" width="250" height="150" rx="8" stroke="url(#g1)" stroke-width="0.8" fill="none" opacity="0.18"/>
+  <!-- Grid lines -->
+  <line x1="15" y1="55" x2="265" y2="55" stroke="url(#g1)" stroke-width="0.3" opacity="0.12"/>
+  <line x1="15" y1="95" x2="265" y2="95" stroke="url(#g1)" stroke-width="0.3" opacity="0.12"/>
+  <line x1="15" y1="135" x2="265" y2="135" stroke="url(#g1)" stroke-width="0.3" opacity="0.12"/>
+  <line x1="75" y1="15" x2="75" y2="165" stroke="url(#g1)" stroke-width="0.3" opacity="0.12"/>
+  <line x1="140" y1="15" x2="140" y2="165" stroke="url(#g1)" stroke-width="0.3" opacity="0.12"/>
+  <line x1="205" y1="15" x2="205" y2="165" stroke="url(#g1)" stroke-width="0.3" opacity="0.12"/>
+  <!-- Node 1: Prompt (top-left) -->
+  <rect x="22" y="22" width="52" height="28" rx="6" stroke="#8B5CF6" stroke-width="1.5" fill="url(#g2)"/>
+  <text x="48" y="40" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="600">提示词</text>
+  <!-- Node 2: Image (top-right) -->
+  <rect x="205" y="20" width="52" height="32" rx="6" stroke="#3B82F6" stroke-width="1.5" fill="url(#g2)"/>
+  <path d="M210 40 L220 30 L232 38 L245 25 L252 40 Z" fill="#3B82F6" opacity="0.15"/>
+  <text x="231" y="47" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#3B82F6" text-anchor="middle">图片</text>
+  <!-- Node 3: LLM (center) -->
+  <rect x="88" y="65" width="100" height="35" rx="8" stroke="#06B6D4" stroke-width="2" fill="url(#g2)"/>
+  <text x="138" y="84" font-family="'Noto Sans SC',sans-serif" font-size="10" fill="#06B6D4" text-anchor="middle" font-weight="600">LLM 处理</text>
+  <text x="138" y="96" font-family="'Space Grotesk',sans-serif" font-size="7" fill="#06B6D4" text-anchor="middle" opacity="0.45">GPT · Claude · Gemini</text>
+  <!-- Node 4: Video (bottom-left) -->
+  <rect x="22" y="118" width="58" height="32" rx="6" stroke="#10B981" stroke-width="1.5" fill="url(#g2)"/>
+  <polygon points="42,128 42,142 56,135" fill="#10B981" opacity="0.25"/>
+  <text x="55" y="145" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#10B981" text-anchor="middle">视频</text>
+  <!-- Node 5: Loop (bottom-right) -->
+  <rect x="205" y="120" width="52" height="28" rx="6" stroke="#F59E0B" stroke-width="1.5" fill="url(#g2)"/>
+  <path d="M225 130 A7 7 0 1 1 234 136" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <polygon points="232,133 236,138 230,138" fill="#F59E0B" opacity="0.45"/>
+  <text x="231" y="144" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">循环</text>
+  <!-- Connection lines -->
+  <line x1="74" y1="36" x2="205" y2="36" stroke="#8B5CF6" stroke-width="1.2" opacity="0.25"/>
+  <line x1="48" y1="50" x2="95" y2="65" stroke="#8B5CF6" stroke-width="1.2" opacity="0.25"/>
+  <line x1="231" y1="52" x2="180" y2="68" stroke="#3B82F6" stroke-width="1.2" opacity="0.25"/>
+  <line x1="110" y1="100" x2="51" y2="118" stroke="#10B981" stroke-width="1.2" opacity="0.25"/>
+  <line x1="165" y1="100" x2="220" y2="120" stroke="#F59E0B" stroke-width="1.2" opacity="0.25"/>
+  <line x1="80" y1="134" x2="205" y2="134" stroke="url(#g1)" stroke-width="0.8" opacity="0.15" stroke-dasharray="4,3"/>
+  <!-- Dots -->
+  <circle cx="140" cy="36" r="2" fill="#8B5CF6" opacity="0.4"/>
+  <circle cx="72" cy="58" r="2" fill="#8B5CF6" opacity="0.4"/>
+  <circle cx="206" cy="60" r="2" fill="#3B82F6" opacity="0.4"/>
+  <circle cx="80" cy="109" r="2" fill="#10B981" opacity="0.4"/>
+  <circle cx="193" cy="110" r="2" fill="#F59E0B" opacity="0.4"/>
+  <circle cx="140" cy="90" r="125" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="6,10"/>
+</svg>

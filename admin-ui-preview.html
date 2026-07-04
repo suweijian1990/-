@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星羽创媒 CMS — 后台布局设计预览</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f7fa; color: #1f2937; }
+
+/* ===== 左侧导航 ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar-brand {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-brand h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8B5CF6;
+  letter-spacing: -0.01em;
+}
+
+.sidebar-brand .subtitle {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 12px;
+  overflow-y: auto;
+}
+
+.nav-group {
+  margin-bottom: 24px;
+}
+
+.nav-group-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 12px;
+  margin-bottom: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s;
+  margin-bottom: 2px;
+}
+
+.nav-item:hover {
+  background: rgba(139,92,246,0.06);
+  color: #8B5CF6;
+}
+
+.nav-item.active {
+  background: rgba(139,92,246,0.1);
+  color: #8B5CF6;
+  font-weight: 600;
+}
+
+.nav-item .icon {
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.nav-item .badge {
+  margin-left: auto;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* 子菜单 */
+.nav-submenu {
+  padding-left: 44px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.nav-submenu .nav-item {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.nav-submenu .nav-item:hover {
+  color: #8B5CF6;
+}
+
+.nav-submenu .nav-item.active {
+  color: #8B5CF6;
+  background: rgba(139,92,246,0.08);
+}
+
+/* 侧边栏底部 */
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.sidebar-footer .user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-footer .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sidebar-footer .user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.sidebar-footer .user-role {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* ===== 右侧内容区 ===== */
+.main-content {
+  margin-left: 240px;
+  min-height: 100vh;
+}
+
+/* 顶部栏 */
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-left h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.topbar-left .breadcrumb {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.topbar-left .breadcrumb a {
+  color: #8B5CF6;
+  text-decoration: none;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.topbar-btn.primary {
+  background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+  color: #fff;
+}
+
+.topbar-btn.secondary {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+/* 内容区 */
+.content-area {
+  padding: 32px;
+}
+
+/* 统计卡片 */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: rgba(139,92,246,0.3);
+}
+
+.stat-card .icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.stat-card .icon.purple { background: linear-gradient(135deg, #8B5CF6, #7c3aed); }
+.stat-card .icon.blue { background: linear-gradient(135deg, #3B82F6, #2563eb); }
+.stat-card .icon.cyan { background: linear-gradient(135deg, #06B6D4, #0891b2); }
+
+.stat-card .info .num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1;
+}
+
+.stat-card .info .label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* 快捷操作 */
+.quick-actions {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.quick-actions h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.quick-actions .buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.btn-action.primary {
+  background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(139,92,246,0.2);
+}
+
+.btn-action.secondary {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+/* API 列表 */
+.api-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.api-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.api-list {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 2.2;
+}
+
+.api-list code {
+  background: #f3f4f6;
+  color: #8B5CF6;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* ===== 预览标注 ===== */
+.preview-note {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1f2937;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+
+<!-- 左侧导航 -->
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <h1>星羽创媒 CMS</h1>
+    <div class="subtitle">内容管理系统</div>
+  </div>
+  
+  <div class="sidebar-nav">
+    <div class="nav-group">
+      <div class="nav-group-title">概览</div>
+      <a href="#" class="nav-item active">
+        <span class="icon">🏠</span>
+        <span>首页</span>
+      </a>
+    </div>
+    
+    <div class="nav-group">
+      <div class="nav-group-title">内容管理</div>
+      <a href="#" class="nav-item">
+        <span class="icon">🎬</span>
+        <span>案例管理</span>
+        <span class="badge">8</span>
+      </a>
+      <div class="nav-submenu">
+        <a href="#" class="nav-item">全部案例</a>
+        <a href="#" class="nav-item">新增案例</a>
+        <a href="#" class="nav-item">首页展示设置</a>
+      </div>
+      
+      <a href="#" class="nav-item">
+        <span class="icon">📝</span>
+        <span>文案管理</span>
+        <span class="badge">36</span>
+      </a>
+      <div class="nav-submenu">
+        <a href="#" class="nav-item">首页文案</a>
+        <a href="#" class="nav-item">关于文案</a>
+        <a href="#" class="nav-item">联系方式</a>
+      </div>
+      
+      <a href="#" class="nav-item">
+        <span class="icon">👥</span>
+        <span>团队管理</span>
+        <span class="badge">8</span>
+      </a>
+      <div class="nav-submenu">
+        <a href="#" class="nav-item">全部成员</a>
+        <a href="#" class="nav-item">新增成员</a>
+      </div>
+    </div>
+    
+    <div class="nav-group">
+      <div class="nav-group-title">系统</div>
+      <a href="#" class="nav-item">
+        <span class="icon">📁</span>
+        <span>媒体文件</span>
+      </a>
+      <a href="/" class="nav-item" target="_blank">
+        <span class="icon">🌐</span>
+        <span>查看网站</span>
+      </a>
+    </div>
+  </div>
+  
+  <div class="sidebar-footer">
+    <div class="user-info">
+      <div class="avatar">管</div>
+      <div>
+        <div class="user-name">管理员</div>
+        <div class="user-role">超级管理员</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 右侧内容 -->
+<div class="main-content">
+  <div class="topbar">
+    <div class="topbar-left">
+      <h2>首页</h2>
+      <div class="breadcrumb">
+        <a href="#">管理后台</a> / <span>首页</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a href="#" class="topbar-btn secondary">✏️ 新增案例</a>
+      <a href="#" class="topbar-btn primary">➕ 新增成员</a>
+    </div>
+  </div>
+  
+  <div class="content-area">
+    <!-- 统计卡片 -->
+    <div class="stat-cards">
+      <a href="#" class="stat-card">
+        <div class="icon purple">🎬</div>
+        <div class="info">
+          <div class="num">8</div>
+          <div class="label">案例管理</div>
+        </div>
+      </a>
+      <a href="#" class="stat-card">
+        <div class="icon blue">📝</div>
+        <div class="info">
+          <div class="num">36</div>
+          <div class="label">文案管理</div>
+        </div>
+      </a>
+      <a href="#" class="stat-card">
+        <div class="icon cyan">👥</div>
+        <div class="info">
+          <div class="num">8</div>
+          <div class="label">团队管理</div>
+        </div>
+      </a>
+    </div>
+    
+    <!-- 快捷操作 -->
+    <div class="quick-actions">
+      <h3>⚡ 快捷操作</h3>
+      <div class="buttons">
+        <a href="#" class="btn-action primary">➕ 新增案例</a>
+        <a href="#" class="btn-action secondary">✏️ 编辑文案</a>
+        <a href="#" class="btn-action secondary">👤 新增成员</a>
+        <a href="#" class="btn-action secondary">🌐 查看网站</a>
+      </div>
+    </div>
+    
+    <!-- API 接口 -->
+    <div class="api-section">
+      <h3>🔌 API 接口</h3>
+      <div class="api-list">
+        <code>GET /api/cases?category=ai-production</code> — 案例列表<br>
+        <code>GET /api/content?page=index</code> — 页面文案<br>
+        <code>GET /api/team</code> — 团队信息<br>
+        <code>GET /api/stats</code> — 统计数据<br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="preview-note">
+  📌 这是 UI 设计预览，确认后实施
+</div>
+
+</body>
+</html>

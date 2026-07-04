@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 高校培训 - 星羽创媒 | 校企协同 · AI赋能</title>
+<meta name="description" content="星羽创媒 AI 高校培训：校企协同、AI赋能，依托标杆项目《刺桐花开》，为数字媒体专业学子提供产业化、全流程、重实操的 AIGC 短剧创作实战课程。">
+<link rel="icon" href="../images/favicon-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06060E;
+  --bg-card: #0E0E1C;
+  --bg-card-hover: #141428;
+  --surface: #111122;
+  --border: rgba(255,255,255,0.06);
+  --border-glow: rgba(255,255,255,0.12);
+  --text: #FFFFFF;
+  --text-dim: rgba(255,255,255,0.65);
+  --text-muted: rgba(255,255,255,0.35);
+  --violet: #8B5CF6;
+  --blue: #3B82F6;
+  --cyan: #06B6D4;
+  --emerald: #10B981;
+  --rose: #F43F5E;
+  --amber: #F59E0B;
+  --spectrum: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 35%, #06B6D4 65%, #10B981 100%);
+  --spectrum-h: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 35%, #06B6D4 65%, #10B981 100%);
+  --glass: rgba(14,14,28,0.65);
+  --radius: 16px;
+  --font-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-en: 'Space Grotesk', 'SF Pro Display', system-ui, sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:100px; font-size:16px; -webkit-font-smoothing:antialiased; }
+body { font-family:var(--font-cn); background:var(--bg); color:var(--text); line-height:1.7; overflow-x:hidden; max-width:100vw; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+ul { list-style:none; }
+
+/* SCROLL REVEAL */
+.reveal { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.2,0,0,1), transform 0.8s cubic-bezier(0.2,0,0,1); }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:0.1s; }
+.reveal-d2 { transition-delay:0.2s; }
+.reveal-d3 { transition-delay:0.3s; }
+.reveal-d4 { transition-delay:0.4s; }
+.reveal-d5 { transition-delay:0.5s; }
+.reveal-d6 { transition-delay:0.6s; }
+
+/* NAV */
+.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; padding:20px 0; transition:background 0.4s, border-bottom 0.4s; background:transparent; }
+.navbar.scrolled { padding:12px 0; background:rgba(6,6,14,0.3); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-bottom:1px solid rgba(255,255,255,0.06); }
+.nav-inner { max-width:1320px; margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+.nav-logo { display:flex; align-items:center; gap:10px; }
+.nav-logo img { height:36px; width:auto; }
+.nav-logo span { font-size:1.1rem; font-weight:700; letter-spacing:0.06em; background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.nav-links { display:flex; gap:36px; align-items:center; }
+.nav-links a { font-size:0.85rem; font-weight:500; color:var(--text-dim); position:relative; padding:4px 0; transition:color 0.3s; letter-spacing:0.03em; }
+.nav-links a::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; border-radius:2px; background:var(--spectrum-h); transition:width 0.3s cubic-bezier(.2,0,0,1); }
+.nav-links a:hover, .nav-links a.active { color:var(--text); }
+.nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+.nav-back-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 22px !important; border-radius:24px !important; font-weight:600 !important; font-size:0.82rem !important; border:1px solid rgba(255,255,255,0.15); background:transparent; transition:all 0.3s; }
+.nav-back-btn:hover { border-color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.04); color:var(--text); }
+.nav-back-btn::after { display:none !important; }
+.nav-cta-btn { background:var(--spectrum); color:#fff !important; padding:10px 22px !important; border-radius:24px !important; font-weight:600 !important; font-size:0.82rem !important; transition:all 0.3s !important; }
+.nav-cta-btn::after { display:none !important; }
+.nav-cta-btn:hover { transform:translateY(-1px); box-shadow:0 8px 32px rgba(139,92,246,0.35); }
+.nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:1001; padding:6px; background:none; border:none; }
+.nav-toggle span { display:block; width:24px; height:2px; background:var(--text); border-radius:1px; transition:transform 0.3s, opacity 0.3s; }
+.nav-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.nav-toggle.active span:nth-child(2) { opacity:0; }
+.nav-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* SECTION BASE */
+.section-pad { padding:120px 40px; }
+.section-inner { max-width:1320px; margin:0 auto; }
+.section-label { display:inline-flex; align-items:center; gap:12px; font-family:var(--font-en); font-size:0.72rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--violet); margin-bottom:24px; }
+.section-label::before { content:''; width:32px; height:1px; background:var(--violet); opacity:0.5; }
+.section-label::after  { content:''; width:32px; height:1px; background:var(--violet); opacity:0.5; }
+.section-title { font-size:clamp(2.2rem, 4vw, 3.2rem); font-weight:900; line-height:1.2; letter-spacing:0.02em; margin-bottom:20px; }
+.section-desc { font-size:1.05rem; color:var(--text-dim); max-width:700px; line-height:1.8; }
+
+/* PAGE HERO */
+.page-hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:120px 40px 60px; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background: radial-gradient(ellipse 80% 60% at 15% 35%, rgba(139,92,246,0.04) 0%, transparent 50%), radial-gradient(ellipse 60% 50% at 80% 25%, rgba(6,182,212,0.03) 0%, transparent 45%); pointer-events:none; }
+.page-hero-content { position:relative; z-index:1; max-width:900px; margin:0 auto; text-align:center; animation:hero-fade-in 0.7s cubic-bezier(0.2,0,0,1) both; }
+@keyframes hero-fade-in { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .page-hero-content { animation:none; } }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 18px; border-radius:20px; border:1px solid rgba(139,92,246,0.25); background:rgba(139,92,246,0.05); font-family:var(--font-en); font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--violet); margin-bottom:28px; }
+.page-hero h1 { font-size:clamp(2rem, 5.5vw, 3.4rem); font-weight:900; line-height:1.15; letter-spacing:0.01em; margin-bottom:20px; color:#fff; text-wrap:balance; }
+.page-hero .hero-desc { font-size:1.05rem; color:rgba(255,255,255,0.72); line-height:1.9; max-width:640px; margin:0 auto 28px; }
+.hero-tags { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; }
+.hero-tags span { font-size:0.78rem; padding:6px 16px; border-radius:18px; border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.55); transition:border-color 0.3s, color 0.3s; }
+.hero-tags span:hover { border-color:rgba(139,92,246,0.35); color:rgba(255,255,255,0.8); }
+.hero-stats { display:flex; justify-content:center; gap:28px; margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.08); }
+.hero-stat { text-align:center; }
+.hero-stat .num { display:block; font-family:var(--font-en); font-size:1.15rem; font-weight:700; background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:2px; }
+.hero-stat .label { font-size:0.7rem; color:rgba(255,255,255,0.4); }
+
+/* BUTTONS */
+.btn-primary { display:inline-flex; align-items:center; gap:8px; padding:15px 34px; border-radius:28px; border:none; background:var(--spectrum); color:#fff; font-size:0.95rem; font-weight:600; letter-spacing:0.03em; cursor:pointer; transition:all 0.3s; font-family:var(--font-cn); }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(139,92,246,0.35); }
+.btn-ghost { display:inline-flex; align-items:center; gap:8px; padding:15px 34px; border-radius:28px; border:1px solid rgba(255,255,255,0.15); background:transparent; color:var(--text); font-size:0.95rem; font-weight:500; letter-spacing:0.03em; cursor:pointer; transition:all 0.3s; font-family:var(--font-cn); }
+.btn-ghost:hover { border-color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.04); }
+
+/* PROCESS TIMELINE */
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; }
+.process-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:36px 28px; transition:all 0.4s; position:relative; overflow:hidden; }
+.process-card:hover { border-color:rgba(139,92,246,0.2); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+.process-card .pc-icon { width:48px; height:48px; margin-bottom:16px; }
+.process-card .pc-icon svg { width:48px; height:48px; }
+.process-card .step-num { font-family:var(--font-en); font-size:1.6rem; font-weight:900; background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent; opacity:0.25; line-height:1; margin-bottom:4px; }
+.process-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:14px; letter-spacing:0.02em; position:relative; z-index:1; }
+.process-card p { font-size:0.85rem; color:var(--text-dim); line-height:1.8; position:relative; z-index:1; }
+
+/* TRAINING MODEL */
+.model-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.model-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:40px 28px; text-align:center; transition:all 0.4s; position:relative; }
+.model-card:hover { border-color:rgba(139,92,246,0.2); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+.model-card .m-step { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--spectrum); color:#fff; font-family:var(--font-en); font-size:1.2rem; font-weight:700; margin-bottom:20px; }
+.model-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:10px; letter-spacing:0.02em; }
+.model-card p { font-size:0.85rem; color:var(--text-dim); line-height:1.8; }
+.model-connector { display:flex; align-items:center; justify-content:center; color:var(--violet); font-size:1.5rem; }
+
+/* COMMERCIAL ORDER PIPELINE */
+.pipeline { display:flex; align-items:flex-start; justify-content:center; gap:0; margin-top:48px; flex-wrap:wrap; }
+.pipe-step { flex:1; min-width:160px; max-width:200px; text-align:center; padding:20px 14px 16px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); transition:all 0.4s; position:relative; }
+.pipe-step:hover { border-color:rgba(139,92,246,0.2); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+.pipe-step.highlight { border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.05); }
+.pipe-step.highlight:hover { border-color:var(--emerald); box-shadow:0 12px 40px rgba(16,185,129,0.2); }
+.pipe-step .pipe-icon { width:40px; height:40px; margin:0 auto 8px; }
+.pipe-step .pipe-icon svg { width:40px; height:40px; }
+.pipe-step .pipe-num { font-family:var(--font-en); font-size:1.4rem; font-weight:900; background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent; opacity:0.25; line-height:1; margin-bottom:6px; }
+.pipe-step.highlight .pipe-num { background:linear-gradient(135deg,#10B981,#06B6D4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; opacity:0.4; }
+.pipe-step h4 { font-size:0.85rem; font-weight:700; margin-bottom:6px; letter-spacing:0.02em; }
+.pipe-step p { font-size:0.75rem; color:var(--text-dim); line-height:1.5; }
+.pipe-arrow { display:flex; align-items:center; justify-content:center; color:var(--violet); font-size:1.4rem; font-weight:700; padding:0 4px; min-width:24px; margin-top:36px; flex-shrink:0; }
+
+/* COMPARISON GRID */
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.compare-card { border-radius:var(--radius); padding:32px 28px; border:1px solid var(--border); }
+.compare-card.old { background:rgba(244,63,94,0.04); border-color:rgba(244,63,94,0.15); }
+.compare-card.new { background:rgba(16,185,129,0.04); border-color:rgba(16,185,129,0.2); }
+.compare-card .compare-label { font-size:0.95rem; font-weight:700; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--border); letter-spacing:0.02em; }
+.compare-card.old .compare-label { color:var(--rose); }
+.compare-card.new .compare-label { color:var(--emerald); }
+.compare-card ul { list-style:none; padding:0; }
+.compare-card ul li { font-size:0.85rem; color:var(--text-dim); padding:8px 0; padding-left:20px; position:relative; line-height:1.7; }
+.compare-card ul li::before { content:''; position:absolute; left:0; top:14px; width:6px; height:6px; border-radius:50%; }
+.compare-card.old ul li::before { background:var(--rose); opacity:0.6; }
+.compare-card.new ul li::before { background:var(--emerald); }
+
+/* CHAT GALLERY */
+.chat-gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px; }
+.chat-card { background:var(--bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:all 0.4s; max-width:280px; margin:0 auto; }
+.chat-card:hover { border-color:rgba(139,92,246,0.2); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.chat-img { width:100%; overflow:hidden; border-bottom:1px solid var(--border); }
+.chat-img img { width:100%; display:block; }
+.chat-cap { padding:8px 12px; font-size:0.72rem; color:var(--text-dim); line-height:1.4; text-align:center; }
+
+/* SCENE PHOTOS */
+.scene-label { text-align:center; }
+.scene-label span { display:inline-block; font-size:0.95rem; font-weight:700; color:var(--text); padding:10px 24px; border-radius:24px; background:rgba(139,92,246,0.06); border:1px solid rgba(139,92,246,0.12); letter-spacing:0.03em; }
+.scene-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:16px; }
+.scene-card { background:var(--bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:all 0.4s; max-width:420px; margin:0 auto; }
+.scene-card:hover { border-color:rgba(139,92,246,0.2); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.scene-img { width:100%; overflow:hidden; border-bottom:1px solid var(--border); }
+.scene-img img { width:100%; display:block; }
+.scene-cap { padding:8px 12px; font-size:0.72rem; color:var(--text-dim); line-height:1.4; text-align:center; }
+
+/* RESULTS / SHOWCASE */
+.result-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px; }
+.result-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:all 0.4s; }
+.result-card:hover { border-color:rgba(139,92,246,0.2); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+.result-card .rc-visual { width:100%; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; background:var(--bg); border-bottom:1px solid var(--border); overflow:hidden; }
+.result-card .rc-visual img { width:100%; height:100%; object-fit:cover; }
+.result-card .rc-body { padding:28px; }
+.result-card .rc-body h3 { font-size:1.1rem; font-weight:700; margin-bottom:10px; letter-spacing:0.02em; }
+.result-card .rc-body p { font-size:0.88rem; color:var(--text-dim); line-height:1.8; margin-bottom:16px; }
+.result-card .rc-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.result-card .rc-tags span { font-size:0.7rem; padding:4px 12px; border-radius:12px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.12); color:var(--violet); }
+.result-card .rc-tags .tag-highlight { background:var(--spectrum); color:#fff; border-color:transparent; font-weight:600; }
+
+/* MILESTONE BADGE */
+.milestone-row { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:32px; }
+.milestone-badge { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border-radius:24px; border:1px solid rgba(16,185,129,0.2); background:rgba(16,185,129,0.06); font-size:0.82rem; font-weight:600; color:var(--emerald); }
+.milestone-badge .dot { width:8px; height:8px; border-radius:50%; background:var(--emerald); }
+
+/* DATA ROW */
+.data-row { display:flex; justify-content:center; gap:40px; margin-top:36px; flex-wrap:wrap; }
+.data-item { text-align:center; }
+.data-item .data-num { font-family:var(--font-en); font-size:2.2rem; font-weight:900; background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1.2; }
+.data-item .data-label { font-size:0.8rem; color:var(--text-muted); margin-top:4px; }
+
+/* CONTACT */
+.contact-section { background:var(--bg-card); border-top:1px solid var(--border); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:40px; }
+.contact-info h3 { font-size:1.3rem; font-weight:700; margin-bottom:24px; }
+.contact-item { display:flex; gap:14px; align-items:flex-start; margin-bottom:20px; }
+.ci-icon { flex-shrink:0; width:40px; height:40px; border-radius:10px; background:rgba(139,92,246,0.08); display:flex; align-items:center; justify-content:center; }
+.ci-icon .icon-svg { width:18px; height:18px; }
+.ci-label { font-size:0.75rem; color:var(--text-muted); margin-bottom:2px; }
+.ci-value { font-size:0.92rem; color:var(--text); font-weight:500; }
+.contact-brand { margin-top:28px; padding-top:20px; border-top:1px solid var(--border); }
+.contact-brand p { font-size:0.82rem; color:var(--text-dim); }
+.contact-form h3 { font-size:1.3rem; font-weight:700; margin-bottom:24px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.form-field input, .form-field select, .form-field textarea { width:100%; padding:14px 16px; background:var(--bg); border:1px solid var(--border); border-radius:10px; color:var(--text); font-size:0.9rem; font-family:var(--font-cn); transition:border-color 0.3s; outline:none; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color:var(--violet); }
+.form-field textarea { resize:vertical; min-height:120px; }
+
+/* CTA SECTION */
+.cta-section { background:var(--bg); border-top:1px solid var(--border); padding:100px 40px; }
+.cta-inner { max-width:800px; margin:0 auto; text-align:center; }
+.cta-inner h2 { font-size:clamp(1.8rem, 3vw, 2.6rem); font-weight:800; margin-bottom:20px; line-height:1.3; }
+.cta-inner p { font-size:1.05rem; color:var(--text-dim); margin-bottom:36px; line-height:1.8; }
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* FOOTER */
+.footer { background:var(--bg-card); border-top:1px solid var(--border); padding:60px 40px 30px; }
+.footer-grid { max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; }
+.footer-brand img { height:36px; width:auto; margin-bottom:12px; }
+.footer-brand .name { font-size:1.1rem; font-weight:700; background:var(--spectrum); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.footer-brand p { font-size:0.82rem; color:var(--text-dim); line-height:1.8; margin-top:8px; }
+.footer-col h4 { font-size:0.9rem; font-weight:700; margin-bottom:16px; color:var(--text); }
+.footer-col a, .footer-col p { display:block; font-size:0.82rem; color:var(--text-dim); margin-bottom:10px; transition:color 0.3s; }
+.footer-col a:hover { color:var(--violet); }
+.footer-bottom { max-width:1320px; margin:40px auto 0; padding-top:24px; border-top:1px solid var(--border); text-align:center; }
+.footer-bottom p { font-size:0.75rem; color:var(--text-muted); }
+
+/* BACK TO TOP */
+.back-to-top { position:fixed; bottom:32px; right:32px; width:44px; height:44px; border-radius:50%; background:var(--bg-card); border:1px solid var(--border); color:var(--text-dim); cursor:pointer; z-index:50; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:all 0.3s; }
+.back-to-top.visible { opacity:1; pointer-events:auto; }
+.back-to-top:hover { border-color:var(--violet); color:#fff; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .process-grid { grid-template-columns:repeat(2,1fr); }
+  .model-grid { grid-template-columns:1fr; }
+  .result-grid { grid-template-columns:1fr; }
+  .chat-gallery { grid-template-columns:1fr; }
+  .scene-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:repeat(2,1fr); }
+  .pipeline { gap:12px; }
+  .pipe-arrow { transform:rotate(90deg); margin-top:0; }
+  .compare-grid { grid-template-columns:1fr; }
+}
+@media (max-width: 768px) {
+  .navbar { padding:0 !important; background:rgba(6,6,14,0.95) !important; }
+  .navbar.scrolled { padding:0 !important; background:rgba(6,6,14,0.95) !important; backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+  .nav-inner { height:56px; padding:0 16px; }
+  .nav-links { position:fixed; top:56px; left:0; right:0; bottom:0; background:rgba(6,6,14,0.97); flex-direction:column; align-items:stretch; padding:20px 0; opacity:0; pointer-events:none; transition:opacity 0.25s; z-index:1001; overflow-y:auto; }
+  .nav-links.active { opacity:1; pointer-events:auto; }
+  .nav-links a { display:block; padding:16px 24px; font-size:0.95rem; border-bottom:1px solid rgba(255,255,255,0.04); text-align:left; }
+  .nav-links a::after { display:none; }
+  .nav-back-btn { border-radius:8px !important; margin:0 16px 8px; text-align:center !important; justify-content:center; }
+  .nav-cta-btn { border-radius:8px !important; margin:8px 16px 0; text-align:center !important; justify-content:center; }
+  .nav-toggle { display:flex; }
+  body.menu-open { overflow:hidden; }
+  .section-pad { padding:80px 20px; }
+  .page-hero { padding:100px 20px 50px; min-height:100vh; justify-content:center; }
+  .page-hero h1 { font-size:1.8rem; }
+  .process-grid { grid-template-columns:1fr; }
+  .hero-stats { gap:16px; }
+  .hero-stats .hero-stat .num { font-size:0.95rem; }
+  .data-row { gap:20px; }
+  .data-item .data-num { font-size:1.6rem; }
+  .form-row { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; gap:32px; }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .model-connector { transform:rotate(90deg); }
+  .pipeline { flex-direction:column; align-items:center; }
+  .pipe-step { max-width:100%; }
+  .pipe-arrow { transform:rotate(90deg); margin:4px 0; }
+  .back-to-top { bottom:84px; right:16px; width:42px; height:42px; }
+  .mobile-cta-bar { display:flex; position:fixed; bottom:0; left:0; right:0; z-index:998; padding:10px 16px; background:rgba(6,6,14,0.92); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-top:1px solid var(--border); gap:10px; }
+  .mobile-cta-bar a { flex:1; text-align:center; padding:12px 0; border-radius:12px; font-size:0.85rem; font-weight:600; }
+  .mobile-cta-bar .cta-primary { background:var(--spectrum); color:#fff; }
+  .mobile-cta-bar .cta-ghost { border:1px solid rgba(255,255,255,0.2); color:var(--text); }
+  body { padding-bottom:68px; }
+}
+@media (min-width:769px) {
+  .mobile-cta-bar { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../images/logo-gradient.png" alt="星羽创媒">
+      <span>星羽创媒</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/" class="nav-back-btn">← 返回主页</a>
+      <a href="#process">培训过程</a>
+      <a href="#model">商业闭环</a>
+      <a href="#results">合作案例</a>
+      <a href="#chat-evidence">实战群聊</a>
+      <a href="#contact" class="nav-cta-btn">联系我们</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero" id="hero">
+  <div class="page-hero-content">
+    <span class="hero-badge">University · AI Training</span>
+    <h1>校企协同 · AI赋能</h1>
+    <p class="hero-desc">
+      面向高校数字媒体专业，提供产业化、全流程、重实操的 AIGC 短剧创作实战培训。<br>
+      每期培训携带真实商业订单，学员实战即交付，交付即获报酬。
+    </p>
+    <div class="hero-tags">
+      <span>AIGC影视应用</span>
+      <span>自研AI Agent</span>
+      <span>爆款短剧技法</span>
+      <span>全流程导演教学</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">2 天</span><span class="label">线下实战营</span></div>
+      <div class="hero-stat"><span class="num">4 大</span><span class="label">课程模块</span></div>
+      <div class="hero-stat"><span class="num">3 周</span><span class="label">持续赋能指导</span></div>
+      <div class="hero-stat"><span class="num">1 部</span><span class="label">标杆实训短剧</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING PROCESS -->
+<section class="section-pad" id="process">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">Training Process</span>
+      <h2 class="section-title reveal reveal-d1">培训过程：四维课程体系</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">
+        星羽创媒核心主创团队手把手授课、沉浸式带练，<br>
+        围绕「AI技术 + 内容创作 + 项目实战」构建完整知识体系。
+      </p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="pc-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="4" stroke="url(#icon-gradient)" stroke-width="2.5"/><polygon points="19,16 19,32 33,24" fill="url(#icon-gradient)"/><circle cx="38" cy="12" r="3" fill="var(--cyan)" opacity="0.8"/><circle cx="40" cy="8" r="1.5" fill="var(--violet)"/></svg></div>
+        <div class="step-num">01</div>
+        <h3>AIGC 影视应用</h3>
+        <p>系统梳理 AIGC 影视发展脉络与落地场景，深度拆解火山引擎剧创 Agent、豆包、Midjourney 等行业主流工具链。结合公司海量项目实操经验，精准剖析行业痛点与优化方案，带领学员沉浸式实操火山引擎短剧创作 Agent、Seedance 2.0 模型。</p>
+      </div>
+      <div class="process-card reveal reveal-d1">
+        <div class="pc-icon"><svg viewBox="0 0 48 48" fill="none"><polygon points="24,4 36,12 36,28 24,36 12,28 12,12" stroke="url(#icon-gradient)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="20" r="5" stroke="url(#icon-gradient)" stroke-width="2.5"/><line x1="24" y1="15" x2="24" y2="11" stroke="url(#icon-gradient)" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="20" r="2" fill="url(#icon-gradient)"/></svg></div>
+        <div class="step-num">02</div>
+        <h3>自研 AI Agent 技术</h3>
+        <p>现场演示公司自主研发的"旅伴AI"智能体，对比传统 AIGC 与新一代 AI Agent 的本质差异，清晰拆解任务执行型 AI 的核心逻辑、落地场景与迭代优势，帮助学员建立专业化、前沿化的 AI 技术认知。</p>
+      </div>
+      <div class="process-card reveal reveal-d2">
+        <div class="pc-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="10" y="5" width="22" height="32" rx="2" stroke="url(#icon-gradient)" stroke-width="2.5"/><line x1="14" y1="12" x2="26" y2="12" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="18" x2="26" y2="18" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="24" x2="22" y2="24" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"/><path d="M32,8 L40,13 L40,35 L32,37" stroke="url(#icon-gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="step-num">03</div>
+        <h3>爆款短剧技法拆解</h3>
+        <p>聚焦文旅短剧细分赛道，深度拆解行业爆款创作底层逻辑——黄金三秒开篇、高频剧情反转、立体人物人设、紧凑叙事节奏。引导学员坚守"创意主导、技术赋能"，打造有温度、有质感的优质文旅内容。</p>
+      </div>
+      <div class="process-card reveal reveal-d3">
+        <div class="pc-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="url(#icon-gradient)" stroke-width="2.5"/><line x1="12" y1="12" x2="12" y2="6" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round"/><line x1="36" y1="12" x2="36" y2="6" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round"/><rect x="16" y="17" width="16" height="12" rx="1" stroke="var(--cyan)" stroke-width="2"/><line x1="22" y1="22" x2="28" y2="26" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="22" x2="22" y2="26" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="step-num">04</div>
+        <h3>全流程导演教学</h3>
+        <p>全方位拆解短剧导演全流程工作体系——从脚本情绪精细化拆解、镜头语言设计、画面构图技巧，到现场演员调度、剧组统筹管控、标准化影视制作流程，完整还原一线影视企业的真实工作场景与行业规范。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIAL ORDER PIPELINE -->
+<section class="section-pad" style="background:var(--bg-card);border-top:1px solid var(--border);" id="model">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">Commercial-Order-Driven</span>
+      <h2 class="section-title reveal reveal-d1">商业订单驱动 · 培训实战闭环</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">
+        每期培训均携带真实商业订单开班，学员培训后直接进入甲方项目实战——<br>
+        <strong style="color:var(--text);">满足商业交付标准，即获项目报酬，做到学有所得、练有所成、劳有所获。</strong>
+      </p>
+    </div>
+
+    <!-- Pipeline -->
+    <div class="pipeline reveal reveal-d2">
+      <div class="pipe-step">
+        <div class="pipe-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="2" stroke="url(#icon-gradient)" stroke-width="2"/><line x1="13" y1="14" x2="27" y2="14" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="19" x2="27" y2="19" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="24" x2="22" y2="24" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 30 L19 33 L26 26" stroke="var(--emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pipe-num">01</div>
+        <h4>商业订单引入</h4>
+        <p>每期开班携带真实甲方项目订单，明确商业交付标准与创作要求</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="8" y="8" width="24" height="26" rx="2" stroke="url(#icon-gradient)" stroke-width="2"/><line x1="13" y1="16" x2="27" y2="16" stroke="var(--cyan)" stroke-width="1.5"/><line x1="13" y1="21" x2="27" y2="21" stroke="var(--cyan)" stroke-width="1.5"/><line x1="13" y1="26" x2="20" y2="26" stroke="var(--cyan)" stroke-width="1.5"/><path d="M26 4 L26 12 M30 6 L22 6" stroke="var(--violet)" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="pipe-num">02</div>
+        <h4>系统培训授课</h4>
+        <p>四维课程体系 + 一线主创手把手教学，快速构建专业能力</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="22" rx="3" stroke="url(#icon-gradient)" stroke-width="2"/><polygon points="16,15 16,27 25,21" fill="url(#icon-gradient)"/><circle cx="34" cy="12" r="3" fill="var(--cyan)" opacity="0.7"/></svg></div>
+        <div class="pipe-num">03</div>
+        <h4>学员实战创作</h4>
+        <p>分组协作进入真实项目，导师全程指导完成商业级交付作品</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M20 5 L32 10 L32 24 C32 30 20 36 20 36 C20 36 8 30 8 24 L8 10 Z" stroke="url(#icon-gradient)" stroke-width="2" stroke-linejoin="round"/><polyline points="13,20 18,25 27,14" stroke="var(--emerald)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pipe-num">04</div>
+        <h4>甲方验收交付</h4>
+        <p>对标商业标准审核定稿，确保作品满足甲方需求并成功交付</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step highlight">
+        <div class="pipe-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="var(--emerald)" stroke-width="2"/><text x="20" y="26" text-anchor="middle" font-size="20" font-weight="900" fill="url(#icon-gradient)" font-family="system-ui">¥</text></svg></div>
+        <div class="pipe-num">05</div>
+        <h4>获得项目报酬</h4>
+        <p>交付即获相应报酬，真正做到培训与收益双收</p>
+      </div>
+    </div>
+
+    <!-- Comparison -->
+    <div class="compare-grid reveal reveal-d3" style="margin-top:64px;">
+      <div class="compare-card old">
+        <div class="compare-label">传统培训模式</div>
+        <ul>
+          <li>理论授课为主，缺乏实战场景</li>
+          <li>作业脱离产业，无法接轨市场</li>
+          <li>培训结束即止，无后续跟进</li>
+          <li>学员无实际收入，积极性有限</li>
+        </ul>
+      </div>
+      <div class="compare-card new">
+        <div class="compare-label">星羽创媒 商业订单模式</div>
+        <ul>
+          <li>真实商业订单驱动，对标甲方需求</li>
+          <li>产业级项目实战，作品直接面向市场</li>
+          <li>3周持续赋能，确保完整项目交付</li>
+          <li><strong>交付即获报酬，培训+收益双闭环</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px;" class="reveal reveal-d4">
+      <p style="font-size:0.9rem;color:var(--text-dim);">
+        后续三周，星羽创媒团队持续全程赋能指导，带领学员完成剧本优化打磨、角色场景精修、AI视频成片制作、后期剪辑包装、内容审核定稿等全流程工作，<br>
+        <strong style="color:var(--text);">助力每位学员独立完成完整商业短剧项目，交付即获报酬。</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section-pad" id="results">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">Case Study</span>
+      <h2 class="section-title reveal reveal-d1">合作案例</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">
+        以 <strong style="color:var(--text);">广州工商学院</strong> 为合作范例，展示「商业订单驱动·培训实战闭环」的完整落地路径
+      </p>
+    </div>
+    <div class="result-grid">
+      <div class="result-card reveal">
+        <div class="rc-visual"><img src="../images/ba391df6_82f488055b066e3f30e3b7c47ac874d1.jpg" alt="广州工商学院 · 校企联合实训" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="rc-body">
+          <h3>广州工商学院 · 校企联合实训</h3>
+          <p>星羽创媒教育团队与广州工商学院深度联动，为数字媒体技术专业学子量身打造 AI 文旅短剧创作线下实战营。以真实商业订单《刺桐花开》为实训载体，实现培训+实战+交付+报酬全闭环。</p>
+          <div class="rc-tags">
+            <span>校企联合实训</span>
+            <span>数字媒体专业</span>
+            <span>真实商业订单</span>
+            <span>交付即获报酬</span>
+          </div>
+        </div>
+      </div>
+      <div class="result-card reveal reveal-d1">
+        <div class="rc-visual"><img src="../images/a51e1472_20260620145956_18_279.jpg" alt="刺桐花开" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="rc-body">
+          <h3>商业订单作品：《刺桐花开》</h3>
+          <p>本期培训携带的商业订单项目，星羽创媒自研"海丝绣梦"系列首部原创文旅短剧，泉州城市文旅重点推广项目。学员全程参与分镜策划、角色资产搭建、场景定制设计、图生视频制作等核心环节，最终作品成功入选红果精品剧库。</p>
+          <div class="rc-tags">
+            <span class="tag-highlight">已入选红果精品剧库</span>
+            <span>泉州文旅重点项目</span>
+            <span>国内首部AI辅助文旅短剧</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-row reveal reveal-d2" style="margin-top:48px;">
+      <div class="data-item"><div class="data-num">4 位</div><div class="data-label">一线主创导师</div></div>
+      <div class="data-item"><div class="data-num">2 天</div><div class="data-label">线下密集实训</div></div>
+      <div class="data-item"><div class="data-num">3 周</div><div class="data-label">持续远程指导</div></div>
+      <div class="data-item"><div class="data-num">1 部</div><div class="data-label">完整商业短剧交付</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING SCENE -->
+<section class="section-pad" style="background:var(--bg-card);border-top:1px solid var(--border);" id="chat-evidence">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">On-Site Records</span>
+      <h2 class="section-title reveal reveal-d1">培训现场实录</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">
+        真实还原广州工商学院实训现场——从课堂教学到项目实战，再到甲方群内直接沟通，<br>
+        完整呈现「商业订单驱动·培训实战闭环」的每个环节。
+      </p>
+    </div>
+
+    <!-- Classroom Photos -->
+    <div class="scene-label reveal reveal-d1"><span>课堂 & 实战现场</span></div>
+    <div class="scene-grid reveal reveal-d1">
+      <div class="scene-card">
+        <div class="scene-img"><img src="../images/field/class-photo-1.jpg" alt="课堂教学现场" loading="lazy"></div>
+        <div class="scene-cap">星羽创媒主创团队线下授课，四维课程体系手把手教学</div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-img"><img src="../images/field/class-photo-2.jpg" alt="实战创作现场" loading="lazy"></div>
+        <div class="scene-cap">学员分组协作，在导师指导下完成商业项目实战创作</div>
+      </div>
+    </div>
+
+    <!-- Chat Records -->
+    <div class="scene-label reveal reveal-d2" style="margin-top:48px;"><span>甲方 × 学员 × 导师 群聊实录</span></div>
+    <div class="chat-gallery reveal reveal-d2">
+      <div class="chat-card">
+        <div class="chat-img"><img src="../images/field/chat-group-1.png" alt="甲方沟通需求" loading="lazy"></div>
+        <div class="chat-cap">甲方在群内直接沟通创作需求与分镜方案</div>
+      </div>
+      <div class="chat-card">
+        <div class="chat-img"><img src="../images/field/chat-group-2.png" alt="项目反馈迭代" loading="lazy"></div>
+        <div class="chat-cap">导师指导、甲方反馈与学员修改迭代全程可见</div>
+      </div>
+      <div class="chat-card">
+        <div class="chat-img"><img src="../images/field/chat-group-3.png" alt="交付标准讨论" loading="lazy"></div>
+        <div class="chat-cap">围绕商业交付标准的深入讨论与作品打磨</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="section-label reveal" style="margin-bottom:16px;">Get Started</span>
+    <h2 class="reveal reveal-d1">深耕产教融合，以产业力量赋能人才培养</h2>
+    <p class="reveal reveal-d2">
+      星羽创媒将持续深化全国高校战略合作，常态化开展前沿技术分享、产业实训落地、<br>
+      真实项目孵化、校企联合创作等特色活动，持续培育懂技术、善创新、有创意的复合型数字文创人才。
+    </p>
+    <div class="cta-btns reveal reveal-d3">
+      <a href="/#contact" class="btn-primary">咨询校企合作 →</a>
+      <a href="/aigc-training/" class="btn-ghost">进入培训平台 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section section-pad" id="contact" style="scroll-margin-top:-105px;">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label reveal">Contact Us</span>
+      <h2 class="section-title reveal reveal-d1">期待与您携手</h2>
+      <p class="section-desc reveal reveal-d2" style="margin:0 auto;">探索校企协同育人新模式，赋能数字文创人才培养</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>联系方式</h3>
+        <div class="contact-item">
+          <div class="ci-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="url(#icon-gradient)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><div class="ci-label">公司地址</div><div class="ci-value">广州市黄埔区荔红一路6号5A栋</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="url(#icon-gradient)"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+          <div><div class="ci-label">联系电话</div><div class="ci-value">19366886778</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="url(#icon-gradient)"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg></div>
+          <div><div class="ci-label">微信</div><div class="ci-value">KasonChan13</div></div>
+        </div>
+        <div class="contact-brand"><p>广州星羽创媒数字营销有限公司</p></div>
+      </div>
+      <div class="contact-form reveal reveal-d1">
+        <h3>发送咨询</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-field"><input type="text" placeholder="您的姓名" required></div>
+            <div class="form-field"><input type="text" placeholder="学校/单位名称"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><input type="tel" placeholder="联系电话" required></div>
+            <div class="form-field">
+              <select><option value="">选择服务类型</option><option>AI 高校培训</option><option>AI 内容生产</option><option>文旅 IP</option><option>AI 视频制作</option><option>品牌 VIS 升级</option><option>纪录片制作</option><option>其他</option></select>
+            </div>
+          </div>
+          <div class="form-field"><textarea placeholder="请描述您的需求…" rows="4"></textarea></div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">提交咨询</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../images/logo-gradient.png" alt="星羽创媒"><span class="name">星羽创媒</span>
+      <p>科技赋能品牌视觉<br>AI+短剧+文旅+品牌营销 全链路解决方案</p>
+    </div>
+    <div class="footer-col">
+      <h4>快速导航</h4>
+      <a href="/#about">企业简介</a>
+      <a href="/#team">核心团队</a>
+      <a href="/#ai-production">AI内容生产</a>
+      <a href="/ai-training/">AI高校培训</a>
+      <a href="/#events">文旅 IP</a>
+      <a href="/ai-agent.html">企业 AI Agent</a>
+      <a href="/ai-studio.html">AI Studio</a>
+      <a href="/geo.html">海外 GEO</a>
+    </div>
+    <div class="footer-col">
+      <h4>业务板块</h4>
+      <a href="/ai-production.html">AI品牌视频</a>
+      <a href="/ai-production.html">TVC商业广告</a>
+      <a href="/ai-agent.html">企业AI Agent</a>
+      <a href="/ai-studio.html">AI Studio</a>
+    </div>
+    <div class="footer-col">
+      <h4>联系方式</h4>
+      <p>广州市黄埔区荔红一路6号5A栋</p>
+      <p>电话：19366886778</p>
+      <p>微信：KasonChan13</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 广州星羽创媒数字营销有限公司. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="返回顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Mobile Fixed CTA Bar -->
+<div class="mobile-cta-bar">
+  <a href="#contact" class="cta-primary">咨询校企合作</a>
+  <a href="/" class="cta-ghost">返回主页</a>
+</div>
+
+<svg style="position:absolute;width:0;height:0;" aria-hidden="true">
+  <defs>
+    <linearGradient id="icon-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="35%" stop-color="#3B82F6"/>
+      <stop offset="65%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', scrollY > 50));
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active'); links.classList.toggle('active'); document.body.classList.toggle('menu-open');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      toggle.classList.remove('active'); links.classList.remove('active'); document.body.classList.remove('menu-open');
+      const target = document.querySelector(href);
+      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 100);
+    } else {
+      toggle.classList.remove('active'); links.classList.remove('active'); document.body.classList.remove('menu-open');
+    }
+  }));
+
+  // Back to top
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', scrollY > 500));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Form
+  document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = this;
+    const data = {
+      name: form.querySelector('input[placeholder="您的姓名"]').value,
+      company: form.querySelector('input[placeholder="学校/单位名称"]').value,
+      phone: form.querySelector('input[placeholder="联系电话"]').value,
+      service_type: form.querySelector('select').value,
+      message: form.querySelector('textarea').value,
+    };
+    try {
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.ok) {
+        alert(result.msg);
+        form.reset();
+      } else {
+        alert(result.msg || '提交失败，请重试');
+      }
+    } catch (err) {
+      alert('网络错误，请重试');
+    }
+  });
+});
+</script>
+<script src="../static/js/cms-loader.js"></script>
+</body>
+</html>

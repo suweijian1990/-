@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.12"/><stop offset="100%" stop-color="#06B6D4" stop-opacity="0.03"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="40%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.15"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="150" cy="100" r="140" fill="url(#gl)"/>
+  <!-- Traditional gate / architecture (left-center) -->
+  <path d="M50 80 Q65 68 80 72 Q95 62 120 58 Q145 62 160 72 Q175 68 190 80" stroke="url(#g1)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M45 82 L195 82" stroke="url(#g1)" stroke-width="1.5" opacity="0.5"/>
+  <path d="M45 82 Q40 78 35 82" stroke="url(#g1)" stroke-width="1.5" fill="none"/>
+  <path d="M195 82 Q200 78 205 82" stroke="url(#g1)" stroke-width="1.5" fill="none"/>
+  <path d="M65 76 Q80 68 100 72 Q115 64 120 60 Q125 64 140 72 Q160 68 175 76" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)" opacity="0.4"/>
+  <!-- Pillars -->
+  <rect x="70" y="82" width="4" height="50" rx="2" fill="url(#g1)" opacity="0.45"/>
+  <rect x="166" y="82" width="4" height="50" rx="2" fill="url(#g1)" opacity="0.45"/>
+  <!-- Door arch -->
+  <path d="M85 132 L85 100 Q85 90 120 90 Q155 90 155 100 L155 132" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <line x1="120" y1="90" x2="120" y2="132" stroke="url(#g1)" stroke-width="1" opacity="0.25"/>
+  <!-- Window circles -->
+  <circle cx="102" cy="98" r="5" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.35"/>
+  <circle cx="138" cy="98" r="5" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.35"/>
+  <!-- Film strip (right) -->
+  <rect x="230" y="35" width="100" height="65" rx="5" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <rect x="236" y="41" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="252" y="41" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="268" y="41" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="284" y="41" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="300" y="41" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="316" y="41" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="236" y="55" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="252" y="55" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="268" y="55" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="284" y="55" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="300" y="55" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <rect x="316" y="55" width="10" height="8" rx="1" fill="url(#g1)" opacity="0.25"/>
+  <!-- Camera icon on film -->
+  <circle cx="280" cy="78" r="10" stroke="url(#g1)" stroke-width="1.5" fill="none"/>
+  <circle cx="280" cy="78" r="4" fill="#3B82F6" opacity="0.5"/>
+  <rect x="270" y="65" width="14" height="5" rx="2" fill="url(#g1)" opacity="0.35"/>
+  <!-- Connection line architecture to film -->
+  <path d="M200 100 L230 80" stroke="url(#g1)" stroke-width="1" opacity="0.2" stroke-dasharray="4,4"/>
+  <!-- × symbol -->
+  <circle cx="215" cy="90" r="10" stroke="url(#g1)" stroke-width="1.2" fill="url(#g2)"/>
+  <line x1="211" y1="86" x2="219" y2="94" stroke="url(#g1)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="219" y1="86" x2="211" y2="94" stroke="url(#g1)" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Waves at bottom (Maritime Silk Road) -->
+  <path d="M20 160 Q50 148 80 160 Q110 172 140 160 Q170 148 200 160 Q230 172 260 160 Q290 148 320 160 Q340 168 350 160" stroke="url(#g1)" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M25 172 Q55 160 85 172 Q115 184 145 172 Q175 160 205 172 Q235 184 265 172 Q295 160 325 172" stroke="url(#g1)" stroke-width="1.2" fill="none" opacity="0.25"/>
+  <path d="M30 183 Q60 173 90 183 Q120 193 150 183 Q180 173 210 183 Q240 193 270 183 Q300 173 330 183" stroke="url(#g1)" stroke-width="0.8" fill="none" opacity="0.15"/>
+  <!-- Particles -->
+  <circle cx="25" cy="55" r="2" fill="#8B5CF6" opacity="0.25"/>
+  <circle cx="340" cy="130" r="2" fill="#06B6D4" opacity="0.25"/>
+  <circle cx="40" cy="140" r="1.5" fill="#3B82F6" opacity="0.2"/>
+  <circle cx="330" cy="55" r="1.5" fill="#8B5CF6" opacity="0.2"/>
+  <circle cx="180" cy="100" r="145" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="8,12"/>
+</svg>

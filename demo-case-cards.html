@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案例卡片 Demo</title>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-cn);background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}ul,ol{list-style:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.section-pad{padding:80px 16px}
+.section-inner{max-width:1320px;margin:0 auto;padding:0 32px}
+.section-label{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-en);font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--violet);margin-bottom:24px}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px}
+.section-desc{font-size:15px;color:var(--text-muted);max-width:56ch;line-height:1.75;margin:0 auto 48px}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 0.85s var(--ease),transform 0.85s var(--ease)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.reveal.reveal-d1{transition-delay:0.06s}.reveal.reveal-d2{transition-delay:0.13s}.reveal.reveal-d3{transition-delay:0.20s}
+
+
+
+</style>
+</head>
+<body>
+<section class="section-pad">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-label">AI Content Production</span>
+      <h2 class="section-title">AI 内容生产</h2>
+      <p class="section-desc">为品牌提供全套AI视觉视频素材制作服务——TVC商业广告片、节日营销短视频、平面视觉设计</p>
+    </div>
+    <div class="cat-grid" data-cms="case-grid">
+      <!-- 名创优品 -->
+      <div class="cat-card cat-inline-video-card reveal" data-video="/uploads/videos/名创优品年会AI开场视频.mp4">
+        <div class="cat-bg-video" style="background: linear-gradient(135deg, #1a1040 0%, #0d0d2b 40%, #1a1040 100%);"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-video-content">
+          <h3>名创优品年会活动 AI 视频</h3>
+          <div class="cat-en">MINISO Annual Gala AI Opening</div>
+          <p class="cat-desc">以品牌IP为贯穿主线，利用AI三视图精准固定IP一致性，设计IP联动转场，快速点燃年会氛围，强化品牌"全球化+IP"标签。</p>
+        </div>
+        <video class="cat-inline-video" preload="none" playsinline controls></video>
+        <button class="cat-video-close" aria-label="关闭视频">✕</button>
+      </div>
+      <!-- 东风标致 -->
+      <div class="cat-card cat-inline-video-card reveal reveal-d1" data-video="/uploads/videos/东风标致AI宣传片.mp4">
+        <div class="cat-bg-video" style="background: linear-gradient(135deg, #0f1a2e 0%, #0a0f1f 40%, #0f1a2e 100%);"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-video-content">
+          <h3>东风标致 AI 传播视频</h3>
+          <div class="cat-en">Peugeot AI Brand Film</div>
+          <p class="cat-desc">以标致"浪漫有理"品牌理念为内核，全片展现品牌匠心工艺，诠释极致追求亦是别样浪漫。最终交付英文版本全球同步播放。</p>
+        </div>
+        <video class="cat-inline-video" preload="none" playsinline controls></video>
+        <button class="cat-video-close" aria-label="关闭视频">✕</button>
+      </div>
+      <!-- 芝华仕 -->
+      <div class="cat-card cat-inline-video-card reveal reveal-d2" data-video="/uploads/videos/芝华士沙发AI商业TVC.mp4">
+        <div class="cat-bg-video" style="background: linear-gradient(135deg, #111122 0%, #0b0b1a 40%, #111122 100%);"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-video-content">
+          <h3>芝华仕沙发 AI 商业 TVC</h3>
+          <div class="cat-en">CHEERS AI Commercial TVC</div>
+          <p class="cat-desc">采用香蕉生图技术破解多角度镜头切换难题，预设多元场景参数，实现镜头平滑切换，全渠道投放收获品牌方高度好评。</p>
+        </div>
+        <video class="cat-inline-video" preload="none" playsinline controls></video>
+        <button class="cat-video-close" aria-label="关闭视频">✕</button>
+      </div>
+      <!-- 常州AI短剧季 -->
+      <div class="cat-card cat-inline-video-card reveal reveal-d3" data-video="/uploads/videos/爸爸的龙舟.mp4">
+        <div class="cat-bg-video" style="background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1f 40%, #1a1a2e 100%);"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-video-content">
+          <h3>常州 AI 短剧季 ·《爸爸的龙舟》</h3>
+          <div class="cat-en">Changzhou AI Short Drama</div>
+          <p class="cat-desc">以苏超常州主场日为背景，融合端午节与父亲节三重热点，温情诠释中国式父爱。作品获常州主办方高度认可，被官方媒体「常州发布」直接发布，实现 1 万+ 转发传播。</p>
+        </div>
+        <video class="cat-inline-video" preload="none" playsinline controls></video>
+        <button class="cat-video-close" aria-label="关闭视频">✕</button>
+      </div>
+    </div></div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="#" style="display:inline-block;padding:12px 32px;border-radius:24px;border:1px solid rgba(139,92,246,0.25);background:rgba(139,92,246,0.05);color:var(--violet);font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;">查看更多案例 →</a>
+    </div>
+  </div>
+</section>
+<script>
+(function() {
+  // Reveal animation
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { obs.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('in-view'); });
+  }
+
+  // Inline video cards
+  var videoCards = document.querySelectorAll('.cat-inline-video-card');
+  function stopInlineVideo(videoEl) {
+    if (!videoEl) return;
+    videoEl.pause();
+    videoEl.currentTime = 0;
+    videoEl.style.display = 'none';
+  }
+  function playInlineVideo(videoEl) {
+    if (!videoEl) return;
+    videoEl.style.display = 'block';
+    videoEl.play().catch(function(){});
+  }
+  videoCards.forEach(function(card) {
+    var bgVideo = card.querySelector('.cat-bg-video');
+    var inlineVideo = card.querySelector('.cat-inline-video');
+    var closeBtn = card.querySelector('.cat-video-close');
+    card.addEventListener('click', function(e) {
+      if (card.classList.contains('playing')) return;
+      if (e.target === closeBtn || e.target.closest('.cat-video-close')) return;
+      videoCards.forEach(function(other) {
+        if (other !== card && other.classList.contains('playing')) {
+          other.classList.remove('playing');
+          stopInlineVideo(other.querySelector('.cat-inline-video'));
+          var obg = other.querySelector('.cat-bg-video');
+          if (obg) obg.style.display = '';
+          var oov = other.querySelector('.cat-overlay');
+          if (oov) oov.style.display = '';
+        }
+      });
+      card.classList.add('playing');
+      if (bgVideo) bgVideo.style.display = 'none';
+      if (inlineVideo && !inlineVideo.src && card.getAttribute('data-video')) {
+        inlineVideo.src = card.getAttribute('data-video');
+      }
+      playInlineVideo(inlineVideo);
+    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e2) {
+        e2.stopPropagation();
+        card.classList.remove('playing');
+        stopInlineVideo(inlineVideo);
+        if (bgVideo) bgVideo.style.display = '';
+        var overlay = card.querySelector('.cat-overlay');
+        if (overlay) overlay.style.display = '';
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>

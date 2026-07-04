@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="fire" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/><stop offset="50%" stop-color="#F43F5E"/><stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" stop-opacity="0.08"/><stop offset="100%" stop-color="#F59E0B" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#F43F5E" stop-opacity="0.1"/><stop offset="100%" stop-color="#F43F5E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="140" cy="100" r="120" fill="url(#gl)"/>
+  <!-- Volcano mountain -->
+  <path d="M60 140 L120 45 L130 42 L140 38 L150 42 L160 45 L220 140 Z" fill="url(#g2)" stroke="url(#g1)" stroke-width="1.5"/>
+  <!-- Mountain ridge detail -->
+  <path d="M85 140 L125 60 L140 50 L155 60 L195 140" stroke="url(#g1)" stroke-width="0.8" fill="none" opacity="0.2"/>
+  <!-- Crater opening -->
+  <ellipse cx="140" cy="42" rx="14" ry="5" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <!-- Eruption flames -->
+  <path d="M132 38 Q128 20 135 10 Q140 5 145 10 Q152 20 148 38" fill="url(#fire)" opacity="0.4"/>
+  <path d="M136 36 Q134 22 138 15 Q140 10 142 15 Q146 22 144 36" fill="url(#fire)" opacity="0.5"/>
+  <!-- Fire particles -->
+  <circle cx="130" cy="18" r="3" fill="#F59E0B" opacity="0.4"/>
+  <circle cx="150" cy="14" r="2.5" fill="#F43F5E" opacity="0.35"/>
+  <circle cx="138" cy="8" r="2" fill="#8B5CF6" opacity="0.3"/>
+  <circle cx="145" cy="22" r="2" fill="#F59E0B" opacity="0.3"/>
+  <circle cx="125" cy="28" r="1.5" fill="#F43F5E" opacity="0.25"/>
+  <circle cx="155" cy="25" r="1.5" fill="#F59E0B" opacity="0.25"/>
+  <!-- AI circuit overlay on mountain -->
+  <circle cx="120" cy="80" r="3" fill="#F59E0B" opacity="0.4"/>
+  <circle cx="160" cy="75" r="3" fill="#F43F5E" opacity="0.4"/>
+  <circle cx="140" cy="95" r="3" fill="#8B5CF6" opacity="0.4"/>
+  <line x1="120" y1="80" x2="140" y2="95" stroke="#F59E0B" stroke-width="0.7" opacity="0.3"/>
+  <line x1="160" y1="75" x2="140" y2="95" stroke="#F43F5E" stroke-width="0.7" opacity="0.3"/>
+  <!-- Ground line -->
+  <line x1="40" y1="140" x2="240" y2="140" stroke="url(#g1)" stroke-width="0.8" opacity="0.2"/>
+  <!-- Product labels -->
+  <rect x="30" y="150" width="50" height="18" rx="9" stroke="#F59E0B" stroke-width="1" fill="url(#g2)"/>
+  <text x="55" y="162.5" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#F59E0B" text-anchor="middle" font-weight="600">豆包</text>
+  <rect x="90" y="150" width="50" height="18" rx="9" stroke="#F43F5E" stroke-width="1" fill="url(#g2)"/>
+  <text x="115" y="162.5" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#F43F5E" text-anchor="middle" font-weight="600">即梦</text>
+  <rect x="150" y="150" width="68" height="18" rx="9" stroke="#8B5CF6" stroke-width="1" fill="url(#g2)"/>
+  <text x="184" y="162.5" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#8B5CF6" text-anchor="middle" font-weight="600">Seedance</text>
+  <!-- Sparkles -->
+  <circle cx="40" cy="50" r="2" fill="#F59E0B" opacity="0.2"/>
+  <circle cx="240" cy="45" r="2" fill="#F43F5E" opacity="0.2"/>
+  <circle cx="140" cy="90" r="125" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.05" stroke-dasharray="6,10"/>
+</svg>

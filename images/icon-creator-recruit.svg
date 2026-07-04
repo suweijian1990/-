@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.1"/><stop offset="100%" stop-color="#F59E0B" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.1"/><stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="180" cy="90" r="130" fill="url(#gl)"/>
+  <!-- Central creator figure -->
+  <circle cx="180" cy="55" r="16" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <path d="M160 92 Q160 72 180 70 Q200 72 200 92" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <!-- Creative spark -->
+  <path d="M180 30 L183 22 L186 30 L194 33 L186 36 L183 44 L180 36 L172 33 Z" fill="#F59E0B" opacity="0.55"/>
+  <!-- Left: Camera -->
+  <rect x="40" y="65" width="50" height="35" rx="5" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <circle cx="65" cy="82" r="10" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.45"/>
+  <circle cx="65" cy="82" r="4" fill="#F59E0B" opacity="0.45"/>
+  <rect x="53" y="61" width="16" height="6" rx="2" fill="url(#g1)" opacity="0.35"/>
+  <!-- Right: Pen/brush -->
+  <path d="M290 55 L305 105 L298 108 L283 58 Z" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <path d="M305 105 L309 118 L298 112 L295 108 Z" fill="#F59E0B" opacity="0.45"/>
+  <!-- Network nodes -->
+  <circle cx="55" cy="35" r="8" fill="#F59E0B" opacity="0.25"/>
+  <circle cx="305" cy="40" r="8" fill="#8B5CF6" opacity="0.25"/>
+  <circle cx="60" cy="135" r="8" fill="#3B82F6" opacity="0.25"/>
+  <circle cx="300" cy="130" r="8" fill="#06B6D4" opacity="0.25"/>
+  <circle cx="180" cy="155" r="8" fill="#F59E0B" opacity="0.25"/>
+  <!-- Connection lines -->
+  <line x1="165" y1="55" x2="63" y2="38" stroke="#F59E0B" stroke-width="1" opacity="0.25"/>
+  <line x1="195" y1="55" x2="297" y2="43" stroke="#8B5CF6" stroke-width="1" opacity="0.25"/>
+  <line x1="165" y1="88" x2="68" y2="130" stroke="#3B82F6" stroke-width="1" opacity="0.25"/>
+  <line x1="195" y1="88" x2="292" y2="127" stroke="#06B6D4" stroke-width="1" opacity="0.25"/>
+  <line x1="180" y1="92" x2="180" y2="147" stroke="#F59E0B" stroke-width="1" opacity="0.25"/>
+  <!-- Cross connections -->
+  <line x1="55" y1="35" x2="305" y2="40" stroke="url(#g1)" stroke-width="0.4" opacity="0.12" stroke-dasharray="5,5"/>
+  <line x1="60" y1="135" x2="300" y2="130" stroke="url(#g1)" stroke-width="0.4" opacity="0.12" stroke-dasharray="5,5"/>
+  <!-- "1000" badge -->
+  <text x="180" y="172" font-family="'Space Grotesk',sans-serif" font-size="13" fill="#F59E0B" text-anchor="middle" opacity="0.4" font-weight="700">1000+ AI Creators</text>
+  <!-- Particles -->
+  <circle cx="30" cy="110" r="2" fill="#F59E0B" opacity="0.2"/>
+  <circle cx="330" cy="105" r="2" fill="#8B5CF6" opacity="0.2"/>
+  <circle cx="120" cy="20" r="1.5" fill="#3B82F6" opacity="0.15"/>
+  <circle cx="240" cy="18" r="1.5" fill="#F59E0B" opacity="0.15"/>
+  <circle cx="180" cy="90" r="140" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="8,12"/>
+</svg>

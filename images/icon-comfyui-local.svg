@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.1"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.12"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="140" cy="90" r="120" fill="url(#gl)"/>
+  <!-- Monitor frame -->
+  <rect x="50" y="18" width="180" height="110" rx="8" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <!-- Screen inner -->
+  <rect x="58" y="26" width="164" height="94" rx="4" fill="url(#g2)" stroke="url(#g1)" stroke-width="0.5" opacity="0.4"/>
+  <!-- Node graph on screen -->
+  <!-- Node A: Load Image -->
+  <rect x="68" y="36" width="55" height="22" rx="4" stroke="#8B5CF6" stroke-width="1" fill="url(#g2)"/>
+  <text x="95.5" y="50.5" font-family="'Space Grotesk',sans-serif" font-size="6.5" fill="#8B5CF6" text-anchor="middle">Load Image</text>
+  <!-- Node B: KSampler -->
+  <rect x="148" y="34" width="60" height="26" rx="4" stroke="#3B82F6" stroke-width="1" fill="url(#g2)"/>
+  <text x="178" y="47" font-family="'Space Grotesk',sans-serif" font-size="6.5" fill="#3B82F6" text-anchor="middle" font-weight="600">KSampler</text>
+  <text x="178" y="55" font-family="'Space Grotesk',sans-serif" font-size="5" fill="#3B82F6" text-anchor="middle" opacity="0.5">steps: 20</text>
+  <!-- Node C: Save Image -->
+  <rect x="155" y="78" width="55" height="22" rx="4" stroke="#10B981" stroke-width="1" fill="url(#g2)"/>
+  <text x="182.5" y="92.5" font-family="'Space Grotesk',sans-serif" font-size="6.5" fill="#10B981" text-anchor="middle">Save Image</text>
+  <!-- Node D: CLIP -->
+  <rect x="72" y="72" width="48" height="20" rx="4" stroke="#06B6D4" stroke-width="1" fill="url(#g2)"/>
+  <text x="96" y="85.5" font-family="'Space Grotesk',sans-serif" font-size="6.5" fill="#06B6D4" text-anchor="middle">CLIP</text>
+  <!-- Connection lines -->
+  <line x1="123" y1="47" x2="148" y2="47" stroke="#8B5CF6" stroke-width="1" opacity="0.35"/>
+  <line x1="178" y1="60" x2="178" y2="78" stroke="#3B82F6" stroke-width="1" opacity="0.35"/>
+  <line x1="120" y1="82" x2="155" y2="89" stroke="#06B6D4" stroke-width="0.8" opacity="0.3"/>
+  <!-- Dots on connections -->
+  <circle cx="135" cy="47" r="2" fill="#8B5CF6" opacity="0.5"/>
+  <circle cx="178" cy="69" r="2" fill="#3B82F6" opacity="0.5"/>
+  <!-- Monitor stand -->
+  <rect x="125" y="128" width="30" height="12" rx="2" fill="url(#g1)" opacity="0.3"/>
+  <rect x="110" y="138" width="60" height="6" rx="3" stroke="url(#g1)" stroke-width="1" fill="url(#g2)"/>
+  <!-- LAN icon (left) -->
+  <circle cx="30" cy="70" r="10" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <path d="M24 70 L36 70 M30 64 L30 76" stroke="url(#g1)" stroke-width="1" opacity="0.4"/>
+  <circle cx="30" cy="70" r="3" fill="#8B5CF6" opacity="0.3"/>
+  <!-- LAN connection -->
+  <path d="M40 70 L50 60" stroke="url(#g1)" stroke-width="0.8" opacity="0.2" stroke-dasharray="3,3"/>
+  <!-- Lock icon (self-hosted) -->
+  <rect x="232" y="60" width="20" height="16" rx="3" stroke="url(#g1)" stroke-width="1.5" fill="url(#g2)"/>
+  <path d="M237 60 L237 54 Q237 48 242 48 Q247 48 247 54 L247 60" stroke="url(#g1)" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <circle cx="242" cy="70" r="2" fill="#8B5CF6" opacity="0.4"/>
+  <!-- Connection to lock -->
+  <path d="M230 75 L220 80" stroke="url(#g1)" stroke-width="0.8" opacity="0.2" stroke-dasharray="3,3"/>
+  <!-- Label -->
+  <rect x="70" y="152" width="140" height="18" rx="9" stroke="#8B5CF6" stroke-width="1" fill="url(#g2)"/>
+  <text x="140" y="164" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#8B5CF6" text-anchor="middle" font-weight="600">局域网自托管 · 数据不出网</text>
+  <!-- Sparkles -->
+  <circle cx="25" cy="25" r="2" fill="#8B5CF6" opacity="0.2"/>
+  <circle cx="255" cy="22" r="2" fill="#06B6D4" opacity="0.2"/>
+  <circle cx="140" cy="90" r="125" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.05" stroke-dasharray="6,10"/>
+</svg>

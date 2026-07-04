@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/><stop offset="50%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.1"/><stop offset="100%" stop-color="#06B6D4" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="gl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.12"/><stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="140" cy="90" r="120" fill="url(#gl)"/>
+  <!-- Text cursor (left) -->
+  <rect x="30" y="40" width="3" height="50" fill="url(#g1)" opacity="0.6"/>
+  <path d="M25 90 L32 100 L39 90" fill="url(#g1)" opacity="0.4"/>
+  <!-- Arrow -->
+  <path d="M50 65 L190 65" stroke="url(#g1)" stroke-width="2" opacity="0.25" stroke-dasharray="6,4"/>
+  <polygon points="186,60 196,65 186,70" fill="url(#g1)" opacity="0.35"/>
+  <!-- Image frame (right) -->
+  <rect x="195" y="28" width="70" height="58" rx="6" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <circle cx="215" cy="48" r="7" fill="#F59E0B" opacity="0.35"/>
+  <path d="M200 72 L218 55 L235 68 L255 48 L260 72 Z" fill="url(#g1)" opacity="0.15"/>
+  <!-- Paint palette (bottom) -->
+  <ellipse cx="140" cy="135" rx="55" ry="30" stroke="url(#g1)" stroke-width="2" fill="url(#g2)"/>
+  <circle cx="110" cy="128" r="7" fill="#F43F5E" opacity="0.45"/>
+  <circle cx="130" cy="118" r="7" fill="#F59E0B" opacity="0.45"/>
+  <circle cx="152" cy="118" r="7" fill="#10B981" opacity="0.45"/>
+  <circle cx="172" cy="128" r="7" fill="#3B82F6" opacity="0.45"/>
+  <circle cx="162" cy="146" r="7" fill="#8B5CF6" opacity="0.45"/>
+  <circle cx="122" cy="146" r="7" fill="#06B6D4" opacity="0.45"/>
+  <!-- Brush -->
+  <path d="M145 155 L155 175 L150 177 L140 157 Z" stroke="url(#g1)" stroke-width="1" fill="url(#g2)"/>
+  <rect x="142" y="150" width="10" height="7" rx="2" fill="url(#g1)" opacity="0.35"/>
+  <!-- Sparkles -->
+  <circle cx="80" cy="30" r="2" fill="#F43F5E" opacity="0.25"/>
+  <circle cx="250" cy="25" r="2" fill="#06B6D4" opacity="0.25"/>
+  <circle cx="140" cy="90" r="125" stroke="url(#g1)" stroke-width="0.3" fill="none" opacity="0.06" stroke-dasharray="6,10"/>
+</svg>

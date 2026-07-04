@@ -1,0 +1,53 @@
+# Dependencies
+venv/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Large media files (on server, too big for git)
+uploads/videos/
+uploads/images/*.mp4
+uploads/images/*.gif
+*.mp4
+
+# PPT slides (not part of website)
+images/ppt-slide*
+images/chaodongfang/
+images/shantao-slide*
+images/field/
+
+# Old backup files
+images/image*.jpg
+screenshots/
+*.bak*
+
+# Backend (not part of static site)
+app.py
+server.py
+serve.py
+run_local.py
+admin_views.py
+api.py
+config.py
+models.py
+templates/
+database.db
+requirements.txt
+package.json
+package-lock.json
+
+# Deployment
+deploy.sh
+deploy-to-server.sh
+xingyu-cms.nginx
+DEPLOY.md
+
+# System
+.DS_Store
+._*
+*.tmp
+*.log
+*.pdf
+*.pem
+*.ipynb

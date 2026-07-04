@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 运营平台 - 继中堂</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAIF0lEQVR4nK1Xa4xdVRX+1n6cc+659w4z06bPKXam7Z2OnQdQRqsgFyRjKyCBwNVIrfjHEIyvGEhMNKmjifzwly9I/KEmApGOqYHQWE1Te2MYIlgpg01pSx+29AEzI9N758557b2XP6Zt2nnRRleyk5N11ln7W2t9e619gOsUrlQkA3KWHpBcqczS/9+EAUEzgFzo71/0Tm/vEt6+XV3S00Xba/VLH24yHR0BFkQ4s2HDg86kX3HMqy0jD+YpSZRJEueEr369YuTgzqu++V8BcAWShmD/3de3wUviZ9m5G61Wz1klj3CcHWStvk+ed0LFyXmZpY8LKU+n+cK2G/fvf+taQCyYKt4OQUOwJ2/uuVtEU6+Skn+MlN4XL17yMxNnOcRxxFlWQpY1R3ff/aMp5/ZCyJ2o11451t09QID9sHLM+5IBgUHwsf7eEjfiP7lc+HDdshTAuzJNMxK0BcXiXexcg51dqkdGcqTVuUnA4zD/kEyTXSc2blwPgBcCsSA6Ahi1+Pes1fesMV2KqL390KFvicnJRSzpxaTR2EVag4LwZJCm3prDR78pBVY5Y3pY6e/yZO0FAvi6M7CjUpEEuOMbNmyGcyHn8vtgzVZWYuzd3p4hUmqlcNznBcFmGHsOJv0gtbbzTG/PEHx/gq19RIbh3xjw3unuuocAN98RnZOEXIaiKszxznU7WIgDEIrIZaesBZRSSvoqsiw6EEd9BA6s1H+HUqdEPKUol5cmTQ0Rt5G1Bo77O44cfZjLZUXVqrm2ElSnmcvMJRJqP0x2RyDVEvJkntndYZiXujjaDKAuhLhANruX0rSVhSqzMToUWETGliH1G8xcmvZZnfM0zALAABHAvGOHBCiExnlw9qSI0xEyfIz94HkV5HeRp/8FdrCWiUjuN1m2i8Pw+cyY4yJO32LOnmBjzhHg/2PjRk3TZJyVcTVTcdni4EFmgJUVygXhOhhuIucSlcaFbHH+sIjkKBOxMxmklxPFJSttMjpaIthJeJ4vpFwMaw85Z7leKMxLxLlKwAwIGhx0BEymMG2cZFutc3VSqmasW4n3ap9BlqyXoM9qre9nY0rRxMSAMelKkctNps7VOU23OqJVIJq6q1o126db+Swgc3OgXJ7WE+0Xib0NWv0lBj7CNltLUo2Rcy2svGNWqUNWqsPs+6dhTLMUYhSQXZmU7ULKP5NJPwnQAQD4wSWf1wSgWnUAIPzgGYC3cb5YBXGFgLxmu0QEahgm+yqEfIO03COS9DGh9SuaaCmnqYazFZvL7WPGo5z3nr7S50yZdxZc6uPH1pdeJGCM87mdFCVf6zj09r0nNnSvh6Qvcpq2giiE9s+nUfS79UePvn2ic91Lzgt+hSy5nxwv7zh85HMLzYSFOqFjQNywumObcHyfjrL1VnkvHP9o1xC0JpZ6kpk9NjZgIaa0EO54ad3zVvs7PeZ10rkHadnybRfb8JzRLwjgEmEW795ds8WmfpjsG00mewDMoevvP8tZpom5IUDjxDap33rrGbY2aDLZfZwm38YNLR9rr1YnrvQ1zz4Ly8WLiDs3MJDH6dPPwNl7MimHDbBCABpg4RygiE4oaz5BUu0e71n6ePdQdXIHID//IeN4PgB0xUIFwNBFR6dvummdiKKtBtzpgEUMkATGhJBHqVB4tu31148AwHZADQIG01kmXMPlZEEhotn1IppeV8hfAXVJJcRVX8wZ7MxOSAC4tbW1KcuyJ40x/ySiFmYOnHOiWCwOPz029uYjRBYAcmH4Ha21X7tw4SkAeJBZfprIFAqFHxNR1Vr7QBAEQ0mS3Fuv158kollcmIlKArBBEDwhpfy4tdYnohsBvO+ca8nn88+Mj4//JgzD3wJYmaZpNxFJrfWIlPLc1NTUl4IgeDSO4x8C+MA5J6WUGTMvFUL80hjzFKZLcrkcMzPARARm7knT9GYhhPM873AURWuYOY7j+Mydd94p0zS9Xyn1Befclz3PC6Io+oVS6iVrrczlcksATGqtjwghMuectNYyM6/A9Gm4KuiZZSVmhhDidSFETSn1ahzH5621rcwcMvP46OioADAZhmGHlLKViFoKhcJaABe6urqa4zj+CTPvB7CCmQNmXgRgwjn39Yv7mYUATCuF8IQQI865ZUKIW7TWw0R0JJfLra5UKoaZo3q9XnbOtWVZtiKO47uUUsmqVatiADqXy/1HSnk+y7IBIUTs+/7hYrHYiumGdFUG5iwBERWYOU9Ea4QQB7TWibVWWGsnBgcHCcCnnHPvSSl/6vt+MDU19VipVFq2Z8+eRqFQeChJkj4AGYBilmVFY0xJa70VwM9x+d9lHgDMDAB/8DzvOSJqj6JokzEGQgiRpmkzEdnNmzdP7N69G2EYvqm1zq9duzY/MjIyWi6Xg9dee81Za4cAKOfci0opTwihkiS5cJFfV7Xluc6mICLX1ta2Jo7jW8bHx4dKpdKmWq0mgiAIoihqCsPwfWttj3PuLSGEKhaLH6RpWh8fH+/u6Og4EEVRi7U2V6vVUCgUTFtb29jevXtPOTd7JMwiIQC+/fbb233f7yIivXz58j4A7UTUYq1dDSBvrVX5fH600WisaTQaS5MkabPWNnzfb2RZtmxiYuI2z/OaGo1G38TERMfJkyf7e3t7++cIdv5ZsGnTplxzc7MbHR2VhULBA2A6OzuTU6dOiSiK9L59+xpExFu2bPFrtZo3PDxcHxgYyLe3t6cAcPbsWf3yyy9PlcvlAICqVquT8+11XcCu047meb4s/wXWWQ1mrCZemgAAAABJRU5ErkJggg==" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   DESIGN TOKENS
+   ================================================================ */
+:root {
+  --bg: oklch(0.975 0.005 165);
+  --bg-elevated: oklch(1.0 0.0 0);
+  --bg-surface: oklch(0.955 0.006 165);
+  --bg-hover: oklch(0.935 0.008 165);
+
+  --border: oklch(0.88 0.010 165);
+  --border-subtle: oklch(0.92 0.008 165);
+
+  --ink: oklch(0.15 0.015 165);
+  --ink-secondary: oklch(0.35 0.015 165);
+  --ink-muted: oklch(0.55 0.012 165);
+
+  --violet: oklch(0.45 0.14 165);
+  --violet-dim: oklch(0.55 0.11 165);
+  --violet-bg: oklch(0.93 0.04 165);
+  --blue: oklch(0.45 0.15 250);
+  --blue-bg: oklch(0.93 0.04 250);
+  --cyan: oklch(0.42 0.12 200);
+  --cyan-bg: oklch(0.93 0.03 200);
+  --emerald: oklch(0.45 0.14 160);
+  --emerald-bg: oklch(0.93 0.04 160);
+  --rose: oklch(0.50 0.18 15);
+  --rose-bg: oklch(0.94 0.04 15);
+  --amber: oklch(0.50 0.14 85);
+  --amber-bg: oklch(0.94 0.04 85);
+
+  --font-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-en: 'Space Grotesk', 'SF Pro Display', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --sidebar-w: 260px;
+  --topbar-h: 64px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 14px;
+}
+
+/* ================================================================
+   RESET & BASE
+   ================================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-cn);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; }
+input, textarea { font: inherit; border: none; background: none; color: inherit; outline: none; }
+
+/* ================================================================
+   LAYOUT SHELL
+   ================================================================ */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  height: 100vh;
+}
+
+/* ================================================================
+   SIDEBAR
+   ================================================================ */
+.sidebar {
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.sidebar-logo {
+  width: 36px; height: 36px; border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.sidebar-brand {
+  display: flex; flex-direction: column;
+}
+.sidebar-brand strong {
+  font-size: 0.93rem; font-weight: 700; letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.sidebar-brand span {
+  font-size: 0.7rem; color: var(--ink-muted); font-weight: 400;
+  font-family: var(--font-en); letter-spacing: 0.04em;
+}
+
+.sidebar-nav { flex: 1; padding: 16px 12px; display: flex; flex-direction: column; gap: 2px; }
+.nav-section-label {
+  font-size: 0.68rem; font-weight: 600; color: var(--ink-muted);
+  letter-spacing: 0.08em;
+  padding: 16px 12px 6px;
+  text-transform: uppercase;
+  font-family: var(--font-en);
+}
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; border-radius: var(--radius-sm);
+  font-size: 0.87rem; font-weight: 450;
+  color: var(--ink-secondary);
+  transition: background 0.15s ease, color 0.15s ease;
+  cursor: pointer; position: relative;
+}
+.nav-item:hover { background: var(--bg-hover); color: var(--ink); }
+.nav-item.active {
+  background: var(--violet-bg);
+  color: var(--violet);
+  font-weight: 600;
+}
+.nav-item.active::before {
+  content: '';
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 18px; border-radius: 0 3px 3px 0;
+  background: var(--violet);
+}
+.nav-icon {
+  width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.nav-badge {
+  margin-left: auto;
+  background: var(--emerald);
+  color: oklch(0.15 0.02 160);
+  font-size: 0.65rem; font-weight: 700;
+  padding: 2px 7px; border-radius: 10px;
+  font-family: var(--font-en);
+}
+
+.sidebar-footer {
+  padding: 16px 12px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex; align-items: center; gap: 10px;
+}
+.sidebar-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+.sidebar-user { flex: 1; min-width: 0; }
+.sidebar-user strong { display: block; font-size: 0.82rem; font-weight: 600; }
+.sidebar-user span { display: block; font-size: 0.68rem; color: var(--ink-muted); }
+
+/* ================================================================
+   MAIN AREA
+   ================================================================ */
+.main {
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+/* TOP BAR */
+.topbar {
+  height: var(--topbar-h);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex; align-items: center;
+  padding: 0 32px;
+  flex-shrink: 0;
+  background: var(--bg-elevated);
+}
+.topbar-title {
+  font-size: 1.1rem; font-weight: 700;
+  text-wrap: balance;
+}
+.topbar-right {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 16px;
+}
+.topbar-search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  width: 220px;
+  transition: border-color 0.2s;
+}
+.topbar-search:focus-within { border-color: var(--violet); }
+.topbar-search input {
+  flex: 1; font-size: 0.82rem; color: var(--ink);
+  min-width: 0;
+}
+.topbar-search input::placeholder { color: var(--ink-muted); }
+.topbar-search-icon { color: var(--ink-muted); font-size: 0.85rem; flex-shrink: 0; }
+.topbar-kbd {
+  font-size: 0.65rem; font-family: var(--font-mono);
+  color: var(--ink-muted); background: var(--bg-surface);
+  padding: 2px 6px; border-radius: 3px;
+  border: 1px solid var(--border-subtle);
+}
+.topbar-btn {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-secondary);
+  transition: background 0.15s, color 0.15s;
+  font-size: 1.1rem;
+  position: relative;
+}
+.topbar-btn:hover { background: var(--bg-hover); color: var(--ink); }
+.topbar-btn .dot {
+  position: absolute; top: 8px; right: 8px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--rose);
+  border: 2px solid var(--bg-elevated);
+}
+
+/* CONTENT SCROLL */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.content::-webkit-scrollbar { width: 6px; }
+.content::-webkit-scrollbar-track { background: transparent; }
+.content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.content::-webkit-scrollbar-thumb:hover { background: var(--ink-muted); }
+
+/* PAGE VIEWS */
+.page-view { display: none; padding: 32px; }
+.page-view.active { display: block; }
+
+/* ================================================================
+   TAB NAV (inside pages)
+   ================================================================ */
+.tab-nav {
+  display: flex; gap: 4px;
+  padding: 4px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 28px;
+  width: fit-content;
+}
+.tab-btn {
+  padding: 8px 18px;
+  font-size: 0.82rem; font-weight: 500;
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  transition: background 0.2s, color 0.2s;
+}
+.tab-btn:hover { color: var(--ink-secondary); }
+.tab-btn.active {
+  background: var(--bg-surface);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.2);
+}
+
+/* ================================================================
+   DASHBOARD PAGE
+   ================================================================ */
+
+/* Status strip */
+.status-strip {
+  display: flex; align-items: center; gap: 20px;
+  padding: 14px 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  margin-bottom: 28px;
+}
+.status-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem;
+}
+.status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-dot.online { background: var(--emerald); box-shadow: 0 0 8px oklch(0.70 0.16 160 / 0.5); }
+.status-dot.busy { background: var(--amber); }
+.status-dot.offline { background: var(--ink-muted); }
+.status-label { color: var(--ink-muted); }
+.status-value { font-weight: 600; font-family: var(--font-en); }
+.status-divider {
+  width: 1px; height: 20px;
+  background: var(--border-subtle);
+}
+.status-time {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+/* Metric row */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.metric-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.metric-panel:hover { border-color: var(--border); }
+.metric-label {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.metric-label .icon { font-size: 0.9rem; }
+.metric-value {
+  font-family: var(--font-en);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.metric-trend {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 0.72rem; font-weight: 600;
+  font-family: var(--font-en);
+  margin-top: 6px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.metric-trend.up { color: var(--emerald); background: var(--emerald-bg); }
+.metric-trend.down { color: var(--rose); background: var(--rose-bg); }
+
+/* Dashboard grid */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+}
+
+/* Activity panel */
+.panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.panel-header {
+  padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.panel-title {
+  font-size: 0.9rem; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+}
+.panel-title .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.panel-action {
+  font-size: 0.75rem; color: var(--violet); font-weight: 500;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.panel-action:hover { opacity: 0.8; }
+.panel-body { padding: 0; }
+
+/* Activity feed */
+.activity-feed { max-height: 400px; overflow-y: auto; }
+.activity-feed::-webkit-scrollbar { width: 4px; }
+.activity-feed::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 2px; }
+.activity-item {
+  display: flex; gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.15s;
+}
+.activity-item:last-child { border-bottom: none; }
+.activity-item:hover { background: var(--bg-hover); }
+.activity-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+}
+.activity-content { flex: 1; min-width: 0; }
+.activity-content strong { font-weight: 600; font-size: 0.85rem; }
+.activity-content p {
+  font-size: 0.78rem; color: var(--ink-secondary);
+  margin-top: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.activity-meta {
+  font-size: 0.7rem; color: var(--ink-muted);
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Agent cards */
+.agents-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 16px 20px;
+}
+.agent-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.agent-card:hover { border-color: var(--border); background: var(--bg-surface); }
+.agent-avatar {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.agent-info { flex: 1; min-width: 0; }
+.agent-name { font-size: 0.82rem; font-weight: 600; }
+.agent-desc {
+  font-size: 0.72rem; color: var(--ink-muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.agent-status {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 0.7rem; font-weight: 500;
+  flex-shrink: 0;
+}
+.agent-status .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.agent-status.running { color: var(--emerald); }
+.agent-status.running .dot { background: var(--emerald); animation: pulse-dot 2s ease-in-out infinite; }
+.agent-status.idle { color: var(--ink-muted); }
+.agent-status.idle .dot { background: var(--ink-muted); }
+
+/* ================================================================
+   SCENARIOS PAGE
+   ================================================================ */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+.scenario-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.scenario-card:hover {
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+.scenario-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 24px; right: 24px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.scenario-card:hover::after { opacity: 1; }
+.scenario-card[data-color="violet"]::after { background: var(--violet); }
+.scenario-card[data-color="blue"]::after { background: var(--blue); }
+.scenario-card[data-color="cyan"]::after { background: var(--cyan); }
+.scenario-card[data-color="emerald"]::after { background: var(--emerald); }
+.scenario-card[data-color="amber"]::after { background: var(--amber); }
+.scenario-card[data-color="rose"]::after { background: var(--rose); }
+
+.scenario-header {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 16px;
+}
+.scenario-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.scenario-meta { flex: 1; }
+.scenario-meta h3 {
+  font-size: 1rem; font-weight: 700;
+  text-wrap: balance;
+  margin-bottom: 4px;
+}
+.scenario-meta .tag {
+  display: inline-block;
+  font-size: 0.68rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.scenario-desc {
+  font-size: 0.82rem; color: var(--ink-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.scenario-examples {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.scenario-examples span {
+  font-size: 0.72rem; color: var(--ink-muted);
+  padding: 3px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+}
+
+/* Scenario detail modal overlay */
+.scenario-detail-overlay {
+  position: fixed; inset: 0;
+  background: oklch(0.05 0.01 280 / 0.8);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal-backdrop);
+  display: none; align-items: center; justify-content: center;
+  padding: 40px;
+}
+.scenario-detail-overlay.open { display: flex; }
+.scenario-detail {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+.scenario-detail-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--ink-muted);
+  transition: background 0.15s, color 0.15s;
+  z-index: 2;
+}
+.scenario-detail-close:hover { background: var(--bg-hover); color: var(--ink); }
+.scenario-detail-header {
+  padding: 32px 32px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.scenario-detail-header h2 {
+  font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 8px;
+}
+.scenario-detail-header p {
+  font-size: 0.88rem; color: var(--ink-secondary);
+  line-height: 1.7;
+}
+.scenario-detail-body {
+  padding: 24px 32px 32px;
+}
+.scenario-detail-section {
+  margin-bottom: 24px;
+}
+.scenario-detail-section h4 {
+  font-size: 0.85rem; font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--ink-secondary);
+}
+.demo-box {
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  font-size: 0.82rem;
+}
+.demo-box .demo-label {
+  font-size: 0.7rem; color: var(--ink-muted);
+  font-family: var(--font-en);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.demo-box .demo-content {
+  color: var(--ink-secondary);
+  line-height: 1.7;
+}
+.demo-box .demo-content strong { color: var(--ink); font-weight: 600; }
+
+/* ================================================================
+   DEPARTMENTS PAGE
+   ================================================================ */
+.dept-list {
+  display: flex; flex-direction: column;
+  gap: 12px;
+}
+.dept-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.dept-item:hover { border-color: var(--border); }
+.dept-header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+}
+.dept-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.dept-info { flex: 1; }
+.dept-info h3 { font-size: 0.95rem; font-weight: 700; }
+.dept-info p { font-size: 0.78rem; color: var(--ink-muted); }
+.dept-badges {
+  display: flex; gap: 6px; flex-shrink: 0;
+}
+.dept-badge {
+  font-size: 0.68rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 4px;
+}
+.dept-chevron {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.dept-item.open .dept-chevron { transform: rotate(90deg); }
+.dept-body {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+.dept-item.open .dept-body { display: block; padding-top: 16px; }
+.dept-usecases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.dept-usecase {
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+.dept-usecase h4 {
+  font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 6px;
+}
+.dept-usecase h4 .icon { font-size: 0.9rem; }
+.dept-usecase p {
+  font-size: 0.75rem; color: var(--ink-secondary);
+  line-height: 1.6;
+}
+.dept-usecase .usecase-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.65rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 4px;
+}
+
+/* ================================================================
+   CHAT PAGE
+   ================================================================ */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  height: calc(100vh - var(--topbar-h) - 64px);
+}
+.chat-main {
+  display: flex; flex-direction: column;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.chat-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex; align-items: center; gap: 12px;
+}
+.chat-agent-avatar {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--violet-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+}
+.chat-agent-info strong { font-size: 0.88rem; font-weight: 600; }
+.chat-agent-info span {
+  display: block; font-size: 0.72rem; color: var(--emerald);
+  display: flex; align-items: center; gap: 4px;
+}
+.chat-agent-info span::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--emerald);
+}
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 20px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 2px; }
+.msg {
+  display: flex; gap: 10px;
+  max-width: 85%;
+}
+.msg.user { align-self: flex-end; flex-direction: row-reverse; }
+.msg-avatar {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; flex-shrink: 0;
+}
+.msg.assistant .msg-avatar { background: var(--violet-bg); }
+.msg.user .msg-avatar { background: var(--blue-bg); }
+.msg-bubble {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+.msg.assistant .msg-bubble {
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--ink-secondary);
+}
+.msg.user .msg-bubble {
+  background: var(--violet);
+  color: #fff;
+}
+.msg-time {
+  font-size: 0.65rem; color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+.msg.user .msg-time { text-align: right; }
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  width: fit-content;
+}
+.typing-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ink-muted);
+  animation: typing-bounce 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.chat-input-area {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex; gap: 10px; align-items: flex-end;
+}
+.chat-input-wrap {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  display: flex; align-items: center; gap: 8px;
+  transition: border-color 0.2s;
+  min-height: 44px;
+}
+.chat-input-wrap:focus-within { border-color: var(--violet); }
+.chat-input {
+  flex: 1; font-size: 0.85rem; resize: none;
+  min-height: 22px; max-height: 120px;
+  line-height: 1.5;
+}
+.chat-input::placeholder { color: var(--ink-muted); }
+.chat-send-btn {
+  width: 44px; height: 44px; border-radius: var(--radius);
+  background: var(--violet);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: opacity 0.15s, transform 0.15s;
+  flex-shrink: 0;
+}
+.chat-send-btn:hover { opacity: 0.9; transform: scale(1.02); }
+.chat-send-btn:active { transform: scale(0.98); }
+
+/* Chat sidebar */
+.chat-sidebar {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.chat-quick-actions {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.chat-quick-actions h4 {
+  font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 12px;
+}
+.quick-action-list { display: flex; flex-direction: column; gap: 6px; }
+.quick-action {
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--ink-secondary);
+  display: flex; align-items: center; gap: 8px;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+.quick-action:hover {
+  border-color: var(--violet);
+  background: var(--violet-bg);
+  color: var(--violet);
+}
+.quick-action .icon { font-size: 0.9rem; }
+
+.chat-stats-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.chat-stats-panel h4 {
+  font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 14px;
+}
+.chat-stat-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.chat-stat-item:last-child { border-bottom: none; }
+.chat-stat-item .label {
+  font-size: 0.78rem; color: var(--ink-muted);
+  display: flex; align-items: center; gap: 6px;
+}
+.chat-stat-item .value {
+  font-size: 0.82rem; font-weight: 600;
+  font-family: var(--font-en);
+}
+
+/* ================================================================
+   WORKFLOW PAGE
+   ================================================================ */
+.workflow-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.workflow-demo {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.workflow-demo h3 {
+  font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.workflow-steps {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.workflow-step {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+.step-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700;
+  font-family: var(--font-en);
+  flex-shrink: 0;
+}
+.step-num.done { background: var(--emerald); color: oklch(0.15 0.02 160); }
+.step-num.active { background: var(--violet); color: #fff; }
+.step-num.pending { background: var(--bg-surface); color: var(--ink-muted); }
+.step-text { font-size: 0.82rem; flex: 1; }
+.step-status {
+  font-size: 0.7rem; font-weight: 500;
+  font-family: var(--font-en);
+}
+.step-status.done { color: var(--emerald); }
+.step-status.active { color: var(--violet); }
+.step-status.pending { color: var(--ink-muted); }
+
+/* Live preview mock */
+.preview-frame {
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.preview-toolbar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.preview-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.preview-url {
+  flex: 1; text-align: center;
+  font-size: 0.72rem; color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+.preview-body {
+  padding: 16px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--ink-secondary);
+  min-height: 200px;
+}
+.preview-body .mock-line {
+  height: 10px;
+  background: var(--bg-surface);
+  border-radius: 3px;
+  margin-bottom: 8px;
+  animation: shimmer 2s ease-in-out infinite;
+}
+.preview-body .mock-line:nth-child(2) { width: 85%; animation-delay: 0.1s; }
+.preview-body .mock-line:nth-child(3) { width: 70%; animation-delay: 0.2s; }
+.preview-body .mock-line:nth-child(4) { width: 90%; animation-delay: 0.3s; }
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ================================================================
+   Z-INDEX SCALE
+   ================================================================ */
+:root {
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+}
+
+/* ================================================================
+   MOTION
+   ================================================================ */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Initial state only applied when JS has flagged reveal support */
+.js-reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.js-reveal-ready .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.05s; }
+.reveal-d2 { transition-delay: 0.1s; }
+.reveal-d3 { transition-delay: 0.15s; }
+.reveal-d4 { transition-delay: 0.2s; }
+.reveal-d5 { transition-delay: 0.25s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .js-reveal-ready .reveal { opacity: 1; transform: none; transition: none; }
+  .typing-dot { animation: none; opacity: 0.6; }
+  .status-dot.online { animation: none; }
+  .panel-title .dot { animation: none; }
+  .preview-body .mock-line { animation: none; opacity: 0.6; }
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 1200px) {
+  .dash-grid { grid-template-columns: 1fr; }
+  .chat-layout { grid-template-columns: 1fr; }
+  .chat-sidebar { display: none; }
+  .workflow-showcase { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { display: none; }
+  .metrics-row { grid-template-columns: repeat(2, 1fr); }
+  .scenario-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .metrics-row { grid-template-columns: 1fr; }
+  .page-view { padding: 16px; }
+  .topbar { padding: 0 16px; }
+  .topbar-search { display: none; }
+  .topbar-kbd { display: none; }
+  .status-strip { flex-wrap: wrap; gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============================================================
+       SIDEBAR
+       ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="images/jizhongtang-logo.png" alt="继中堂" class="sidebar-logo">
+      <div class="sidebar-brand">
+        <strong>继中堂 · 中医药 AI</strong>
+        <span>JIZHONGTANG · TCM HEALTH</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Overview</div>
+      <div class="nav-item active" data-page="dashboard">
+        <span class="nav-icon">◎</span> 运营仪表盘
+      </div>
+      <div class="nav-item" data-page="agents">
+        <span class="nav-icon">⬡</span> 智能体管理
+        <span class="nav-badge">6</span>
+      </div>
+
+      <div class="nav-section-label">Modules</div>
+      <div class="nav-item" data-page="scenarios">
+        <span class="nav-icon">◈</span> 场景库
+      </div>
+      <div class="nav-item" data-page="departments">
+        <span class="nav-icon">▣</span> 部门配置
+      </div>
+      <div class="nav-item" data-page="workflow">
+        <span class="nav-icon">⤻</span> 工作流
+      </div>
+
+      <div class="nav-section-label">Tools</div>
+      <div class="nav-item" data-page="chat">
+        <span class="nav-icon">◉</span> 智能助手
+      </div>
+      <div class="nav-item" data-page="data">
+        <span class="nav-icon">⊞</span> 数据洞察
+      </div>
+
+      <div class="nav-section-label">System</div>
+      <div class="nav-item" data-page="settings">
+        <span class="nav-icon">⚙</span> 系统设置
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar">管</div>
+      <div class="sidebar-user">
+        <strong>管理员</strong>
+        <span>admin@jizhongtang.com</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN
+       ============================================================ -->
+  <main class="main">
+    <header class="topbar">
+      <h1 class="topbar-title" id="topbar-title">运营仪表盘</h1>
+      <div class="topbar-right">
+        <div class="topbar-search">
+          <span class="topbar-search-icon">⌕</span>
+          <input type="text" placeholder="搜索功能、场景、体质…">
+          <span class="topbar-kbd">⌘K</span>
+        </div>
+        <button class="topbar-btn" title="通知">
+          🔔<span class="dot"></span>
+        </button>
+        <button class="topbar-btn" title="帮助">?</button>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- ======== DASHBOARD PAGE ======== -->
+      <div class="page-view active" id="page-dashboard">
+
+        <div class="status-strip reveal">
+          <div class="status-item">
+            <span class="status-dot online"></span>
+            <span class="status-label">系统状态</span>
+            <span class="status-value" style="color:var(--emerald)">运行正常</span>
+          </div>
+          <div class="status-divider"></div>
+          <div class="status-item">
+            <span class="status-label">活跃 Agent</span>
+            <span class="status-value">4 / 6</span>
+          </div>
+          <div class="status-divider"></div>
+          <div class="status-item">
+            <span class="status-label">今日问诊</span>
+            <span class="status-value">368</span>
+          </div>
+          <div class="status-divider"></div>
+          <div class="status-item">
+            <span class="status-label">调理方案</span>
+            <span class="status-value">142</span>
+          </div>
+          <span class="status-time" id="live-time">--:--:--</span>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-panel reveal reveal-d1">
+            <div class="metric-label"><span class="icon">🩺</span> 今日问诊</div>
+            <div class="metric-value" style="color:var(--violet)">368</div>
+            <div class="metric-trend up">↑ 15% vs 上周</div>
+          </div>
+          <div class="metric-panel reveal reveal-d2">
+            <div class="metric-label"><span class="icon">🍵</span> 调理方案</div>
+            <div class="metric-value" style="color:var(--blue)">142</div>
+            <div class="metric-trend up">↑ 22% vs 上周</div>
+          </div>
+          <div class="metric-panel reveal reveal-d3">
+            <div class="metric-label"><span class="icon">💊</span> 药方审核</div>
+            <div class="metric-value" style="color:var(--cyan)">89</div>
+            <div class="metric-trend up">↑ 12% vs 上周</div>
+          </div>
+          <div class="metric-panel reveal reveal-d4">
+            <div class="metric-label"><span class="icon">⏱</span> 平均响应</div>
+            <div class="metric-value" style="color:var(--emerald)">2.1s</div>
+            <div class="metric-trend down">↓ 0.4s vs 上周</div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="panel reveal reveal-d2">
+            <div class="panel-header">
+              <h3 class="panel-title"><span class="dot"></span> 实时活动</h3>
+              <span class="panel-action">查看全部 →</span>
+            </div>
+            <div class="panel-body">
+              <div class="activity-feed" id="activity-feed">
+                <!-- populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <div class="panel reveal reveal-d3">
+            <div class="panel-header">
+              <h3 class="panel-title">智能体状态</h3>
+              <span class="panel-action">管理 →</span>
+            </div>
+            <div class="panel-body">
+              <div class="agents-grid">
+                <div class="agent-card">
+                  <div class="agent-avatar" style="background:var(--violet-bg)">🩺</div>
+                  <div class="agent-info">
+                    <div class="agent-name">智能问诊 Agent</div>
+                    <div class="agent-desc">四诊合参 / 舌象分析 / 辅助辨证</div>
+                  </div>
+                  <div class="agent-status running"><span class="dot"></span>运行中</div>
+                </div>
+                <div class="agent-card">
+                  <div class="agent-avatar" style="background:var(--blue-bg)">🍵</div>
+                  <div class="agent-info">
+                    <div class="agent-name">健康管理 Agent</div>
+                    <div class="agent-desc">体质辨识 / 个性化调理 / 养生方案</div>
+                  </div>
+                  <div class="agent-status running"><span class="dot"></span>运行中</div>
+                </div>
+                <div class="agent-card">
+                  <div class="agent-avatar" style="background:var(--cyan-bg)">💬</div>
+                  <div class="agent-info">
+                    <div class="agent-name">患者服务 Agent</div>
+                    <div class="agent-desc">在线问诊 / 用药提醒 / 复诊管理</div>
+                  </div>
+                  <div class="agent-status running"><span class="dot"></span>运行中</div>
+                </div>
+                <div class="agent-card">
+                  <div class="agent-avatar" style="background:var(--emerald-bg)">💊</div>
+                  <div class="agent-info">
+                    <div class="agent-name">药方审核 Agent</div>
+                    <div class="agent-desc">处方审核 / 配伍禁忌 / 剂量校验</div>
+                  </div>
+                  <div class="agent-status running"><span class="dot"></span>运行中</div>
+                </div>
+                <div class="agent-card">
+                  <div class="agent-avatar" style="background:var(--amber-bg)">🌿</div>
+                  <div class="agent-info">
+                    <div class="agent-name">药材溯源 Agent</div>
+                    <div class="agent-desc">供应链监控 / 品质分析 / 产地溯源</div>
+                  </div>
+                  <div class="agent-status idle"><span class="dot"></span>待命</div>
+                </div>
+                <div class="agent-card">
+                  <div class="agent-avatar" style="background:var(--rose-bg)">📱</div>
+                  <div class="agent-info">
+                    <div class="agent-name">平台运营 Agent</div>
+                    <div class="agent-desc">易养天年 / 共享药房 / 义诊管理</div>
+                  </div>
+                  <div class="agent-status idle"><span class="dot"></span>待命</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== AGENTS PAGE ======== -->
+      <div class="page-view" id="page-agents">
+        <div class="tab-nav">
+          <button class="tab-btn active">全部</button>
+          <button class="tab-btn">运行中</button>
+          <button class="tab-btn">待命</button>
+          <button class="tab-btn">异常</button>
+        </div>
+        <div class="scenario-grid" id="agents-grid">
+          <!-- populated by JS, same content as scenario cards but agent-focused -->
+        </div>
+      </div>
+
+      <!-- ======== SCENARIOS PAGE ======== -->
+      <div class="page-view" id="page-scenarios">
+        <div class="scenario-grid" id="scenarios-grid">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- ======== DEPARTMENTS PAGE ======== -->
+      <div class="page-view" id="page-departments">
+        <div class="dept-list" id="dept-list">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- ======== WORKFLOW PAGE ======== -->
+      <div class="page-view" id="page-workflow">
+        <div class="workflow-showcase">
+          <div class="workflow-demo">
+            <h3>🩺 智能问诊流程</h3>
+            <div class="workflow-steps">
+              <div class="workflow-step">
+                <span class="step-num done">1</span>
+                <span class="step-text">患者主诉录入</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num done">2</span>
+                <span class="step-text">AI 四诊信息采集（望闻问切）</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num active">3</span>
+                <span class="step-text">辨证分析与证型判定</span>
+                <span class="step-status active">● 进行中</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num pending">4</span>
+                <span class="step-text">生成调理方案</span>
+                <span class="step-status pending">○ 等待</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num pending">5</span>
+                <span class="step-text">医师审核确认</span>
+                <span class="step-status pending">○ 等待</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="workflow-demo">
+            <h3>🍵 健康管理方案流程</h3>
+            <div class="workflow-steps">
+              <div class="workflow-step">
+                <span class="step-num done">1</span>
+                <span class="step-text">体质辨识问卷填写</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num done">2</span>
+                <span class="step-text">AI 体质分析（九种体质判定）</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num active">3</span>
+                <span class="step-text">个性化调理方案生成</span>
+                <span class="step-status active">● 进行中</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num pending">4</span>
+                <span class="step-text">药食同源产品推荐</span>
+                <span class="step-status pending">○ 等待</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num pending">5</span>
+                <span class="step-text">跟踪随访计划制定</span>
+                <span class="step-status pending">○ 等待</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow-showcase">
+          <div class="workflow-demo">
+            <h3>💊 药方审核流程</h3>
+            <div class="workflow-steps">
+              <div class="workflow-step">
+                <span class="step-num done">1</span>
+                <span class="step-text">医师开具处方</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num done">2</span>
+                <span class="step-text">AI 自动识别处方内容</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num active">3</span>
+                <span class="step-text">配伍禁忌与剂量审核</span>
+                <span class="step-status active">● 进行中</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num pending">4</span>
+                <span class="step-text">药师复核确认</span>
+                <span class="step-status pending">○ 等待</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="workflow-demo">
+            <h3>🌿 药材溯源流程</h3>
+            <div class="workflow-steps">
+              <div class="workflow-step">
+                <span class="step-num done">1</span>
+                <span class="step-text">药材批次入库扫描</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num done">2</span>
+                <span class="step-text">产地信息与质检报告核验</span>
+                <span class="step-status done">✓ 完成</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num active">3</span>
+                <span class="step-text">品质评分与分级</span>
+                <span class="step-status active">● 进行中</span>
+              </div>
+              <div class="workflow-step">
+                <span class="step-num pending">4</span>
+                <span class="step-text">溯源码生成并关联</span>
+                <span class="step-status pending">○ 等待</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top: 20px;">
+          <div class="panel-header">
+            <h3 class="panel-title">实时预览</h3>
+          </div>
+          <div class="panel-body">
+            <div class="preview-frame">
+              <div class="preview-toolbar">
+                <span class="preview-dot" style="background:var(--rose)"></span>
+                <span class="preview-dot" style="background:var(--amber)"></span>
+                <span class="preview-dot" style="background:var(--emerald)"></span>
+                <span class="preview-url">agent://workflow/health-plan</span>
+              </div>
+              <div class="preview-body" id="preview-body">
+                <div style="margin-bottom:16px">
+                  <div style="font-weight:600;font-size:0.9rem;margin-bottom:4px">体质辨识报告 · 患者张某</div>
+                  <div style="color:var(--ink-muted);font-size:0.78rem">报告编号：JZT-2026-0620</div>
+                </div>
+                <div style="margin-bottom:12px;font-size:0.82rem;color:var(--ink-secondary)">
+                  <strong>体质类型：</strong>气虚质<br>
+                  <strong>主要表现：</strong>神疲乏力、气短懒言、易出汗<br>
+                  <strong>调理方向：</strong>益气健脾 · 补中益气
+                </div>
+                <div class="mock-line" style="width:100%"></div>
+                <div class="mock-line" style="width:85%"></div>
+                <div class="mock-line" style="width:70%"></div>
+                <div class="mock-line" style="width:90%"></div>
+                <div style="height:12px"></div>
+                <div class="mock-line" style="width:60%"></div>
+                <div class="mock-line" style="width:95%"></div>
+                <div class="mock-line" style="width:80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== CHAT PAGE ======== -->
+      <div class="page-view" id="page-chat">
+        <div class="chat-layout">
+          <div class="chat-main">
+            <div class="chat-header">
+              <div class="chat-agent-avatar">◉</div>
+              <div class="chat-agent-info">
+                <strong>健康助手 · 小继</strong>
+                <span>在线</span>
+              </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+              <div class="msg assistant">
+                <div class="msg-avatar">◉</div>
+                <div>
+                  <div class="msg-bubble">
+                    你好！我是小继，你的中医健康助手 🌿 我可以帮你进行体质辨识、开具调理方案、查询药材信息、预约义诊等。有什么可以帮你的？
+                  </div>
+                  <div class="msg-time">09:15</div>
+                </div>
+              </div>
+              <div class="msg user">
+                <div class="msg-avatar">管</div>
+                <div>
+                  <div class="msg-bubble">我最近总是失眠多梦，白天精神也不好，帮我分析一下</div>
+                  <div class="msg-time">09:16</div>
+                </div>
+              </div>
+              <div class="msg assistant">
+                <div class="msg-avatar">◉</div>
+                <div>
+                  <div class="msg-bubble">
+                    好的，根据你的描述，我为你做一个初步分析：<br><br>
+                    <strong>🩺 四诊分析</strong><br>
+                    · 主诉：失眠多梦、神疲乏力<br>
+                    · 舌象提示：舌淡苔白<br>
+                    · 初步辨证：<strong>心脾两虚证</strong><br><br>
+                    <strong>🍵 调理建议</strong><br>
+                    · 方剂参考：归脾汤加减<br>
+                    · 药食同源：龙眼肉、酸枣仁、茯苓<br>
+                    · 起居建议：亥时（21-23点）入睡，避免熬夜<br><br>
+                    ⚠️ 以上为 AI 辅助分析，建议到继中堂中医馆进一步面诊确认。
+                  </div>
+                  <div class="msg-time">09:16</div>
+                </div>
+              </div>
+              <div class="msg user">
+                <div class="msg-avatar">管</div>
+                <div>
+                  <div class="msg-bubble">帮我生成一份完整的个性化调理方案</div>
+                  <div class="msg-time">09:17</div>
+                </div>
+              </div>
+              <div class="msg assistant">
+                <div class="msg-avatar">◉</div>
+                <div>
+                  <div class="msg-bubble">
+                    收到！已为你生成个性化调理方案：<br><br>
+                    <strong>📋 体质调理方案 · 心脾两虚型</strong><br><br>
+                    <strong>一、中药调理</strong><br>
+                    归脾汤加减：党参15g、黄芪20g、白术10g、茯神15g、龙眼肉10g、酸枣仁15g<br><br>
+                    <strong>二、药膳食疗</strong><br>
+                    龙眼莲子粥（龙眼肉10g+莲子15g+粳米50g），每周3次<br><br>
+                    <strong>三、起居调养</strong><br>
+                    亥时入睡，午时小憩30分钟，适度八段锦锻炼<br><br>
+                    📎 完整方案已保存至「易养天年」平台，可随时查看
+                  </div>
+                  <div class="msg-time">09:17</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <div class="chat-input-wrap">
+                <input type="text" class="chat-input" id="chat-input" placeholder="描述您的症状或健康需求…">
+              </div>
+              <button class="chat-send-btn" id="chat-send">↑</button>
+            </div>
+          </div>
+
+          <div class="chat-sidebar">
+            <div class="chat-quick-actions">
+              <h4>快捷任务</h4>
+              <div class="quick-action-list">
+                <button class="quick-action" data-prompt="帮我做一次体质辨识">
+                  <span class="icon">🩺</span> 体质辨识
+                </button>
+                <button class="quick-action" data-prompt="开具一份个性化调理方案">
+                  <span class="icon">🍵</span> 调理方案
+                </button>
+                <button class="quick-action" data-prompt="查询这批药材的溯源信息">
+                  <span class="icon">🌿</span> 药材溯源
+                </button>
+                <button class="quick-action" data-prompt="预约下周的社区义诊">
+                  <span class="icon">🏥</span> 预约义诊
+                </button>
+                <button class="quick-action" data-prompt="生成本月健康管理报告">
+                  <span class="icon">📊</span> 健康报告
+                </button>
+              </div>
+            </div>
+
+            <div class="chat-stats-panel">
+              <h4>今日统计</h4>
+              <div class="chat-stat-item">
+                <span class="label">◉ 问诊轮次</span>
+                <span class="value" style="color:var(--violet)">86</span>
+              </div>
+              <div class="chat-stat-item">
+                <span class="label">🍵 调理方案</span>
+                <span class="value" style="color:var(--blue)">24</span>
+              </div>
+              <div class="chat-stat-item">
+                <span class="label">⚡ 平均响应</span>
+                <span class="value" style="color:var(--emerald)">1.8s</span>
+              </div>
+              <div class="chat-stat-item">
+                <span class="label">✓ 患者满意</span>
+                <span class="value" style="color:var(--emerald)">97%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== DATA PAGE ======== -->
+      <div class="page-view" id="page-data">
+        <div class="metrics-row">
+          <div class="metric-panel">
+            <div class="metric-label"><span class="icon">🌿</span> 药材监测</div>
+            <div class="metric-value" style="color:var(--blue)">1,286</div>
+            <div class="metric-trend up">↑ 持续监测中</div>
+          </div>
+          <div class="metric-panel">
+            <div class="metric-label"><span class="icon">📊</span> 健康报告</div>
+            <div class="metric-value" style="color:var(--violet)">3,421</div>
+            <div class="metric-trend up">↑ 本月新增 418</div>
+          </div>
+          <div class="metric-panel">
+            <div class="metric-label"><span class="icon">🏥</span> 服务覆盖</div>
+            <div class="metric-value" style="color:var(--cyan)">92%</div>
+            <div class="metric-trend up">↑ 8% vs 上月</div>
+          </div>
+          <div class="metric-panel">
+            <div class="metric-label"><span class="icon">💡</span> 数据更新</div>
+            <div class="metric-value" style="color:var(--amber)">实时</div>
+            <div class="metric-trend up">24h 不间断</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">热点趋势</h3>
+            <span class="panel-action">导出报告 →</span>
+          </div>
+          <div class="panel-body" style="padding:20px">
+            <div style="display:flex;flex-direction:column;gap:12px" id="trend-bars">
+              <!-- populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== SETTINGS PAGE ======== -->
+      <div class="page-view" id="page-settings">
+        <div class="panel" style="max-width:680px">
+          <div class="panel-header">
+            <h3 class="panel-title">系统设置</h3>
+          </div>
+          <div class="panel-body" style="padding:20px">
+            <div style="display:flex;flex-direction:column;gap:20px">
+              <div>
+                <div style="font-size:0.82rem;font-weight:600;margin-bottom:8px">平台名称</div>
+                <div style="background:var(--bg);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:10px 14px;font-size:0.85rem">继中堂中医药 AI Agent 平台</div>
+              </div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:600;margin-bottom:8px">API 密钥</div>
+                <div style="background:var(--bg);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:10px 14px;font-size:0.85rem;font-family:var(--font-mono);color:var(--ink-muted)">sk-xxxxxxxx…xxxx</div>
+              </div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:600;margin-bottom:8px">默认语言模型</div>
+                <div style="background:var(--bg);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:10px 14px;font-size:0.85rem">GPT-4o · OpenAI</div>
+              </div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:600;margin-bottom:8px">并发上限</div>
+                <div style="display:flex;gap:8px">
+                  <div style="background:var(--bg);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:10px 14px;font-size:0.85rem;flex:1">50 请求/秒</div>
+                  <button style="background:var(--violet);color:#fff;padding:10px 20px;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:600">修改</button>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:600;margin-bottom:8px">通知设置</div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;cursor:pointer">
+                    <span style="width:36px;height:20px;background:var(--emerald);border-radius:10px;position:relative;display:inline-block;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:16px;height:16px;background:#fff;border-radius:50%;transition:left 0.2s"></span></span>
+                    Agent 异常告警
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;cursor:pointer">
+                    <span style="width:36px;height:20px;background:var(--emerald);border-radius:10px;position:relative;display:inline-block;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:16px;height:16px;background:#fff;border-radius:50%"></span></span>
+                    任务完成通知
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;cursor:pointer">
+                    <span style="width:36px;height:20px;background:var(--bg-surface);border-radius:10px;position:relative;display:inline-block;flex-shrink:0"><span style="position:absolute;left:2px;top:2px;width:16px;height:16px;background:var(--ink-muted);border-radius:50%"></span></span>
+                    每日统计邮件
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.content -->
+  </main>
+</div><!-- /.app -->
+
+<!-- ============================================================
+     SCENARIO DETAIL MODAL
+     ============================================================ -->
+<div class="scenario-detail-overlay" id="scenario-modal">
+  <div class="scenario-detail">
+    <button class="scenario-detail-close" id="scenario-modal-close">✕</button>
+    <div class="scenario-detail-header" id="modal-header"></div>
+    <div class="scenario-detail-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   DATA
+   ================================================================ */
+const SCENARIOS = [
+  {
+    id: 'diagnosis',
+    icon: '🩺',
+    color: 'violet',
+    name: '智能问诊',
+    tag: '辅助诊断类',
+    tagColor: 'var(--violet)',
+    tagBg: 'var(--violet-bg)',
+    desc: 'AI 辅助中医四诊合参，通过舌象分析、症状采集等多维度信息，辅助医师进行辨证论治，提升诊断效率。',
+    examples: ['舌象AI识别分析', '四诊信息智能采集', '证型辅助判定', '病历自动结构化'],
+    demo: {
+      title: 'AI 辅助问诊工作台',
+      content: '<strong>患者：</strong>张某，女，45岁<br><strong>主诉：</strong>失眠多梦、神疲乏力2周<br><strong>AI 辨证：</strong>心脾两虚证<br><strong>置信度：</strong>87%<br><br>建议：归脾汤加减，配合药膳食疗。推荐至继中堂中医馆面诊确认。'
+    }
+  },
+  {
+    id: 'health',
+    icon: '🍵',
+    color: 'blue',
+    name: '健康管理',
+    tag: '方案生成类',
+    tagColor: 'var(--blue)',
+    tagBg: 'var(--blue-bg)',
+    desc: '基于中医体质辨识理论，AI 自动生成个性化调理方案，涵盖中药、药膳食疗、起居调养等多维度建议。',
+    examples: ['九种体质自动辨识', '个性化调理方案生成', '药膳食疗推荐', '养生功法指导'],
+    demo: {
+      title: '体质辨识报告',
+      content: '<strong>体质类型：</strong>气虚质<br><strong>主要表现：</strong>神疲乏力、气短懒言、易出汗<br><br>🍵 <strong>调理方案</strong><br>· 方剂：补中益气汤加减<br>· 药膳：黄芪炖鸡、山药薏米粥<br>· 功法：八段锦、太极拳'
+    }
+  },
+  {
+    id: 'patient',
+    icon: '💬',
+    color: 'cyan',
+    name: '患者服务',
+    tag: '对话服务类',
+    tagColor: 'var(--cyan)',
+    tagBg: 'var(--cyan-bg)',
+    desc: '7×24 小时在线健康咨询服务，AI 预先导入中医药专业知识库，为患者提供用药指导、复诊提醒等贴心服务。',
+    examples: ['在线健康咨询', '用药提醒与指导', '复诊预约管理', '健康知识科普'],
+    demo: {
+      title: '患者服务工作台',
+      content: '<strong>当前服务：</strong>28 位患者<br><strong>平均响应：</strong>1.5 秒<br><br>💬 <strong>最新咨询</strong><br>患者：请问黄芪和党参能一起泡水喝吗？<br>小继：可以的！黄芪补气固表，党参补中益气，两药合用效果更佳。'
+    }
+  },
+  {
+    id: 'prescription',
+    icon: '💊',
+    color: 'emerald',
+    name: '药方审核',
+    tag: '质量审核类',
+    tagColor: 'var(--emerald)',
+    tagBg: 'var(--emerald-bg)',
+    desc: 'AI 自动审核中药处方的配伍禁忌、剂量合理性，参照《中国药典》标准，保障用药安全。',
+    examples: ['十八反十九畏检测', '剂量合理性校验', '特殊人群用药提醒', '处方规范化建议'],
+    demo: {
+      title: '处方审核报告',
+      content: '<strong>审核结果：</strong>通过（1项提示）<br><br>✓ 配伍禁忌：未检出<br>✓ 剂量范围：全部合规<br>⚠️ 提示：方中附子用量偏大（9g），建议确认是否需要先煎30分钟<br><br>审核依据：《中国药典》2020版'
+    }
+  },
+  {
+    id: 'herbs',
+    icon: '🌿',
+    color: 'amber',
+    name: '药材溯源',
+    tag: '供应链类',
+    tagColor: 'var(--amber)',
+    tagBg: 'var(--amber-bg)',
+    desc: '整合药材产地、质检、流通全链条数据，AI 实现中药材从产地到药房的全程可追溯，保障药材品质。',
+    examples: ['产地溯源信息管理', '药材品质AI评分', '供应链异常预警', '批次追踪与召回'],
+    demo: {
+      title: '药材溯源面板',
+      content: '<strong>监测品种：</strong>1,286 种<br><strong>溯源批次：</strong>4,521 批<br><strong>合格率：</strong>98.7%<br><br>🌿 <strong>最新入库</strong><br>黄芪（甘肃岷县）· 批次 GY-2026-0418 · 品质评分 A+<br>当归（云南丽江）· 批次 DG-2026-0415 · 品质评分 A'
+    }
+  },
+  {
+    id: 'platform',
+    icon: '📱',
+    color: 'rose',
+    name: '平台运营',
+    tag: '运营管理类',
+    tagColor: 'var(--rose)',
+    tagBg: 'var(--rose-bg)',
+    desc: '覆盖易养天年平台、共享药房、义诊活动等业务线的运营管理，AI 实现智能化调度与运营优化。',
+    examples: ['共享药房智能调度', '义诊活动排期管理', '易养天年平台运营', '不泡枸杞品牌管理'],
+    demo: {
+      title: '平台运营监控',
+      content: '<strong>运行中任务：</strong>5<br><strong>今日已完成：</strong>32<br><br>● 共享药房订单调度 — 正在执行<br>● 社区义诊报名汇总 — 已完成 (86人)<br>● 易养天年日活统计 — 已完成 (DAU 2,340)<br>● 不泡枸杞订单处理 — 排队中'
+    }
+  }
+];
+
+const DEPARTMENTS = [
+  {
+    icon: '🏥', name: '中医馆诊疗部', desc: '传承古法，提供纯正温暖的中医诊疗',
+    badge: '核心业务', badgeColor: 'var(--violet)', badgeBg: 'var(--violet-bg)',
+    iconBg: 'var(--violet-bg)',
+    usecases: [
+      { icon: '🩺', name: '智能辅助问诊', desc: 'AI 辅助四诊合参，舌象识别、症状分析，初筛效率提升 80%', tag: '辅助诊断类', tagColor: 'var(--violet)', tagBg: 'var(--violet-bg)' },
+      { icon: '📋', name: '电子病历生成', desc: '自动生成结构化病历，记录诊疗全过程', tag: '方案生成类', tagColor: 'var(--blue)', tagBg: 'var(--blue-bg)' },
+      { icon: '📅', name: '义诊排期管理', desc: '每周3-5场社区义诊、每月2-4场大型义诊的智能排期', tag: '运营管理类', tagColor: 'var(--rose)', tagBg: 'var(--rose-bg)' }
+    ]
+  },
+  {
+    icon: '🍵', name: '产品研发部', desc: '药食同源产品研发与养生茶饮创新',
+    badge: '创新驱动', badgeColor: 'var(--blue)', badgeBg: 'var(--blue-bg)',
+    iconBg: 'var(--blue-bg)',
+    usecases: [
+      { icon: '🧬', name: '组方智能推荐', desc: '基于中医理论和大数据，AI 推荐药食同源组方方案', tag: '方案生成类', tagColor: 'var(--blue)', tagBg: 'var(--blue-bg)' },
+      { icon: '📊', name: '产品效果分析', desc: '用户反馈数据分析，评估产品功效满意度', tag: '供应链类', tagColor: 'var(--amber)', tagBg: 'var(--amber-bg)' },
+      { icon: '📦', name: '配方文档管理', desc: '自动生成产品配方文档、质检报告', tag: '辅助诊断类', tagColor: 'var(--violet)', tagBg: 'var(--violet-bg)' }
+    ]
+  },
+  {
+    icon: '🌿', name: '供应链管理部', desc: '药材采购、品质管控、共享药房',
+    badge: '品质保障', badgeColor: 'var(--emerald)', badgeBg: 'var(--emerald-bg)',
+    iconBg: 'var(--emerald-bg)',
+    usecases: [
+      { icon: '🔍', name: '药材品质AI评分', desc: 'AI 自动评估药材品质等级，关联产地和质检数据', tag: '质量审核类', tagColor: 'var(--emerald)', tagBg: 'var(--emerald-bg)' },
+      { icon: '📦', name: '共享药房调度', desc: '全国共享药房网络的智能订单调度与配送优化', tag: '运营管理类', tagColor: 'var(--rose)', tagBg: 'var(--rose-bg)' },
+      { icon: '⚠️', name: '供应链预警', desc: '药材库存、价格波动、品质异常的实时预警', tag: '供应链类', tagColor: 'var(--amber)', tagBg: 'var(--amber-bg)' }
+    ]
+  },
+  {
+    icon: '📱', name: '互联网运营部', desc: '易养天年平台、不泡枸杞品牌',
+    badge: '增长引擎', badgeColor: 'var(--cyan)', badgeBg: 'var(--cyan-bg)',
+    iconBg: 'var(--cyan-bg)',
+    usecases: [
+      { icon: '💻', name: '易养天年平台运营', desc: 'AI 大健康管理模型，线上问诊、个性化调理方案', tag: '运营管理类', tagColor: 'var(--rose)', tagBg: 'var(--rose-bg)' },
+      { icon: '🧋', name: '不泡枸杞品牌管理', desc: '年轻人新中式养生品牌的招商与运营数据分析', tag: '运营管理类', tagColor: 'var(--rose)', tagBg: 'var(--rose-bg)' },
+      { icon: '📈', name: '用户健康数据看板', desc: '自动汇总平台用户健康数据，生成可视化报告', tag: '供应链类', tagColor: 'var(--amber)', tagBg: 'var(--amber-bg)' }
+    ]
+  },
+  {
+    icon: '🤝', name: '市场招商部', desc: '城市合伙人、区域服务中心、品牌合作',
+    badge: '全国拓展', badgeColor: 'var(--amber)', badgeBg: 'var(--amber-bg)',
+    iconBg: 'var(--amber-bg)',
+    usecases: [
+      { icon: '📄', name: '招商方案生成', desc: '根据区域特征自动生成个性化招商方案和合作条款', tag: '方案生成类', tagColor: 'var(--blue)', tagBg: 'var(--blue-bg)' },
+      { icon: '🤝', name: '合伙人资质评估', desc: 'AI 评估城市合伙人资质，量化筛选标准', tag: '质量审核类', tagColor: 'var(--emerald)', tagBg: 'var(--emerald-bg)' },
+      { icon: '📊', name: '市场数据分析', desc: '区域市场容量、竞品格局的智能分析报告', tag: '供应链类', tagColor: 'var(--amber)', tagBg: 'var(--amber-bg)' }
+    ]
+  },
+  {
+    icon: '🎓', name: '学术培训部', desc: '产教融合、药膳订单班、人才培养',
+    badge: '传承创新', badgeColor: 'var(--rose)', badgeBg: 'var(--rose-bg)',
+    iconBg: 'var(--rose-bg)',
+    usecases: [
+      { icon: '📚', name: '培训课程推荐', desc: '根据学员岗位和能力缺口，AI 推荐个性化学习路径', tag: '方案生成类', tagColor: 'var(--blue)', tagBg: 'var(--blue-bg)' },
+      { icon: '🏆', name: '技能评估系统', desc: '中医药知识和炮制技能的 AI 自动评估与打分', tag: '质量审核类', tagColor: 'var(--emerald)', tagBg: 'var(--emerald-bg)' },
+      { icon: '📖', name: '经典文献检索', desc: '中医药古籍和现代文献的智能检索与知识提取', tag: '供应链类', tagColor: 'var(--amber)', tagBg: 'var(--amber-bg)' }
+    ]
+  }
+];
+
+const ACTIVITIES = [
+  { icon: '🩺', iconBg: 'var(--violet-bg)', agent: '智能问诊 Agent', action: '辨证分析', detail: '患者张某 心脾两虚证 辨证完成，已生成调理方案', time: '2 分钟前' },
+  { icon: '💬', iconBg: 'var(--cyan-bg)', agent: '患者服务 Agent', action: '在线咨询', detail: '患者咨询黄芪党参泡水配伍问题，已自动回复', time: '5 分钟前' },
+  { icon: '🍵', iconBg: 'var(--blue-bg)', agent: '健康管理 Agent', action: '方案生成', detail: '气虚质调理方案 × 3 已生成，等待医师审核', time: '8 分钟前' },
+  { icon: '💊', iconBg: 'var(--emerald-bg)', agent: '药方审核 Agent', action: '处方审核', detail: '处方 #JZT-0620 审核通过，1项附子剂量提示', time: '12 分钟前' },
+  { icon: '🌿', iconBg: 'var(--amber-bg)', agent: '药材溯源 Agent', action: '入库扫描', detail: '黄芪批次 GY-2026-0418 品质评分 A+ 已入库', time: '18 分钟前' },
+  { icon: '📱', iconBg: 'var(--rose-bg)', agent: '平台运营 Agent', action: '义诊汇总', detail: '周六社区义诊报名完成，共计 86 人', time: '25 分钟前' },
+  { icon: '🩺', iconBg: 'var(--violet-bg)', agent: '智能问诊 Agent', action: '舌象分析', detail: '舌象AI识别完成，提示舌淡苔白，建议进一步面诊', time: '30 分钟前' },
+  { icon: '📱', iconBg: 'var(--cyan-bg)', agent: '平台运营 Agent', action: '日报统计', detail: '易养天年平台 DAU 2,340，新增用户 128', time: '45 分钟前' },
+];
+
+const TRENDS = [
+  { label: '中医药 AI 融合', value: 94, color: 'var(--violet)' },
+  { label: '药食同源产品创新', value: 85, color: 'var(--blue)' },
+  { label: '中医智能问诊', value: 78, color: 'var(--cyan)' },
+  { label: '共享药房网络', value: 72, color: 'var(--emerald)' },
+  { label: '社区义诊服务', value: 65, color: 'var(--amber)' },
+];
+
+/* ================================================================
+   RENDERERS
+   ================================================================ */
+
+function renderScenarios() {
+  const grid = document.getElementById('scenarios-grid');
+  if (!grid) return;
+  grid.innerHTML = SCENARIOS.map((s, i) => `
+    <div class="scenario-card reveal reveal-d${i % 5 + 1}" data-color="${s.color}" data-id="${s.id}">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:${s.tagBg}">${s.icon}</div>
+        <div class="scenario-meta">
+          <h3>${s.name}</h3>
+          <span class="tag" style="color:${s.tagColor};background:${s.tagBg}">${s.tag}</span>
+        </div>
+      </div>
+      <p class="scenario-desc">${s.desc}</p>
+      <div class="scenario-examples">
+        ${s.examples.map(e => `<span>${e}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.scenario-card').forEach(card => {
+    card.addEventListener('click', () => openScenarioModal(card.dataset.id));
+  });
+}
+
+function renderDepartments() {
+  const list = document.getElementById('dept-list');
+  if (!list) return;
+  list.innerHTML = DEPARTMENTS.map((d, i) => `
+    <div class="dept-item reveal reveal-d${i % 5 + 1}">
+      <div class="dept-header" onclick="this.parentElement.classList.toggle('open')">
+        <div class="dept-icon" style="background:${d.iconBg}">${d.icon}</div>
+        <div class="dept-info">
+          <h3>${d.name}</h3>
+          <p>${d.desc}</p>
+        </div>
+        <div class="dept-badges">
+          <span class="dept-badge" style="color:${d.badgeColor};background:${d.badgeBg}">${d.badge}</span>
+        </div>
+        <span class="dept-chevron">›</span>
+      </div>
+      <div class="dept-body">
+        <div class="dept-usecases">
+          ${d.usecases.map(u => `
+            <div class="dept-usecase">
+              <h4><span class="icon">${u.icon}</span> ${u.name}</h4>
+              <p>${u.desc}</p>
+              <span class="usecase-tag" style="color:${u.tagColor};background:${u.tagBg}">${u.tag}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderActivityFeed() {
+  const feed = document.getElementById('activity-feed');
+  if (!feed) return;
+  feed.innerHTML = ACTIVITIES.map(a => `
+    <div class="activity-item">
+      <div class="activity-icon" style="background:${a.iconBg}">${a.icon}</div>
+      <div class="activity-content">
+        <strong>${a.agent}</strong>
+        <p>${a.action} — ${a.detail}</p>
+      </div>
+      <div class="activity-meta">${a.time}</div>
+    </div>
+  `).join('');
+}
+
+function renderAgentsPage() {
+  const grid = document.getElementById('agents-grid');
+  if (!grid) return;
+  grid.innerHTML = SCENARIOS.map((s, i) => `
+    <div class="scenario-card reveal reveal-d${i % 5 + 1}" data-color="${s.color}">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:${s.tagBg}">${s.icon}</div>
+        <div class="scenario-meta">
+          <h3>${s.name} Agent</h3>
+          <span class="tag" style="color:${s.tagColor};background:${s.tagBg}">${s.tag}</span>
+        </div>
+      </div>
+      <p class="scenario-desc">${s.desc}</p>
+      <div class="scenario-examples">
+        ${s.examples.map(e => `<span>${e}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderTrendBars() {
+  const container = document.getElementById('trend-bars');
+  if (!container) return;
+  container.innerHTML = TRENDS.map(t => `
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:0.82rem;width:140px;flex-shrink:0">${t.label}</span>
+      <div style="flex:1;height:24px;background:var(--bg);border-radius:4px;overflow:hidden;position:relative">
+        <div style="height:100%;width:${t.value}%;background:${t.color};border-radius:4px;transition:width 1s cubic-bezier(0.16,1,0.3,1)"></div>
+      </div>
+      <span style="font-size:0.78rem;font-family:var(--font-en);font-weight:600;color:var(--ink-secondary);width:40px;text-align:right">${t.value}%</span>
+    </div>
+  `).join('');
+}
+
+/* ================================================================
+   SCENARIO MODAL
+   ================================================================ */
+function openScenarioModal(id) {
+  const s = SCENARIOS.find(x => x.id === id);
+  if (!s) return;
+  const overlay = document.getElementById('scenario-modal');
+  document.getElementById('modal-header').innerHTML = `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div class="scenario-icon" style="background:${s.tagBg}">${s.icon}</div>
+      <div>
+        <h2>${s.name}</h2>
+        <span class="tag" style="color:${s.tagColor};background:${s.tagBg}">${s.tag}</span>
+      </div>
+    </div>
+    <p>${s.desc}</p>
+  `;
+  document.getElementById('modal-body').innerHTML = `
+    <div class="scenario-detail-section">
+      <h4>Demo 演示</h4>
+      <div class="demo-box">
+        <div class="demo-label">${s.demo.title}</div>
+        <div class="demo-content">${s.demo.content}</div>
+      </div>
+    </div>
+    <div class="scenario-detail-section">
+      <h4>典型场景</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        ${s.examples.map(e => `<span style="font-size:0.78rem;color:var(--ink-secondary);padding:5px 12px;background:var(--bg);border:1px solid var(--border-subtle);border-radius:var(--radius-sm)">${e}</span>`).join('')}
+      </div>
+    </div>
+  `;
+  overlay.classList.add('open');
+}
+
+document.getElementById('scenario-modal-close').addEventListener('click', () => {
+  document.getElementById('scenario-modal').classList.remove('open');
+});
+document.getElementById('scenario-modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) {
+    e.currentTarget.classList.remove('open');
+  }
+});
+
+/* ================================================================
+   NAVIGATION
+   ================================================================ */
+const PAGE_TITLES = {
+  dashboard: '运营仪表盘',
+  agents: '智能体管理',
+  scenarios: '场景库',
+  departments: '部门配置',
+  workflow: '工作流',
+  chat: '智能助手',
+  data: '数据洞察',
+  settings: '系统设置'
+};
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const page = item.dataset.page;
+    if (!page) return;
+
+    // Update nav
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    item.classList.add('active');
+
+    // Update page
+    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+
+    // Update topbar
+    document.getElementById('topbar-title').textContent = PAGE_TITLES[page] || page;
+
+    // Re-trigger reveal animations
+    requestAnimationFrame(() => {
+      target.querySelectorAll('.reveal').forEach(el => {
+        el.classList.remove('visible');
+        void el.offsetWidth; // reflow
+        el.classList.add('visible');
+      });
+    });
+  });
+});
+
+/* ================================================================
+   TAB BUTTONS
+   ================================================================ */
+document.querySelectorAll('.tab-nav').forEach(nav => {
+  nav.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      nav.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+});
+
+/* ================================================================
+   CHAT
+   ================================================================ */
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+const chatMessages = document.getElementById('chat-messages');
+
+const AI_REPLIES = [
+  '收到！我正在为你分析，结合中医辨证理论为你生成调理建议，请稍候…',
+  '好的，已根据你的体质信息生成初步调理方案。你可以在预览中查看并提出调整意见。',
+  '分析完成！已整理好健康报告，包含体质辨识、药膳食疗和起居调养建议。',
+  '正在为你匹配相关中医知识库… 已找到 12 条经典方剂参考，正在整合。',
+  '明白了，我来帮你处理。已结合《中国药典》标准完成初步审核，正在生成报告。',
+];
+
+function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+
+  // User message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'msg user';
+  userMsg.innerHTML = `
+    <div class="msg-avatar">管</div>
+    <div>
+      <div class="msg-bubble">${text}</div>
+      <div class="msg-time">${new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}</div>
+    </div>
+  `;
+  chatMessages.appendChild(userMsg);
+  chatInput.value = '';
+
+  // Scroll
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  // Typing indicator
+  const typingEl = document.createElement('div');
+  typingEl.className = 'msg assistant';
+  typingEl.innerHTML = `
+    <div class="msg-avatar">◉</div>
+    <div class="typing-indicator">
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+    </div>
+  `;
+  chatMessages.appendChild(typingEl);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  // AI reply after delay
+  setTimeout(() => {
+    typingEl.remove();
+    const reply = AI_REPLIES[Math.floor(Math.random() * AI_REPLIES.length)];
+    const aiMsg = document.createElement('div');
+    aiMsg.className = 'msg assistant';
+    aiMsg.innerHTML = `
+      <div class="msg-avatar">◉</div>
+      <div>
+        <div class="msg-bubble">${reply}</div>
+        <div class="msg-time">${new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}</div>
+      </div>
+    `;
+    chatMessages.appendChild(aiMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 1200 + Math.random() * 800);
+}
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+// Quick actions
+document.querySelectorAll('.quick-action').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const prompt = btn.dataset.prompt;
+    if (prompt) {
+      chatInput.value = prompt;
+      chatInput.focus();
+    }
+  });
+});
+
+/* ================================================================
+   LIVE TIME
+   ================================================================ */
+function updateTime() {
+  const el = document.getElementById('live-time');
+  if (el) {
+    el.textContent = new Date().toLocaleTimeString('zh-CN', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+  }
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+/* Enable JS-driven reveal animations */
+document.documentElement.classList.add('js-reveal-ready');
+
+/* ================================================================
+   REVEAL ON LOAD
+   ================================================================ */
+function initReveal() {
+  document.querySelectorAll('.page-view.active .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 60 + i * 60);
+  });
+}
+
+/* ================================================================
+   INIT
+   ================================================================ */
+renderScenarios();
+renderDepartments();
+renderActivityFeed();
+renderAgentsPage();
+renderTrendBars();
+initReveal();
+</script>
+</body>
+</html>
