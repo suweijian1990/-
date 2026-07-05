@@ -1,6 +1,6 @@
-{# 案例创建页 - 分区域表单布局 #}
-{% extends 'admin/model/create.html' %}
-{% block create_form %}
+{# 案例编辑页 - 分区域表单布局 #}
+{% extends 'admin/model/edit.html' %}
+{% block edit_form %}
 <style>
 /* 表单分组 */
 .form-section {
@@ -23,6 +23,30 @@
 }
 .form-section-title .icon {
   font-size: 1.2rem;
+}
+/* 当前文件显示 */
+.current-file {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.current-file .label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+.current-file .value {
+  font-size: 0.9rem;
+  color: #4b5563;
+  font-weight: 500;
+  word-break: break-all;
+}
+.current-file img {
+  max-height: 120px;
+  border-radius: 8px;
+  margin-top: 8px;
 }
 /* 文件上传区域 */
 .file-upload-area {
@@ -114,8 +138,16 @@
     <div class="form-section-title">
       <span class="icon">🎬</span> 媒体文件
     </div>
+
+    {# 当前视频 #}
+    {% if model and model.video_file %}
+    <div class="current-file">
+      <div class="label">当前视频文件</div>
+      <div class="value">{{ model.video_file }}</div>
+    </div>
+    {% endif %}
     <div class="form-group">
-      <label>视频文件</label>
+      <label>上传新视频（留空保持不变）</label>
       <div class="file-upload-area" id="video-upload-area">
         <div class="icon">🎥</div>
         <div class="text">点击或拖拽上传视频</div>
@@ -125,8 +157,16 @@
         <input type="file" id="video_upload" name="video_upload" accept=".mp4,.mov,.avi,.webm" style="display:none;">
       </div>
     </div>
+
+    {# 当前缩略图 #}
+    {% if model and model.thumbnail %}
+    <div class="current-file">
+      <div class="label">当前缩略图</div>
+      <div><img src="/uploads/images/{{ model.thumbnail }}" style="max-height:120px;border-radius:8px;"></div>
+    </div>
+    {% endif %}
     <div class="form-group">
-      <label>缩略图</label>
+      <label>上传新缩略图（留空保持不变）</label>
       <div class="file-upload-area" id="thumb-upload-area">
         <div class="icon">🖼️</div>
         <div class="text">点击或拖拽上传缩略图</div>
@@ -144,12 +184,12 @@
     </div>
     <div class="form-group">
       <label>
-        <input type="checkbox" name="is_published" checked> 已发布
+        <input type="checkbox" name="is_published" {% if model and model.is_published %}checked{% endif %}> 已发布
       </label>
     </div>
     <div class="form-group">
       <label>
-        <input type="checkbox" name="show_on_home"> 首页展示
+        <input type="checkbox" name="show_on_home" {% if model and model.show_on_home %}checked{% endif %}> 首页展示
       </label>
       <p class="help-block">勾选后将在首页展示此案例（最多 4 个）</p>
     </div>
@@ -160,11 +200,7 @@
     <button type="button" class="btn btn-info" id="aiGenerateBtn" title="AI 自动生成英文名和介绍">🤖 AI 生成</button>
     <span style="flex:1"></span>
     <a href="{{ get_url('.index_view') }}" class="btn btn-default">取消</a>
-    <input class="btn btn-primary" id="submitBtn" type="submit" value="💾 保存案例">
-  </div>
-  <div id="upload-progress" style="display:none;margin-top:16px;background:#f3f4f6;border-radius:8px;overflow:hidden;">
-    <div id="upload-progress-bar" style="height:6px;background:linear-gradient(90deg,#8B5CF6,#06B6D4);width:0%;transition:width .3s;border-radius:8px;"></div>
-    <div id="upload-progress-text" style="text-align:center;font-size:0.85rem;color:#6b7280;padding:8px;">上传中...</div>
+    <input class="btn btn-primary" type="submit" value="💾 保存修改">
   </div>
 </form>
 
@@ -212,7 +248,6 @@
       area.classList.remove('drag-over');
       const files = e.dataTransfer.files;
       if (files.length > 0) {
-        // 更新 file input（兼容表单提交）
         const dt = new DataTransfer();
         dt.items.add(files[0]);
         input.files = dt.files;
@@ -223,15 +258,12 @@
     function handleFile(file) {
       if (!file) return;
 
-      // 显示文件名
       fileNameEl.textContent = '📎 ' + file.name;
       area.classList.add('has-file');
 
-      // 更新图标和文字
       if (iconEl) iconEl.textContent = iconMap.selected;
       if (textEl) textEl.textContent = '已选择文件，可重新选择';
 
-      // 文件大小检查
       if (sizeWarnEl) {
         if (file.size > maxSize) {
           sizeWarnEl.textContent = '⚠️ 文件大小 ' + formatSize(file.size) + ' 超过限制 ' + formatSize(maxSize) + '，上传可能失败';
@@ -256,46 +288,30 @@
   setupFileUpload('thumb-upload-area', 'thumb_upload',
     { selected: '✅' }, MAX_THUMB_SIZE);
 
-  // AI 自动生成
   var aiBtn = document.getElementById('aiGenerateBtn');
-  if(aiBtn){aiBtn.addEventListener('click',function(){
-    var t=document.getElementById('title');if(!t||!t.value){alert('请先输入标题');return}
-    aiBtn.disabled=true;aiBtn.textContent='⏳ 生成中...';
-    fetch('/admin/api/ai-generate',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({title:t.value,category:(document.getElementById('category')||{}).value||''})})
-    .then(function(r){return r.json()}).then(function(d){
-      if(d.ok){
-        var en=document.getElementById('en_name');if(en&&d.en_name)en.value=d.en_name;
-        var de=document.getElementById('description');if(de&&d.description)de.value=d.description;
-        aiBtn.textContent='✅ 已生成';
-      }else{alert(d.msg||'失败');aiBtn.textContent='🤖 AI 生成'}
-    }).catch(function(){alert('请求失败');aiBtn.textContent='🤖 AI 生成'})
-    .finally(function(){aiBtn.disabled=false});
-  });}
-
-  // Upload progress indicator
-  var form = document.querySelector('form');
-  var submitBtn = document.getElementById('submitBtn');
-  var progressDiv = document.getElementById('upload-progress');
-  var progressBar = document.getElementById('upload-progress-bar');
-  var progressText = document.getElementById('upload-progress-text');
-  
-  form.addEventListener('submit', function(e) {
-    var hasFile = document.getElementById('video_upload').files.length > 0 || 
-                  document.getElementById('thumb_upload').files.length > 0;
-    if (hasFile) {
-      progressDiv.style.display = 'block';
-      submitBtn.disabled = true;
-      submitBtn.value = '⏳ 上传中...';
-      var width = 0;
-      var interval = setInterval(function() {
-        width += Math.random() * 15;
-        if (width > 90) width = 90;
-        progressBar.style.width = width + '%';
-        progressText.textContent = '上传中 ' + Math.round(width) + '%...';
-      }, 300);
-    }
-  });
+  if (aiBtn) {
+    aiBtn.addEventListener('click', function() {
+      var titleEl = document.getElementById('title');
+      var enNameEl = document.getElementById('en_name');
+      var descEl = document.getElementById('description');
+      var categoryEl = document.getElementById('category');
+      var title = titleEl ? titleEl.value : '';
+      if (!title) { alert('请先输入标题'); return; }
+      aiBtn.disabled = true; aiBtn.textContent = '⏳ 生成中...';
+      fetch('/admin/api/ai-generate', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({title: title, category: categoryEl ? categoryEl.value : ''})
+      }).then(function(r){return r.json()}).then(function(data){
+        if(data.ok){
+          if(data.en_name && enNameEl) enNameEl.value = data.en_name;
+          if(data.description && descEl) descEl.value = data.description;
+          aiBtn.textContent = '✅ 已生成';
+        } else { alert(data.msg||'失败'); aiBtn.textContent = '🤖 AI 生成'; }
+      }).catch(function(){alert('请求失败');aiBtn.textContent='🤖 AI 生成';})
+      .finally(function(){aiBtn.disabled=false});
+    });
+  }
 })();
 </script>
 {% endblock %}
