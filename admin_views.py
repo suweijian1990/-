@@ -78,14 +78,17 @@ def save_upload(file_storage, folder, allowed_exts=None, compress=False):
     """保存上传文件，返回相对路径文件名"""
     if not file_storage or not file_storage.filename:
         return ''
-    filename = secure_filename(file_storage.filename)
-    if not filename:
-        return ''
-    ext = os.path.splitext(filename)[1].lower()
+    original = file_storage.filename
+    safe = secure_filename(original)
+    ext = os.path.splitext(original)[1].lower()
+    # 如果 secure_filename 把中文等非ASCII字符清空，用UUID命名
+    if not safe or len(os.path.splitext(safe)[0]) == 0:
+        safe = f"{uuid.uuid4().hex[:8]}{ext}"
+    else:
+        safe = f"{uuid.uuid4().hex[:8]}_{safe}"
     if allowed_exts and ext not in allowed_exts:
         return ''
-    unique_name = f"{uuid.uuid4().hex[:8]}_{filename}"
-    filepath = os.path.join(folder, unique_name)
+    filepath = os.path.join(folder, safe)
     file_storage.save(filepath)
 
     # 压缩图片
