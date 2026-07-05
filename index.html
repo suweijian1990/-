@@ -1319,18 +1319,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (done) return;
       var elapsed = performance.now() - start;
       var pct;
-      if (elapsed < 600) pct = Math.round((elapsed / 600) * 60);
-      else if (elapsed < 2500) pct = 60 + Math.round(((elapsed - 600) / 1900) * 25);
-      else pct = 85 + Math.round(((elapsed - 2500) / 5000) * 5);
-      pct = Math.min(pct, 95);
+      if (elapsed < 800) pct = Math.round((elapsed / 800) * 80);
+      else pct = 80 + Math.round(((elapsed - 800) / 1200) * 20);
+      pct = Math.min(pct, 100);
+      if (pct >= 100) { dismiss(); return; }
       num.textContent = pct + '%';
       fill.style.transform = 'translateX(-' + (100 - pct) + '%)';
-      if (pct < 100) requestAnimationFrame(tick);
+      requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
     
     window.addEventListener('load', function(){ dismiss(); });
-    setTimeout(function(){ if (!done) dismiss(); }, 8000);
+    setTimeout(function(){ if (!done) dismiss(); }, 2000);
   })();
   
   var nl = document.querySelector('.nav-links');
