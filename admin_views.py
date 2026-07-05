@@ -97,7 +97,7 @@ def save_upload(file_storage, folder, allowed_exts=None, compress=False):
         if result:
             return result
 
-    return unique_name
+    return safe
 
 
 class AuthMixin:
