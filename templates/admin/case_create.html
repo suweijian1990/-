@@ -1,0 +1,282 @@
+{# 案例创建页 - 分区域表单布局 #}
+{% extends 'admin/model/create.html' %}
+{% block create_form %}
+<style>
+/* 表单分组 */
+.form-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.form-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-section-title .icon {
+  font-size: 1.2rem;
+}
+/* 文件上传区域 */
+.file-upload-area {
+  border: 2px dashed #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+.file-upload-area:hover {
+  border-color: #8B5CF6;
+  background: rgba(139,92,246,0.02);
+}
+.file-upload-area.drag-over {
+  border-color: #8B5CF6;
+  background: rgba(139,92,246,0.06);
+}
+.file-upload-area.has-file {
+  border-color: #10B981;
+  background: rgba(16,185,129,0.04);
+  border-style: solid;
+}
+.file-upload-area .icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+.file-upload-area .text {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+.file-upload-area .hint {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+.file-upload-area .file-name {
+  color: #10B981;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 6px;
+  word-break: break-all;
+  display: none;
+}
+.file-upload-area.has-file .file-name {
+  display: block;
+}
+.file-upload-area .file-size-warn {
+  color: #F59E0B;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  display: none;
+}
+/* 按钮区域 */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 24px;
+}
+</style>
+
+<form method="POST" action="" enctype="multipart/form-data" role="form">
+  {# 基本信息 #}
+  <div class="form-section">
+    <div class="form-section-title">
+      <span class="icon">📝</span> 基本信息
+    </div>
+    <fieldset>
+      {% for field in form if field.widget.input_type != 'hidden' %}
+        {% if field.name not in ['video_file', 'thumbnail', 'photo', 'is_published', 'show_on_home'] %}
+        <div class="form-group">
+          <label for="{{ field.id }}">{{ field.label.text }} {% if field.flags.required %}*{% endif %}</label>
+          {{ field(class='form-control') }}
+          {% if field.description %}
+            <p class="help-block">{{ field.description }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </fieldset>
+  </div>
+
+  {# 媒体文件 #}
+  <div class="form-section">
+    <div class="form-section-title">
+      <span class="icon">🎬</span> 媒体文件
+    </div>
+    <div class="form-group">
+      <label>视频文件</label>
+      <div class="file-upload-area" id="video-upload-area">
+        <div class="icon">🎥</div>
+        <div class="text">点击或拖拽上传视频</div>
+        <div class="hint">支持 mp4/mov/avi/webm，最大 50MB</div>
+        <div class="file-name"></div>
+        <div class="file-size-warn"></div>
+        <input type="file" id="video_upload" name="video_upload" accept=".mp4,.mov,.avi,.webm" style="display:none;">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>缩略图</label>
+      <div class="file-upload-area" id="thumb-upload-area">
+        <div class="icon">🖼️</div>
+        <div class="text">点击或拖拽上传缩略图</div>
+        <div class="hint">支持 jpg/png/webp/gif</div>
+        <div class="file-name"></div>
+        <input type="file" id="thumb_upload" name="thumb_upload" accept=".jpg,.jpeg,.png,.webp,.gif" style="display:none;">
+      </div>
+    </div>
+  </div>
+
+  {# 发布设置 #}
+  <div class="form-section">
+    <div class="form-section-title">
+      <span class="icon">⚙️</span> 发布设置
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="is_published" checked> 已发布
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="show_on_home"> 首页展示
+      </label>
+      <p class="help-block">勾选后将在首页展示此案例（最多 4 个）</p>
+    </div>
+  </div>
+
+  {# 操作按钮 #}
+  <div class="form-actions">
+    <a href="{{ get_url('.index_view') }}" class="btn btn-default">取消</a>
+    <input class="btn btn-primary" id="submitBtn" type="submit" value="💾 保存案例">
+  </div>
+  <div id="upload-progress" style="display:none;margin-top:16px;background:#f3f4f6;border-radius:8px;overflow:hidden;">
+    <div id="upload-progress-bar" style="height:6px;background:linear-gradient(90deg,#8B5CF6,#06B6D4);width:0%;transition:width .3s;border-radius:8px;"></div>
+    <div id="upload-progress-text" style="text-align:center;font-size:0.85rem;color:#6b7280;padding:8px;">上传中...</div>
+  </div>
+</form>
+
+<script>
+(function() {
+  const MAX_VIDEO_SIZE = 50 * 1024 * 1024; // 50MB - 与服务器 nginx 限制一致
+  const MAX_THUMB_SIZE = 10 * 1024 * 1024; // 10MB
+
+  function setupFileUpload(areaId, inputId, iconMap, maxSize) {
+    const area = document.getElementById(areaId);
+    const input = document.getElementById(inputId);
+    if (!area || !input) return;
+
+    const iconEl = area.querySelector('.icon');
+    const textEl = area.querySelector('.text');
+    const fileNameEl = area.querySelector('.file-name');
+    const sizeWarnEl = area.querySelector('.file-size-warn');
+
+    // 点击区域打开文件选择器
+    area.addEventListener('click', function(e) {
+      if (e.target !== input) input.click();
+    });
+
+    // 文件选中后的视觉反馈
+    input.addEventListener('change', function() {
+      handleFile(input.files[0]);
+    });
+
+    // 拖拽支持
+    area.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      area.classList.add('drag-over');
+    });
+
+    area.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      area.classList.remove('drag-over');
+    });
+
+    area.addEventListener('drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      area.classList.remove('drag-over');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        // 更新 file input（兼容表单提交）
+        const dt = new DataTransfer();
+        dt.items.add(files[0]);
+        input.files = dt.files;
+        handleFile(files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file) return;
+
+      // 显示文件名
+      fileNameEl.textContent = '📎 ' + file.name;
+      area.classList.add('has-file');
+
+      // 更新图标和文字
+      if (iconEl) iconEl.textContent = iconMap.selected;
+      if (textEl) textEl.textContent = '已选择文件，可重新选择';
+
+      // 文件大小检查
+      if (sizeWarnEl) {
+        if (file.size > maxSize) {
+          sizeWarnEl.textContent = '⚠️ 文件大小 ' + formatSize(file.size) + ' 超过限制 ' + formatSize(maxSize) + '，上传可能失败';
+          sizeWarnEl.style.display = 'block';
+        } else {
+          sizeWarnEl.textContent = '';
+          sizeWarnEl.style.display = 'none';
+        }
+      }
+    }
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    if (bytes < 1024 * 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    return (bytes / (1024 * 1024 * 1024)).toFixed(2) + ' GB';
+  }
+
+  setupFileUpload('video-upload-area', 'video_upload',
+    { selected: '✅' }, MAX_VIDEO_SIZE);
+  setupFileUpload('thumb-upload-area', 'thumb_upload',
+    { selected: '✅' }, MAX_THUMB_SIZE);
+
+  // Upload progress indicator
+  var form = document.querySelector('form');
+  var submitBtn = document.getElementById('submitBtn');
+  var progressDiv = document.getElementById('upload-progress');
+  var progressBar = document.getElementById('upload-progress-bar');
+  var progressText = document.getElementById('upload-progress-text');
+  
+  form.addEventListener('submit', function(e) {
+    var hasFile = document.getElementById('video_upload').files.length > 0 || 
+                  document.getElementById('thumb_upload').files.length > 0;
+    if (hasFile) {
+      progressDiv.style.display = 'block';
+      submitBtn.disabled = true;
+      submitBtn.value = '⏳ 上传中...';
+      var width = 0;
+      var interval = setInterval(function() {
+        width += Math.random() * 15;
+        if (width > 90) width = 90;
+        progressBar.style.width = width + '%';
+        progressText.textContent = '上传中 ' + Math.round(width) + '%...';
+      }, 300);
+    }
+  });
+})();
+</script>
+{% endblock %}
