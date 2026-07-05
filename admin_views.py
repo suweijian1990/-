@@ -197,7 +197,23 @@ def generate_gif_preview(video_filename, video_folder, image_folder):
     return None
 
 
+def _generate_thumb(model, video_name, video_folder, image_folder, request_obj, flash_fn, logger):
+    """给 case 自动生成封面"""
+    try:
+        gif_name = generate_gif_preview(video_name, video_folder, image_folder)
+        if gif_name and not request_obj.files.get('thumb_upload'):
+            model.thumbnail = gif_name
+            flash_fn('🎬 已自动生成封面', 'success')
+            logger.info(f'Preview generated: {gif_name}')
+        elif not gif_name:
+            flash_fn('⚠️ 封面自动生成失败，请手动上传缩略图', 'warning')
+    except Exception as e:
+        flash_fn(f'⚠️ 封面生成出错: {str(e)[:50]}', 'warning')
+        logger.error(f'Preview generation failed: {e}')
+
+
 class CaseAdminView(AuthMixin, ModelView):
+
     """案例管理"""
     column_list = ['id', 'title', 'category', 'tags', 'is_published', 'show_on_home', 'sort_order', 'updated_at']
     column_labels = {
@@ -251,21 +267,14 @@ class CaseAdminView(AuthMixin, ModelView):
             if name:
                 model.video_file = name
                 flash(f'✅ 视频已上传: {name}', 'success')
-                # 🎬 自动生成 GIF 预览封面
-                try:
-                    gif_name = generate_gif_preview(name, VIDEO_FOLDER, IMAGE_FOLDER)
-                    if gif_name and not request.files.get('thumb_upload'):
-                        model.thumbnail = gif_name
-                        logger.info(f'GIF preview generated: {gif_name}')
-                except Exception as e:
-                    logger.error(f'GIF generation failed: {e}')
+                # 🎬 自动生成 MP4 预览封面
+                _generate_thumb(model, name, VIDEO_FOLDER, IMAGE_FOLDER, request, flash, logger)
             else:
                 flash('❌ 视频上传失败，请检查文件格式（支持 mp4/mov/avi/webm）', 'error')
                 logger.error(f'Video upload failed for {video.filename}')
-        elif video and not video.filename:
-            pass  # No file selected
-        else:
-            pass  # No file field
+        elif model.video_file and not model.thumbnail:
+            # 已有视频但缺少封面，自动生成
+            _generate_thumb(model, model.video_file, VIDEO_FOLDER, IMAGE_FOLDER, request, flash, logger)
 
         # 缩略图上传（用户手动上传的优先）
         thumb = request.files.get('thumb_upload')
